@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <nav></nav>
       <main>
-
+        <h1>New App</h1>
       </main></>
 
 
