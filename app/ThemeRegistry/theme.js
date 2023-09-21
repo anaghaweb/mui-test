@@ -1,6 +1,8 @@
 'use client'
 import { Roboto } from 'next/font/google';
-import { createTheme } from '@mui/material/styles';
+import createTheme from '@mui/material/styles/createTheme';
+import useTheme from '@mui/material/styles/useTheme';
+
 
 
 const roboto = Roboto({
@@ -9,33 +11,73 @@ const roboto = Roboto({
     display: 'swap',
 });
 
+
+
 const theme = createTheme({
 
     palette: {
-        background: {
-            paper: '#cfd0f3',
-            dark: '#2b3844'
+        primary: {
+            light: '#757ce8',
+            main: '#3f50b5',
+            dark: '#002884',
+
         },
-        text: {
-            primary: '#ffffff',
-            secondary: '#46505A',
-        },
-        action: {
-            active: '#001E3C',
-        },
-        success: {
-            main: '#009686',
-            dark: '#009688',
+        secondary: {
+            light: '#ff7961',
+            main: '#f44336',
+            dark: '#ba000d',
+
         },
 
-        secondary: {
-            main: '#eeeeee',
-            dark: '#009688',
-        },
+        text: {
+            primary: '#fff',
+        }
+
     },
 });
 
 
+
+export const lightTheme = createTheme({
+
+
+    palette: {
+        mode: 'light',
+        primary: {
+            main: '#00c853',
+
+        },
+        secondary: {
+            main: '#ff5722',
+        },
+        background: {
+            default: '#03a9f4',
+            paper: '#aa00ff',
+
+            myVarient: {
+                default: '#3f51b5',
+                mypaper: '#673ab7',
+            },
+            nextVarient: {
+                default: '#3f51b2',
+                mypaper: '#eeeeee',
+            },
+        },
+
+        text: {
+            primary: '#eee',
+        },
+
+
+
+    },
+    typography: {
+
+        fontSize: 12,
+        fontWeight: 300,
+
+    },
+});
 
 
 export default theme;

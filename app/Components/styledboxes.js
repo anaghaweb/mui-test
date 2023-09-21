@@ -1,10 +1,12 @@
 'use client'
 import { styled } from '@mui/system';
-import { Box } from '@mui/material';
+import { Box, Paper } from '@mui/material';
+import { theme, lightTheme } from '../ThemeRegistry/theme';
+
 
 export const StyledBox = styled(Box)((props) => ({
-    height: '350px',
-    width: '100%',
+    height: '500px',
+    width: '90%',
     display: 'flex',
     flexDirection: 'column',
     background: `${props.bg || '#CFE2F3'}`,
@@ -15,6 +17,19 @@ export const StyledBox = styled(Box)((props) => ({
 
 }));
 
+export const StyledPaper = styled(Paper)(({ lightTheme }) => ({
+
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '80%',
+    height: '20rem',
+    margin: 'auto',
+    padding: 2,
+
+
+
+}));
 
 
 

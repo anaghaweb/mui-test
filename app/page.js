@@ -1,34 +1,57 @@
 import React from 'react';
 import Navbar from './Components/navbar';
-import { StyledBox } from './Components/styledboxes';
-import { Box, Typography } from '@mui/material';
-import theme from './ThemeRegistry/theme';
-import { ThemeProvider } from '@mui/system';
+import { StyledBox, StyledPaper } from './Components/styledboxes';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import { lightTheme } from './ThemeRegistry/theme';
+import ThemeProvider from '@mui/system/ThemeProvider';
+import Divider from '@mui/material/Divider';
+import Image from 'next/image';
+
+
+
 
 
 
 export default function Home() {
   return (
-    <>
-      <Navbar position="sticky" />
-      <main>
-        <StyledBox bg="skyblue">
-          <div><h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis quibusdam amet hic suscipit dolorem ut nam, quaerat, facilis illo et fugiat quisquam eius quae ea dolor repudiandae cumque accusantium voluptatibus?</h1></div>
-          <div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium blanditiis cupiditate fugit vitae consequuntur voluptas atque assumenda delectus non eum dolorum, soluta, temporibus commodi distinctio quod cum iusto facere accusantium.</p>
-          </div>
-        </StyledBox>
-        <ThemeProvider theme={theme}>
-          <Box sx={{ padding: '2rem', backgroundColor: 'background.paper', height: '350px', width: '100%' }}>
+    <><main >
+      <ThemeProvider theme={lightTheme}>
+        <Navbar />
+
+        <StyledPaper elevation={2} varient="nextVarient" >
+          <Box sx={{ position: 'relative', width: '20rem', height: '20rem' }}>
+
+            <Image src="https://res.cloudinary.com/dixkqgqsi/image/upload/v1695237732/wolfgang-hasselmann-cS8Hc3n3bdM-unsplash_ukbqm7.jpg" alt="placeholder" fill style={{ objectFit: 'contain' }}></Image></Box>
+          <Box>
+            <Typography>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis quibusdam amet hic suscipit dolorem ut nam, quaerat, facilis illo et fugiat quisquam eius quae ea dolor repudiandae cumque accusantium voluptatibus?
+            </Typography>
+          </Box>
+
+
+
+        </StyledPaper>
+        <Divider />
+        <StyledPaper>
+          <Typography>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium blanditiis cupiditate fugit vitae consequuntur voluptas atque assumenda delectus non eum dolorum, soluta, temporibus commodi distinctio quod cum iusto facere accusantium.
+          </Typography>
+        </StyledPaper>
+        <Divider />
+        <StyledPaper>
+          <Box >
             <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, autem fuga officia minus ratione enim qui deserunt tempore praesentium! Vero nesciunt sequi sed eos consectetur quia est odio nihil placeat!</Typography>
           </Box>
-        </ThemeProvider>
-        <ThemeProvider theme={theme}>
-          <Box sx={{ padding: '2rem', backgroundColor: 'background.dark', height: '350px', width: '100%', text: 'text.primary' }}>
+        </StyledPaper>
+        <Divider />
+        <StyledPaper>
+          <Box  >
             <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, autem fuga officia minus ratione enim qui deserunt tempore praesentium! Vero nesciunt sequi sed eos consectetur quia est odio nihil placeat!</Typography>
           </Box>
-        </ThemeProvider>
-      </main>
+        </StyledPaper>
+        <Divider />
+      </ThemeProvider>
+    </main >
     </>
 
 
