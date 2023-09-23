@@ -1,6 +1,9 @@
 import './globals.css'
-
+import Navbar from './Components/navbar'
 import ThemeRegistry from './ThemeRegistry/ThemeRegistry'
+import { ThemeProvider } from '@emotion/react'
+import Providers from './providers'
+import BaseNavbar from './CustomNavbars/baseNavbar/baseNavbar'
 
 export const metadata = {
   title: 'Create Next App',
@@ -9,10 +12,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+
     <html lang="en">
-      <ThemeRegistry>
-        <body  >{children}</body>
-      </ThemeRegistry>
+      <body style={{ textDecoration: 'none' }}>
+        <ThemeRegistry>
+
+
+          <Navbar />
+
+          {children}
+
+        </ThemeRegistry>
+      </body>
+
     </html>
   )
 }

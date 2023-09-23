@@ -1,59 +1,74 @@
-import React from 'react';
-import Navbar from './Components/navbar';
-import { StyledBox, StyledPaper } from './Components/styledboxes';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { lightTheme } from './ThemeRegistry/theme';
-import ThemeProvider from '@mui/system/ThemeProvider';
 import Divider from '@mui/material/Divider';
-import Image from 'next/image';
-
-
-
-
-
+import Typography from '@mui/material/Typography';
+import { StyledBox, StyledPaper } from './Components/styledboxes';
+import BaseNavbar from './CustomNavbars/baseNavbar/baseNavbar';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
+import baseNavbarTheme from './CustomNavbars/baseNavbar/baseNavbarTheme';
+import BasicTable from './fillertables/fillertables';
+import BasicAccordion from './fillerAccordian/accordian';
+import BackgroundLetterAvatars from './Components/Avatars/avatars';
+import SimpleBottomNavigation from './Components/BottomNavigation/bottomNavigation';
+import DiscreteSliderSteps from './Components/sliders/slider';
+import EcoboNavbarTheme from './CustomNavbars/EcoboNavBar/ecobonavbartheme';
+import EcoboNavbar from './CustomNavbars/EcoboNavBar/ecobonavbar';
+import ReharvestNavbar from './CustomNavbars/ReharvestNavbar/reharvestNavbar';
+import ReharvestnavbarTheme from './CustomNavbars/ReharvestNavbar/reharvestnavbarthehe';
 
 export default function Home() {
   return (
     <><main >
-      <ThemeProvider theme={lightTheme}>
-        <Navbar />
-
-        <StyledPaper elevation={2} varient="nextVarient" >
-          <Box sx={{ position: 'relative', width: '20rem', height: '20rem' }}>
-
-            <Image src="https://res.cloudinary.com/dixkqgqsi/image/upload/v1695237732/wolfgang-hasselmann-cS8Hc3n3bdM-unsplash_ukbqm7.jpg" alt="placeholder" fill style={{ objectFit: 'contain' }}></Image></Box>
-          <Box>
-            <Typography>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis quibusdam amet hic suscipit dolorem ut nam, quaerat, facilis illo et fugiat quisquam eius quae ea dolor repudiandae cumque accusantium voluptatibus?
-            </Typography>
-          </Box>
-
-
-
-        </StyledPaper>
-        <Divider />
+      <Divider />
+      <ThemeProvider theme={baseNavbarTheme} >
         <StyledPaper>
-          <Typography>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium blanditiis cupiditate fugit vitae consequuntur voluptas atque assumenda delectus non eum dolorum, soluta, temporibus commodi distinctio quod cum iusto facere accusantium.
-          </Typography>
+          <BaseNavbar color="secondary" />
+          <BackgroundLetterAvatars />
+          <BasicTable />
+          <BasicAccordion />
+          <StyledBox>
+            <Typography variant='body2'>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium blanditiis cupiditate fugit vitae consequuntur voluptas atque assumenda delectus non eum dolorum, soluta, temporibus commodi distinctio quod cum iusto facere accusantium.
+            </Typography >
+            <DiscreteSliderSteps />
+          </StyledBox>
+          <SimpleBottomNavigation />
         </StyledPaper>
-        <Divider />
-        <StyledPaper>
-          <Box >
-            <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, autem fuga officia minus ratione enim qui deserunt tempore praesentium! Vero nesciunt sequi sed eos consectetur quia est odio nihil placeat!</Typography>
-          </Box>
-        </StyledPaper>
-        <Divider />
-        <StyledPaper>
-          <Box  >
-            <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, autem fuga officia minus ratione enim qui deserunt tempore praesentium! Vero nesciunt sequi sed eos consectetur quia est odio nihil placeat!</Typography>
-          </Box>
-        </StyledPaper>
-        <Divider />
       </ThemeProvider>
+      <Divider />
+
+      <ThemeProvider theme={EcoboNavbarTheme}>
+        <StyledPaper>
+          <EcoboNavbar color="secondary" />
+          <BackgroundLetterAvatars />
+          <BasicTable />
+          <BasicAccordion />
+          <StyledBox>
+            <Typography variant='body2'>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium blanditiis cupiditate fugit vitae consequuntur voluptas atque assumenda delectus non eum dolorum, soluta, temporibus commodi distinctio quod cum iusto facere accusantium.
+            </Typography >
+            <DiscreteSliderSteps />
+          </StyledBox>
+          <SimpleBottomNavigation />
+        </StyledPaper>
+      </ThemeProvider>
+      <Divider />
+      <ThemeProvider theme={ReharvestnavbarTheme}>
+        <StyledPaper>
+          <ReharvestNavbar color="secondary" />
+          <BackgroundLetterAvatars />
+          <BasicTable />
+          <BasicAccordion />
+          <StyledBox>
+            <Typography variant='body2'>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium blanditiis cupiditate fugit vitae consequuntur voluptas atque assumenda delectus non eum dolorum, soluta, temporibus commodi distinctio quod cum iusto facere accusantium.
+            </Typography >
+            <DiscreteSliderSteps />
+          </StyledBox>
+          <SimpleBottomNavigation />
+        </StyledPaper>
+      </ThemeProvider>
+      <Divider />
     </main >
     </>
-
-
   )
 }

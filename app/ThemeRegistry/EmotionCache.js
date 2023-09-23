@@ -6,7 +6,7 @@ import { CacheProvider as DefaultCacheProvider } from '@emotion/react';
 
 // Adapted from https://github.com/garronej/tss-react/blob/main/src/next/appDir.tsx
 export default function NextAppDirEmotionCacheProvider(props) {
-    const { options, CacheProvider = DefaultCacheProvider, children } = props;
+    const { Component, pageProps, options, CacheProvider = DefaultCacheProvider, children } = props;
 
     const [registry] = React.useState(() => {
         const cache = createCache(options);
@@ -75,5 +75,9 @@ export default function NextAppDirEmotionCacheProvider(props) {
         );
     });
 
-    return <CacheProvider value={registry.cache}>{children}</CacheProvider>;
+    return <CacheProvider value={registry.cache}>
+
+        {children}
+
+    </CacheProvider>;
 }
