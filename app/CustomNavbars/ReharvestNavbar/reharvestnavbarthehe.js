@@ -3,7 +3,7 @@ import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
 let ReharvestnavbarTheme = createTheme({
     palette: {
-
+        spacing: 4,
         mode: 'light',
         primary: {
             main: '#FFE6CC',

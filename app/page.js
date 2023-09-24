@@ -31,7 +31,7 @@ export default function Home() {
             </Typography >
             <DiscreteSliderSteps />
           </StyledBox>
-          <SimpleBottomNavigation />
+          <SimpleBottomNavigation sx={{ width: { xs: '100%' } }} />
         </StyledPaper>
       </ThemeProvider>
       <Divider />
@@ -52,7 +52,7 @@ export default function Home() {
         </StyledPaper>
       </ThemeProvider>
       <Divider />
-      <ThemeProvider theme={ReharvestnavbarTheme}>
+      {/* <ThemeProvider theme={ReharvestnavbarTheme}>
         <StyledPaper>
           <ReharvestNavbar color="secondary" />
           <BackgroundLetterAvatars />
@@ -67,7 +67,7 @@ export default function Home() {
           <SimpleBottomNavigation />
         </StyledPaper>
       </ThemeProvider>
-      <Divider />
+      <Divider /> */}
     </main >
     </>
   )

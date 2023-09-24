@@ -8,15 +8,15 @@ import Box  from '@mui/material/Box';
 import Link from 'next/link'
 import MenuIcon from '@mui/icons-material/Menu';
 import Switch from '@mui/material/Switch';
-import { useTheme, createTheme } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
-import { Typography } from '@mui/material';
 import { green } from '@mui/material/colors';
-import Paper from '@mui/material/Paper';
+
+
 
 const ColorModeContext = React.createContext({ handlechange: () => { } });
 
-function Navbar() {
+export default function Navbar() {
 
   const [mode, setMode] = React.useState(false);
    const colorMode = React.useMemo(
@@ -49,18 +49,22 @@ function Navbar() {
           <MenuIcon size='large'color='inherit' /> 
           
           </Box>
-        <Box>
-          
-            <Switch defaultChecked={false} onChange={()=>colorMode.handlechange()} name='dark' color='default' />
-           
-              <Button variant="contained" color="primary"
-                sx={{"&:hover": {bgcolor:green[600]}}}
-              ><Link href="/" style={{color:'#ffffff'}}>Home</Link></Button>
-                    
-          </Box>
-        </Toolbar>
         
-          </AppBar>
+          <Box>
+                <Switch defaultChecked={false} onChange={() => colorMode.handlechange()} name='dark' color='default' />
+
+                <Button variant="outlined" color="primary"
+                sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
+              ><Link href="/" style={{color:'#ffffff'}}>Home</Link></Button>                    
+           
+            <Button variant="outlined" color="primary"
+                sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
+              ><Link href="/SecondPage" style={{color:'#ffffff'}}>Second</Link></Button>
+            </Box>
+                                     
+          
+        </Toolbar>
+        </AppBar>
           
         </ThemeProvider>
      </ColorModeContext.Provider>
@@ -68,4 +72,3 @@ function Navbar() {
   );
 }
 
-export default Navbar;

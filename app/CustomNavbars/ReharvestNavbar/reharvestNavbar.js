@@ -15,7 +15,7 @@ const ReharvestNavbar = ({ props }) => {
 
             <AppBar position="relative" className="base">
                 <Toolbar>
-                    <Stack direction='row' spacing={1}>
+                    <Stack direction='row' spacing={2}>
                         <IconButton size='large' edge='end' color='inherit'>
                             <MenuIcon />
 
@@ -28,7 +28,7 @@ const ReharvestNavbar = ({ props }) => {
                         Reharvest
                     </Typography>
                     <Box><BasicTextFields /></Box>
-                    <Stack direction='row' spacing={1}>
+                    <Stack direction='row' spacing={2}>
                         <IconButton size='large' edge='start' color='inherit' >
                             <BrightnessLowIcon />
                         </IconButton>

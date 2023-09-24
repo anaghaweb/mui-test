@@ -2,6 +2,7 @@
 import styled from '@mui/system/styled';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import theme from '../ThemeRegistry/theme';
 
 export const StyledBox = styled(Box)((props) => ({
     height: '300px',
