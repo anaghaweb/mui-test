@@ -14,6 +14,7 @@ import DiscreteSliderSteps from './Components/sliders/slider';
 import ReharvestNavbar from './CustomNavbars/ReharvestNavbar/reharvestNavbar';
 import ReharvestnavbarTheme from './CustomNavbars/ReharvestNavbar/reharvestnavbarthehe';
 import BaseNavbar from './CustomNavbars/baseNavbar/baseNavbar';
+import { GraphicEqRounded } from '@mui/icons-material';
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <Divider />
       <ThemeProvider theme={baseNavbarTheme} >
         <StyledPaper>
+          <GraphicEqRounded />
           <BaseNavbar />
           <BasicNavbar title="blue NavBar" variant="blue" />
           <BasicNavbar title="Ochre NavBar" variant="ochre" />
