@@ -2,9 +2,9 @@
 import styled from '@mui/system/styled';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import theme from '../ThemeRegistry/theme';
 
-export const StyledBox = styled(Box)((props) => ({
+
+export const StyledBox = styled(Box)(({ theme }) => ({
     height: '300px',
     width: '90%',
     display: 'flex',

@@ -1,5 +1,8 @@
 'use client'
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { alpha, getContrastRatio } from '@mui/material/styles';
+const violetBase = '#7F00FF';
+const violetMain = alpha(violetBase, 0.7);
 
 let baseNavbarTheme = createTheme({
 
@@ -22,17 +25,35 @@ let baseNavbarTheme = createTheme({
         },
         secondary: {
             main: '#0288d1',
-
+            contrastText: '#ffffff',
         },
         background: {
             default: '#192231',
-            paper: '#ffffff',
-            contrastText: '#616161',
+            paper: '#eeeeee',
+
         },
         text: {
-            primary: '#0288d1',
+            primary: '#ffffff',
             secondary: '#212121',
-        }
+        },
+
+        warning: {
+            main: '#fffffe'
+        },
+        ochre: {
+            main: '#E3D026',
+            light: '#E9DB5D',
+            dark: '#A29415',
+            contrastText: '#242105',
+
+        },
+        violet: {
+            main: violetMain,
+            light: alpha(violetBase, 0.5),
+            dark: alpha(violetBase, 0.9),
+            contrastText: '#ffffff',
+        },
+
     },
 });
 

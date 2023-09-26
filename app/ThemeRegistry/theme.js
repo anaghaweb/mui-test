@@ -1,11 +1,15 @@
 'use client'
+
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
+import { useContext } from 'react';
 
 
 
 let theme = createTheme({
+
     palette: {
+
         primary: {
             main: '#3152B6',
         },
@@ -19,8 +23,13 @@ let theme = createTheme({
 });
 
 theme = responsiveFontSizes(theme);
-
 export default theme;
+
+
+
+
+
+
 
 
 

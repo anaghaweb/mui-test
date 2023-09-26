@@ -11,33 +11,34 @@ import Switch from '@mui/material/Switch';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
 import { green } from '@mui/material/colors';
+import {createContext} from 'react'
 
 
 
-const ColorModeContext = React.createContext({ handlechange: () => { } });
 
-export default function Navbar() {
+export default function Navbar({}) {
 
-  const [mode, setMode] = React.useState(false);
-   const colorMode = React.useMemo(
-    ()=> ({
-      handlechange: () => {
-        setMode(prev => !prev )
+  const [mode, setMode] = React.useState('light');
+
+  function handlechange (){
+        setMode(prev => prev === 'light' ? 'dark' : 'light' )
       }
-    }), [])
+  
 
-  const theme = React.useMemo(() =>
+  const Customtheme = React.useMemo(() =>
             createTheme({
                 palette: {
-                    mode: mode ? 'dark' : 'light',
+                    mode: mode,
                 },
             }),
         [mode],)
-
+  
+  
+  
   return (
     
-    <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>
+    
+      <ThemeProvider theme={Customtheme}>
         
     <AppBar position="sticky">
           <Toolbar sx={{ display: 'flex', justifyContent: 'space-between'}}>
@@ -51,7 +52,7 @@ export default function Navbar() {
           </Box>
         
           <Box>
-                <Switch defaultChecked={false} onChange={() => colorMode.handlechange()} name='dark' color='default' />
+                <Switch defaultChecked={false} onChange={() => handlechange()} name='dark' color='default' />
 
                 <Button variant="outlined" color="primary"
                 sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
@@ -59,7 +60,7 @@ export default function Navbar() {
            
             <Button variant="outlined" color="primary"
                 sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
-              ><Link href="/SecondPage" style={{color:'#ffffff'}}>Second</Link></Button>
+              ><Link href="/SecondPage" style={{color:'#ffffff'}}>Custom Components</Link></Button>
             </Box>
                                      
           
@@ -67,7 +68,7 @@ export default function Navbar() {
         </AppBar>
           
         </ThemeProvider>
-     </ColorModeContext.Provider>
+    
       
   );
 }

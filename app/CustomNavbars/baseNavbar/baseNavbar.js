@@ -9,6 +9,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import { useTheme } from '@mui/material/styles'
 import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
+import { CustomAppBar } from './baseStyles';
 
 
 
@@ -17,6 +18,7 @@ const BaseNavbar = ({ props }) => {
     const theme = useTheme();
 
     const [menu, setMenu] = React.useState(false);
+    const [dark, setDark] = React.useState(false);
     const open = {
         position: 'absolute', top: '100%', left: '0', width: '50%', height: '50vh', backgroundColor: '#ffffff', zIndex: '1', transition: 'left 0.5s ease',
     };
@@ -33,7 +35,7 @@ const BaseNavbar = ({ props }) => {
         <>
 
 
-            <AppBar position="relative" className="base">
+            <CustomAppBar position="relative" className="base">
                 <Toolbar>
                     <Stack direction='row' spacing={2}>
                         <IconButton size='large' edge='end' color='inherit'
@@ -57,16 +59,16 @@ const BaseNavbar = ({ props }) => {
                             sx={menu ? closeIconOpen : closeIconClosed}
                         >Close Menu</Button>
 
-                        <IconButton size='large' edge='start' color='inherit' onClick={() => setMenu(!menu)} >
+                        <IconButton edge='start' color='inherit' onClick={() => setMenu(!menu)} >
 
-                            <BrightnessLowIcon />
+                            <BrightnessLowIcon sx={{ fontSize: { xs: 15, sm: 20, md: 25 } }} />
                         </IconButton>
-                        <IconButton size='large' edge='start' color='inherit' onClick={() => setMenu(!menu)} >
-                            <LanguageOutlinedIcon />
+                        <IconButton edge='start' color='inherit' onClick={() => setMenu(!menu)} >
+                            <LanguageOutlinedIcon sx={{ fontSize: { xs: 15, sm: 20, md: 25 } }} />
 
                         </IconButton>
-                        <IconButton size='large' edge='start' color='inherit' onClick={() => setMenu(!menu)} >
-                            <PeopleIcon />
+                        <IconButton edge='start' color='inherit' onClick={() => setMenu(!menu)} >
+                            <PeopleIcon sx={{ fontSize: { xs: 15, sm: 20, md: 25 } }} />
                         </IconButton>
                     </Stack>
 
@@ -77,18 +79,19 @@ const BaseNavbar = ({ props }) => {
                     </Typography>
                     <Stack direction='row' spacing={1}>
                         <IconButton size='large' edge='start' color='inherit' >
-                            <BrightnessLowIcon />
+                            <BrightnessLowIcon sx={{ fontSize: { xs: 15, sm: 20, md: 25 } }} />
                         </IconButton>
                         <IconButton size='large' edge='start' color='inherit' >
-                            <LanguageOutlinedIcon />
+                            <LanguageOutlinedIcon sx={{ fontSize: { xs: 15, sm: 20, md: 25 } }} />
 
                         </IconButton>
                         <IconButton size='large' edge='start' color='inherit' >
-                            <PeopleIcon />
+                            <PeopleIcon sx={{ fontSize: { xs: 15, sm: 20, md: 25 } }} />
                         </IconButton>
                     </Stack>
+
                 </Toolbar>
-            </AppBar>
+            </CustomAppBar>
 
         </>
     )
