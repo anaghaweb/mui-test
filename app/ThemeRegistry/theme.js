@@ -2,13 +2,15 @@
 
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
-import { useContext } from 'react';
+
 
 
 
 let theme = createTheme({
 
     palette: {
+
+        mode: 'light',
 
         primary: {
             main: '#3152B6',
@@ -19,6 +21,7 @@ let theme = createTheme({
         error: {
             main: red.A400,
         },
+
     },
 });
 

@@ -27,6 +27,8 @@ export default function Home() {
           <BasicNavbar title="blue NavBar" variant="blue" />
           <BasicNavbar title="Ochre NavBar" variant="ochre" />
           <BasicNavbar title="Violet NavBar" variant="violet" />
+          <BasicNavbar title="Blank NavBar" />
+
           <BackgroundLetterAvatars />
           < BasicTable />
           < BasicAccordion />

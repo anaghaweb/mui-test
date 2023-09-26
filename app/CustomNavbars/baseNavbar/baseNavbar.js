@@ -1,6 +1,6 @@
 'use client'
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
+
 import Toolbar from '@mui/material/Toolbar';
 import MenuIcon from '@mui/icons-material/Menu';
 import BrightnessLowIcon from '@mui/icons-material/BrightnessLow';

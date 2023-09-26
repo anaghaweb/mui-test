@@ -27,17 +27,18 @@ const NavRoot = styled('div', {
         boxShadow: theme.shadows[2],
         letterSpacing: '0.25em',
         fontWeight: 400,
-        ...(ownerState.variant === 'blue' && {
+        ...(ownerState.variant === 'blue' ? {
             backgroundColor: theme.palette.secondary.main,
-
-        }),
-        ...(ownerState.variant === 'ochre' && {
+            color: theme.palette.ochre.contrastText,
+        } : ownerState.variant === 'ochre' ? {
             backgroundColor: theme.palette.ochre.main,
             color: theme.palette.ochre.contrastText,
-        }),
-        ...(ownerState.variant === 'violet' && {
+        } : ownerState.variant === 'violet' ? {
             backgroundColor: theme.palette.violet.main,
             color: theme.palette.violet.contrastText,
+        } : {
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.primary.contrastText,
         }),
     }))
 
@@ -51,18 +52,16 @@ const NavTitle = styled('div', {
         ...theme.typography.h4,
         color: theme.palette.text.primary,
 
-        ...(ownerState.variant === 'blue' && {
+        ...(ownerState.variant === 'blue' ? {
             backgroundColor: theme.palette.secondary.main,
-
-        }),
-        ...(ownerState.variant === 'ochre' && {
+            color: theme.palette.ochre.contrastText,
+        } : ownerState.variant === 'ochre' ? {
             backgroundColor: theme.palette.ochre.main,
             color: theme.palette.ochre.contrastText,
-        }),
-        ...(ownerState.variant === 'violet' && {
+        } : ownerState.variant === 'violet' ? {
             backgroundColor: theme.palette.violet.main,
             color: theme.palette.violet.contrastText,
-        }),
+        } : { backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText, }),
 
     }));
 
@@ -73,18 +72,16 @@ const NavBrightnessIcon = styled(BrightnessLowIcon,
         slot: 'icon_1',
     }
 )(({ theme, ownerState }) => ({
-    ...(ownerState.variant === 'blue' && {
+    ...(ownerState.variant === 'blue' ? {
         backgroundColor: theme.palette.secondary.main,
-        color: theme.palette.primary.contrastText,
-    }),
-    ...(ownerState.variant === 'ochre' && {
+        color: theme.palette.ochre.contrastText,
+    } : ownerState.variant === 'ochre' ? {
         backgroundColor: theme.palette.ochre.main,
         color: theme.palette.ochre.contrastText,
-    }),
-    ...(ownerState.variant === 'violet' && {
+    } : ownerState.variant === 'violet' ? {
         backgroundColor: theme.palette.violet.main,
         color: theme.palette.violet.contrastText,
-    }),
+    } : { backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText, }),
 
 }));
 
@@ -94,45 +91,36 @@ const NavPeopleIcon = styled(PeopleIcon, {
 
 })
     (({ theme, ownerState }) => ({
-        ...(ownerState.variant === 'blue' && {
+        ...(ownerState.variant === 'blue' ? {
             backgroundColor: theme.palette.secondary.main,
-            color: theme.palette.primary.contrastText,
-        }),
-        ...(ownerState.variant === 'ochre' && {
+            color: theme.palette.ochre.contrastText,
+        } : ownerState.variant === 'ochre' ? {
             backgroundColor: theme.palette.ochre.main,
             color: theme.palette.ochre.contrastText,
-        }),
-        ...(ownerState.variant === 'violet' && {
+        } : ownerState.variant === 'violet' ? {
             backgroundColor: theme.palette.violet.main,
             color: theme.palette.violet.contrastText,
-        }),
+        } : { backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText, }),
 
     }));
 
 const NavMenuIcon = styled(MenuIcon, {
     name: 'MuiBasicNav',
     slot: 'icon_3',
-
 })(({ theme, ownerState }) => ({
-
-
     [theme.breakpoints.up('sm')]: {
         display: 'none',
     },
-
-
-    ...(ownerState.variant === 'blue' && {
+    ...(ownerState.variant === 'blue' ? {
         backgroundColor: theme.palette.secondary.main,
-        color: theme.palette.primary.contrastText,
-    }),
-    ...(ownerState.variant === 'ochre' && {
+        color: theme.palette.ochre.contrastText,
+    } : ownerState.variant === 'ochre' ? {
         backgroundColor: theme.palette.ochre.main,
         color: theme.palette.ochre.contrastText,
-    }),
-    ...(ownerState.variant === 'violet' && {
+    } : ownerState.variant === 'violet' ? {
         backgroundColor: theme.palette.violet.main,
         color: theme.palette.violet.contrastText,
-    }),
+    } : { backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText, }),
 
 }))
 
@@ -142,18 +130,16 @@ const NavLanguageIcon = styled(LanguageOutlinedIcon, {
 
 })(({ theme, ownerState }) => ({
 
-    ...(ownerState.variant === 'blue' && {
+    ...(ownerState.variant === 'blue' ? {
         backgroundColor: theme.palette.secondary.main,
-        color: theme.palette.primary.contrastText,
-    }),
-    ...(ownerState.variant === 'ochre' && {
+        color: theme.palette.ochre.contrastText,
+    } : ownerState.variant === 'ochre' ? {
         backgroundColor: theme.palette.ochre.main,
         color: theme.palette.ochre.contrastText,
-    }),
-    ...(ownerState.variant === 'violet' && {
+    } : ownerState.variant === 'violet' ? {
         backgroundColor: theme.palette.violet.main,
         color: theme.palette.violet.contrastText,
-    }),
+    } : { backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText, }),
 
 
 
@@ -194,7 +180,7 @@ const BasicNavbar = React.forwardRef(function BasicNavbar(inProps, ref) {
 
 BasicNavbar.propTypes = {
     title: PropTypes.string.isRequired,
-    variant: PropTypes.oneOf(['basic']),
+    variant: PropTypes.oneOf(['basic', 'ochre', 'blue', 'violet', '']),
 };
 
 export default function BasicNavbarTemplate({ title, variant }) {

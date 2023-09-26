@@ -8,38 +8,37 @@ import Box  from '@mui/material/Box';
 import Link from 'next/link'
 import MenuIcon from '@mui/icons-material/Menu';
 import Switch from '@mui/material/Switch';
-import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
 import { green } from '@mui/material/colors';
-import {createContext} from 'react'
+import { darkTheme, lightTheme } from './themeToggler';
 
 
+const themeContext = React.createContext();
+const themeContextUpdater = React.createContext();
 
+export function useThemeContext() {
+  return React.useContext(themeContext);
+} 
 
-export default function Navbar({}) {
+export function useThemeContextUpdater() {
+  return React.useContext(themeContextUpdater);
+}
 
-  const [mode, setMode] = React.useState('light');
+export default function Navbar({children}) {
+
+  const [mode, setMode] = React.useState(lightTheme);
 
   function handlechange (){
-        setMode(prev => prev === 'light' ? 'dark' : 'light' )
-      }
+        setMode(prev => prev === lightTheme ? darkTheme : lightTheme )
+  }
   
 
-  const Customtheme = React.useMemo(() =>
-            createTheme({
-                palette: {
-                    mode: mode,
-                },
-            }),
-        [mode],)
-  
-  
-  
-  return (
-    
-    
-      <ThemeProvider theme={Customtheme}>
-        
+    return (
+      
+      <ThemeProvider theme={mode}>
+      <themeContext.Provider value={mode} >
+       <themeContextUpdater.Provider value={handlechange}>
+       
     <AppBar position="sticky">
           <Toolbar sx={{ display: 'flex', justifyContent: 'space-between'}}>
         
@@ -66,7 +65,9 @@ export default function Navbar({}) {
           
         </Toolbar>
         </AppBar>
-          
+            {children}
+            </themeContextUpdater.Provider> 
+        </themeContext.Provider>
         </ThemeProvider>
     
       

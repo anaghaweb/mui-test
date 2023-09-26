@@ -1,6 +1,6 @@
 'use client'
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
-import { alpha, getContrastRatio } from '@mui/material/styles';
+import { alpha } from '@mui/material/styles';
 const violetBase = '#7F00FF';
 const violetMain = alpha(violetBase, 0.7);
 
