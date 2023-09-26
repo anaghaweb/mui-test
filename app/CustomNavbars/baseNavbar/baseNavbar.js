@@ -18,7 +18,7 @@ const BaseNavbar = ({ props }) => {
     const theme = useTheme();
 
     const [menu, setMenu] = React.useState(false);
-    const [dark, setDark] = React.useState(false);
+
     const open = {
         position: 'absolute', top: '100%', left: '0', width: '50%', height: '50vh', backgroundColor: '#ffffff', zIndex: '1', transition: 'left 0.5s ease',
     };
@@ -38,11 +38,11 @@ const BaseNavbar = ({ props }) => {
             <CustomAppBar position="relative" className="base">
                 <Toolbar>
                     <Stack direction='row' spacing={2}>
-                        <IconButton size='large' edge='end' color='inherit'
+                        <IconButton size='large' edge='end' color='#000000'
                             onClick={() => setMenu(!menu)}
                         >
                             <MenuIcon
-                                sx={{ display: { xs: 'block', md: 'none' } }}
+                                sx={{ display: { xs: 'block', md: 'none' }, color: '#000000' }}
                             />
 
                         </IconButton>
@@ -74,7 +74,7 @@ const BaseNavbar = ({ props }) => {
 
 
 
-                    <Typography variant='h4' component='div' sx={{ flexGrow: 1 }} color="text.primary">
+                    <Typography variant='h4' component='div' sx={{ flexGrow: 1 }} color="secondary.main">
                         Base
                     </Typography>
                     <Stack direction='row' spacing={1}>

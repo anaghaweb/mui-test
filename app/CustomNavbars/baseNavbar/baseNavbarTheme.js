@@ -29,11 +29,11 @@ let baseNavbarTheme = createTheme({
         },
         background: {
             default: '#192231',
-            paper: '#eeeeee',
+            paper: '#ffffff',
 
         },
         text: {
-            primary: '#ffffff',
+            primary: '#212121',
             secondary: '#212121',
         },
 
