@@ -11,6 +11,8 @@ export default function Home() {
       <ThemeProvider theme={baseNavbarTheme} >
         <StyledPaper>
           <BasicNavbar title="Test NavBar" variant="blue" />
+          <BasicNavbar title="Test NavBar" variant="ochre" />
+          <BasicNavbar title="Test NavBar" variant="violet" />
         </StyledPaper>
       </ThemeProvider>
       <Divider />
