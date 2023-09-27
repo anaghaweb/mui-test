@@ -8,6 +8,8 @@ import PeopleIcon from '@mui/icons-material/People';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import InsertPhotoSharpIcon from '@mui/icons-material/InsertPhotoSharp';
 import BasicTextFields from '@/app/Components/BasicInputField/basicInputField';
+
+
 const ReharvestNavbar = ({ props }) => {
     return (
         <>
@@ -20,15 +22,16 @@ const ReharvestNavbar = ({ props }) => {
                             <MenuIcon />
 
                         </IconButton>
-                        <IconButton edge='end' color='inherit' sx={{ width: '5rem', height: '5rem' }}>
-                            <InsertPhotoSharpIcon sx={{ width: 'auto', height: 'auto' }} /></IconButton>
+                        <Box sx={{ display: { xs: 'none', md: 'inline-block' }, width: '1rem', height: '100%', alignItem: 'center' }}>
+                            <InsertPhotoSharpIcon sx={{ width: '100%', height: '100%' }} />
+                        </Box>
                     </Stack>
 
                     <Typography variant='h4' component='div' sx={{ flexGrow: 1 }} color="text.primary">
                         Reharvest
                     </Typography>
-                    <Box><BasicTextFields /></Box>
-                    <Stack direction='row' spacing={2}>
+
+                    <Stack direction='row' spacing={2} sx={{}}>
                         <IconButton size='large' edge='start' color='inherit' >
                             <BrightnessLowIcon />
                         </IconButton>

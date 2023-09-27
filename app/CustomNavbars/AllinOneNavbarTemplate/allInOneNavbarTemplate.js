@@ -56,7 +56,10 @@ const NavTitle = styled('div')
 
             gap: theme.spacing(1),
         },
+        [theme.breakpoints.down('sm')]: {
+            display: 'none',
 
+        },
 
         '&.cart-btn': {
 
@@ -76,7 +79,11 @@ const NavBrightnessIcon = styled(BrightnessLowIcon)(({ theme }) =>
 }));
 
 //PROFILE ICON STYLING
-const NavPeopleIcon = styled(PeopleIcon)
+const NavPeopleIcon = styled(PeopleIcon, {
+    name: 'MuiBasicNav',
+    slot: 'icon_2',
+
+})
     (({ theme }) => ({
         backgroundColor: theme.palette.primary.main,
         [theme.breakpoints.down('md')]: {
@@ -130,7 +137,23 @@ const StyledNavStack = styled('div')(({ theme }) => ({
     },
 }))
 
+//IMAGE ICON STYLING
+const NavImageIcon = styled(InsertPhotoSharpIcon)(({ theme }) => ({
 
+    backgroundColor: theme.palette.primary.main,
+    width: '2rem',
+    height: '2rem',
+    [theme.breakpoints.up('md')]: {
+        gap: theme.spacing(1),
+        width: '4rem',
+        height: '4rem',
+    },
+    [theme.breakpoints.down('sm')]: {
+        gap: theme.spacing(1),
+        display: 'none',
+    },
+
+}))
 
 // MOBILE MENU
 const StyledMobileMenu = styled('div')(({ theme }) => ({
@@ -171,7 +194,52 @@ const close = {
     left: '-100%'
 };
 
+//SEARCH FIELD WRAPPER
+const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    display: 'flex',
+    flexGrow: 1,
+    borderRadius: theme.shape.borderRadius,
+    border: `${{ backgroundColor: '#fffff' } ? '0.1px solid #9e9e9e' : ''
+        }`,
+    backgroundColor: alpha(theme.palette.common.white, 0.9),
+    '&:hover': {
+        backgroundColor: alpha(theme.palette.common.black, 0.1),
+    },
+    marginLeft: 30,
+    width: '100%',
 
+    [theme.breakpoints.up('sm')]: {
+        marginLeft: theme.spacing(3),
+        width: 'auto',
+    },
+}));
+
+// SEARCH ICON WRAPPER
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+}));
+
+//TEXT FIELD WRAPPER
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    '& .MuiInputBase-input': {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('md')]: {
+            width: '30ch',
+        },
+    },
+}));
 
 const StyledLinks = styled(Link)
     (({ theme }) => ({
@@ -214,7 +282,7 @@ const StyledButton = styled(Button)
     }));
 
 
-export default function EcoboNavbarTemplate() {
+export default function BaseNavbarTemplate() {
 
     const [menu, showMenu] = React.useState(false);
 
@@ -223,12 +291,12 @@ export default function EcoboNavbarTemplate() {
         <NavRoot >
             <StyledNavStack direction="row" >
                 <NavMenuIcon onClick={() => showMenu(!menu)} />
-
+                <NavImageIcon />
                 {/* MOBILE MENU  */}
                 <StyledMobileMenu sx={menu ? open : close}  >
                     <Box className="mob-title-wrapper">
                         <Typography variant="h4" component="div" >
-                            Ecobo
+                            Base
                         </Typography>
                         <Button onClick={() => showMenu(!menu)}>Close</Button>
                     </Box>
@@ -245,16 +313,91 @@ export default function EcoboNavbarTemplate() {
                 {/* TITLE */}
                 <NavTitle>
                     <Typography variant="h4" component="div" >
-                        Ecobo
+                        Base
                     </Typography>
                 </NavTitle>
             </StyledNavStack>
+
+            {/* LINKS */}
+            <StyledLinks href="#" >
+                Products
+            </StyledLinks >
+            <StyledLinks href="#" >
+                About Us
+            </StyledLinks >
+            <StyledLinks href="#" sx={{ height: "2rem", width: "2rem", justifyContent: 'center' }}>
+                <AtlassianSVG />
+            </StyledLinks >
+            <StyledLinks href="#" >
+                For Businesses
+            </StyledLinks >
+            <StyledButton color="secondary" variant="outlined" startIcon={<ShoppingCartRoundedIcon />}>
+                Cart
+            </StyledButton>
+            <StyledButton color="secondary" variant="outlined" startIcon={<LoginOutlinedIcon />}>
+                Login
+            </StyledButton>
+
+
+
+
+            {/* SEARCH BAR */}
+
+
+            <Box >
+                <Search>
+                    <SearchIconWrapper>
+                        <SearchIcon />
+                    </SearchIconWrapper>
+                    <StyledInputBase
+                        placeholder="Search…"
+                        inputProps={{ 'aria-label': 'search' }}
+                    />
+                </Search>
+            </Box>
+
             <StyledNavStack direction="row">
                 <NavBrightnessIcon />
                 <NavLanguageIcon />
                 <NavPeopleIcon />
             </StyledNavStack>
         </NavRoot >
+
     </>
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

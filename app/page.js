@@ -8,7 +8,6 @@ import EcoboNavbarTheme from './CustomNavbars/EcoboNavBar/ecobonavbartheme';
 import BackgroundLetterAvatars from './Components/Avatars/avatars';
 import BasicTable from './fillertables/fillertables';
 import BasicAccordion from './fillerAccordian/accordian';
-import StatFullTemplate from './CustomComponents/MuiStatTemplate';
 import SimpleBottomNavigation from './Components/BottomNavigation/bottomNavigation';
 import DiscreteSliderSteps from './Components/sliders/slider';
 import ReharvestNavbar from './CustomNavbars/ReharvestNavbar/reharvestNavbar';
@@ -24,16 +23,11 @@ export default function Home() {
         <StyledPaper>
           <GraphicEqRounded />
           <BaseNavbar />
-          <BasicNavbar title="blue NavBar" variant="blue" />
-          <BasicNavbar title="Ochre NavBar" variant="ochre" />
-          <BasicNavbar title="Violet NavBar" variant="violet" />
-          <BasicNavbar title="Blank NavBar" />
-
           <BackgroundLetterAvatars />
           < BasicTable />
           < BasicAccordion />
           <DiscreteSliderSteps />
-          <StatFullTemplate />
+
           <SimpleBottomNavigation />
         </StyledPaper>
       </ThemeProvider>
@@ -45,7 +39,7 @@ export default function Home() {
           < BasicTable />
           < BasicAccordion />
           <DiscreteSliderSteps />
-          <StatFullTemplate />
+
           <SimpleBottomNavigation />
         </StyledPaper>
       </ThemeProvider>
@@ -57,7 +51,7 @@ export default function Home() {
           < BasicTable />
           < BasicAccordion />
           <DiscreteSliderSteps />
-          <StatFullTemplate />
+
           <SimpleBottomNavigation />
         </StyledPaper>
       </ThemeProvider>

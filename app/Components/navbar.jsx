@@ -13,18 +13,7 @@ import { green } from '@mui/material/colors';
 import { darkTheme, lightTheme } from './themeToggler';
 
 
-const themeContext = React.createContext();
-const themeContextUpdater = React.createContext();
-
-export function useThemeContext() {
-  return React.useContext(themeContext);
-} 
-
-export function useThemeContextUpdater() {
-  return React.useContext(themeContextUpdater);
-}
-
-export default function Navbar({children}) {
+export default function Navbar() {
 
   const [mode, setMode] = React.useState(lightTheme);
 
@@ -32,12 +21,10 @@ export default function Navbar({children}) {
         setMode(prev => prev === lightTheme ? darkTheme : lightTheme )
   }
   
-
     return (
       
       <ThemeProvider theme={mode}>
-      <themeContext.Provider value={mode} >
-       <themeContextUpdater.Provider value={handlechange}>
+     
        
     <AppBar position="sticky">
           <Toolbar sx={{ display: 'flex', justifyContent: 'space-between'}}>
@@ -65,12 +52,13 @@ export default function Navbar({children}) {
           
         </Toolbar>
         </AppBar>
-            {children}
-            </themeContextUpdater.Provider> 
-        </themeContext.Provider>
+            
+        
         </ThemeProvider>
     
       
   );
+
+ 
 }
 

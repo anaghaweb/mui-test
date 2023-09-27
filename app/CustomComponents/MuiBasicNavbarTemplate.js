@@ -27,6 +27,7 @@ const NavRoot = styled('div', {
         boxShadow: theme.shadows[2],
         letterSpacing: '0.25em',
         fontWeight: 400,
+
         ...(ownerState.variant === 'blue' ? {
             backgroundColor: theme.palette.secondary.main,
             color: theme.palette.ochre.contrastText,
@@ -51,7 +52,6 @@ const NavTitle = styled('div', {
     (({ theme, ownerState }) => ({
         ...theme.typography.h4,
         color: theme.palette.text.primary,
-
         ...(ownerState.variant === 'blue' ? {
             backgroundColor: theme.palette.secondary.main,
             color: theme.palette.ochre.contrastText,
