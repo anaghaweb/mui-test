@@ -1,22 +1,12 @@
 'use client'
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import MenuIcon from '@mui/icons-material/Menu';
 import BrightnessLowIcon from '@mui/icons-material/BrightnessLow';
-import { IconButton, Typography, Stack, Box, Button, Divider, Container } from "@mui/material";
+import { Typography, Box, Button, Divider } from "@mui/material";
 import PeopleIcon from '@mui/icons-material/People';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
-import InsertPhotoSharpIcon from '@mui/icons-material/InsertPhotoSharp';
-import { styled, alpha } from '@mui/material/styles';
-import { StyledBox } from '@/app/Components/styledboxes';
-import SearchIcon from '@mui/icons-material/Search';
-import InputBase from '@mui/material/InputBase';
+import { styled } from '@mui/material/styles';
 import Link from '@mui/material/Link';
-import AtlassianSVG from '@/app/Components/SVGs/atlassian';
-import StarSVG from '@/app/Components/SVGs/starSVG';
-import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
-import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 
 
 
@@ -30,11 +20,10 @@ const NavRoot = styled('div')
         justifyContent: 'space-between',
         gap: theme.spacing(3),
         padding: theme.spacing(3),
-        backgroundColor: theme.palette.primary.main,
         borderRadius: theme.shape.borderRadius,
         boxShadow: theme.shadows[2],
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.text.secondary,
+        backgroundColor: '#ffffff',
+        color: '#787878',
 
         [theme.breakpoints.down('md')]: {
             justifyContent: 'space-evenly',
@@ -49,24 +38,16 @@ const NavRoot = styled('div')
 const NavTitle = styled('div')
     (({ theme }) => ({
         fontSize: theme.typography.h3,
-        //color: theme.palette.text.primary,
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.primary.contrastText,
+        color: '#3399FF',
         [theme.breakpoints.down('md')]: {
-
             gap: theme.spacing(1),
         },
-
-
-        '&.cart-btn': {
-
-        }
     }));
 
 //THEME BRIGHTNESS ICON TOGGLE
 const NavBrightnessIcon = styled(BrightnessLowIcon)(({ theme }) =>
 ({
-    backgroundColor: theme.palette.primary.main,
+
     [theme.breakpoints.down('md')]: {
 
         gap: theme.spacing(1),
@@ -79,10 +60,9 @@ const NavBrightnessIcon = styled(BrightnessLowIcon)(({ theme }) =>
 const NavPeopleIcon = styled(PeopleIcon, {
     name: 'MuiBasicNav',
     slot: 'icon_2',
-
 })
     (({ theme }) => ({
-        backgroundColor: theme.palette.primary.main,
+
         [theme.breakpoints.down('md')]: {
 
             gap: theme.spacing(1),
@@ -98,8 +78,8 @@ const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
         display: 'none',
     },
     position: 'absolute',
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.text.primary,
+
+    color: '#000000',
     left: '0.15rem',
 
 
@@ -107,14 +87,9 @@ const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
 
 // LANGUAGE ICON STYLING
 const NavLanguageIcon = styled(LanguageOutlinedIcon)(({ theme }) => ({
-
-    backgroundColor: theme.palette.primary.main,
     [theme.breakpoints.down('md')]: {
-
         gap: theme.spacing(1),
-
     },
-
 }))
 
 //NAVBAR INNER MENU STYLING
@@ -155,6 +130,9 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
 
 //MOBILE MENU OPEN / CLOSE STYLING
 const open = {
+
+    display: 'flex',
+    flexDirection: 'column',
     position: 'absolute',
     top: '100%',
     left: '0',
@@ -163,8 +141,8 @@ const open = {
     backgroundColor: '#ffffff',
     zIndex: '1',
     transition: 'left 0.5s ease',
-    display: 'flex',
     justifyContent: 'start',
+
 
 };
 const close = {
@@ -250,6 +228,7 @@ const StyledLinks = styled(Link)
 
     }));
 
+
 const StyledButton = styled(Button)
     (({ theme }) => ({
         display: 'flex',
@@ -259,6 +238,17 @@ const StyledButton = styled(Button)
         textTransform: 'capitalize',
         ...theme.typography.subtitle1,
         gap: theme.spacing(0.5),
+    }));
+
+const StyledBox = styled(Box)
+    (({ theme }) => ({
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        width: '100%',
+        color: '#3399FF',
+        textTransform: 'capitalize',
+        ...theme.typography.subtitle1,
     }));
 
 
@@ -274,12 +264,13 @@ export default function BaseNavbarTemplate() {
 
                 {/* MOBILE MENU  */}
                 <StyledMobileMenu sx={menu ? open : close}  >
-                    <Box className="mob-title-wrapper">
-                        <Typography variant="h4" component="div" >
+                    <StyledBox >
+                        <Typography variant="h5" component="div" sx={{ width: 'fit-content', padding: '0.5rem' }} >
                             Base
                         </Typography>
-                        <Button onClick={() => showMenu(!menu)}>Close</Button>
-                    </Box>
+                        <Divider orientation="vertical" flexItem />
+                        <StyledButton variant="text" onClick={() => showMenu(!menu)}>Close</StyledButton>
+                    </StyledBox>
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Products</Box>
                     <Divider />
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Services</Box>
@@ -289,6 +280,7 @@ export default function BaseNavbarTemplate() {
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Logout</Box>
                     <Divider />
                 </StyledMobileMenu>
+
 
                 {/* TITLE */}
                 <NavTitle>

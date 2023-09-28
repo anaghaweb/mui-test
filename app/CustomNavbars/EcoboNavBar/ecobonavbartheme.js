@@ -1,7 +1,9 @@
 'use client'
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import theme from '@/app/ThemeRegistry/theme';
 
-let EcoboNavbarTheme = createTheme({
+let EcoboNavbarTheme = createTheme(theme, {
+
     breakpoints: {
         values: {
             xs: 0,
@@ -12,41 +14,10 @@ let EcoboNavbarTheme = createTheme({
         }
     },
 
-
     palette: {
-        mode: 'light',
         spacing: 2,
-        primary: {
-            main: '#D5E8D4',
-            contrastText: '#6A9153',
-        },
-        secondary: {
-            main: '#0288d1',
-            contrastText: '#ffffff',
-        },
-        background: {
-            default: '#192231',
-            paper: '#ffffff',
-
-        },
-        warning: {
-            main: '#fffffe'
-        },
-        ochre: {
-            main: '#E3D026',
-            light: '#E9DB5D',
-            dark: '#A29415',
-            contrastText: '#242105',
-
-        },
-
-        text: {
-            secondary: '#787878',
-        }
-
     },
 });
-
-EcoboNavbarTheme = responsiveFontSizes(EcoboNavbarTheme)
+EcoboNavbarTheme = responsiveFontSizes(EcoboNavbarTheme, 2)
 
 export default EcoboNavbarTheme;

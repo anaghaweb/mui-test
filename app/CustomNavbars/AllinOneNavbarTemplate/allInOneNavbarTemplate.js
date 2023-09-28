@@ -30,11 +30,10 @@ const NavRoot = styled('div')
         justifyContent: 'space-between',
         gap: theme.spacing(3),
         padding: theme.spacing(3),
-        backgroundColor: theme.palette.primary.main,
         borderRadius: theme.shape.borderRadius,
         boxShadow: theme.shadows[2],
         backgroundColor: theme.palette.primary.main,
-        color: theme.palette.text.secondary,
+        color: theme.palette.text.main,
 
         [theme.breakpoints.down('md')]: {
             justifyContent: 'space-evenly',
@@ -49,27 +48,24 @@ const NavRoot = styled('div')
 const NavTitle = styled('div')
     (({ theme }) => ({
         fontSize: theme.typography.h3,
-        //color: theme.palette.text.primary,
-        backgroundColor: theme.palette.primary.main,
+
         color: theme.palette.primary.contrastText,
         [theme.breakpoints.down('md')]: {
 
             gap: theme.spacing(1),
         },
-        [theme.breakpoints.down('sm')]: {
-            display: 'none',
 
-        },
 
         '&.cart-btn': {
 
         }
     }));
 
+
 //THEME BRIGHTNESS ICON TOGGLE
 const NavBrightnessIcon = styled(BrightnessLowIcon)(({ theme }) =>
 ({
-    backgroundColor: theme.palette.primary.main,
+
     [theme.breakpoints.down('md')]: {
 
         gap: theme.spacing(1),
@@ -82,10 +78,9 @@ const NavBrightnessIcon = styled(BrightnessLowIcon)(({ theme }) =>
 const NavPeopleIcon = styled(PeopleIcon, {
     name: 'MuiBasicNav',
     slot: 'icon_2',
-
 })
     (({ theme }) => ({
-        backgroundColor: theme.palette.primary.main,
+
         [theme.breakpoints.down('md')]: {
 
             gap: theme.spacing(1),
@@ -101,8 +96,8 @@ const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
         display: 'none',
     },
     position: 'absolute',
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.text.primary,
+
+    color: '#000000',
     left: '0.15rem',
 
 
@@ -110,14 +105,9 @@ const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
 
 // LANGUAGE ICON STYLING
 const NavLanguageIcon = styled(LanguageOutlinedIcon)(({ theme }) => ({
-
-    backgroundColor: theme.palette.primary.main,
     [theme.breakpoints.down('md')]: {
-
         gap: theme.spacing(1),
-
     },
-
 }))
 
 //NAVBAR INNER MENU STYLING
@@ -140,7 +130,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
 //IMAGE ICON STYLING
 const NavImageIcon = styled(InsertPhotoSharpIcon)(({ theme }) => ({
 
-    backgroundColor: theme.palette.primary.main,
+
     width: '2rem',
     height: '2rem',
     [theme.breakpoints.up('md')]: {
@@ -162,7 +152,7 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
     gap: theme.spacing(0.5),
     padding: '2rem 0.5rem 0.5rem 1rem',
     color: theme.palette.text.primary,
-    background: theme.palette.background.paper,
+
 
     '&.mob-title-wrapper': {
         display: 'flex',
@@ -248,9 +238,6 @@ const StyledLinks = styled(Link)
         justifyContent: 'center',
         gap: theme.spacing(1),
         ...theme.typography.body2,
-
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.primary.contrastText,
         [theme.breakpoints.up('md')]: {
             ...theme.typography.h6,
             gap: theme.spacing(1),
@@ -275,7 +262,6 @@ const StyledButton = styled(Button)
         display: 'flex',
         justifyContent: 'space-around',
         width: 'fit-content',
-        color: '#3399FF',
         textTransform: 'capitalize',
         ...theme.typography.subtitle1,
         gap: theme.spacing(0.5),
@@ -338,12 +324,7 @@ export default function BaseNavbarTemplate() {
                 Login
             </StyledButton>
 
-
-
-
             {/* SEARCH BAR */}
-
-
             <Box >
                 <Search>
                     <SearchIconWrapper>
@@ -355,7 +336,6 @@ export default function BaseNavbarTemplate() {
                     />
                 </Search>
             </Box>
-
             <StyledNavStack direction="row">
                 <NavBrightnessIcon />
                 <NavLanguageIcon />

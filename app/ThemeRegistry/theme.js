@@ -12,16 +12,6 @@ let theme = createTheme({
 
         mode: 'light',
 
-        primary: {
-            main: '#3152B6',
-        },
-        secondary: {
-            main: '#19857b',
-        },
-        error: {
-            main: red.A400,
-        },
-
     },
 });
 

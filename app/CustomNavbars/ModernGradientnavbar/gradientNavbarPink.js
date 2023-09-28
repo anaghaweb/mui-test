@@ -1,7 +1,5 @@
 'use client'
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import MenuIcon from '@mui/icons-material/Menu';
 import BrightnessLowIcon from '@mui/icons-material/BrightnessLow';
 import { IconButton, Typography, Stack, Box, Button, Divider, Container } from "@mui/material";
@@ -9,16 +7,15 @@ import PeopleIcon from '@mui/icons-material/People';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import InsertPhotoSharpIcon from '@mui/icons-material/InsertPhotoSharp';
 import { styled, alpha } from '@mui/material/styles';
-
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import Link from '@mui/material/Link';
 import AtlassianSVG from '@/app/Components/SVGs/atlassian';
-import StarSVG from '@/app/Components/SVGs/starSVG';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 
 
+//NAVROOT
 
 const NavRoot = styled('div')
     (({ theme }) => ({
@@ -30,10 +27,10 @@ const NavRoot = styled('div')
         justifyContent: 'space-between',
         gap: theme.spacing(3),
         padding: theme.spacing(3),
-
+        border: '0.05rem solid #FFF2CC',
         borderRadius: theme.shape.borderRadius,
         boxShadow: theme.shadows[2],
-        backgroundColor: '#D5E8D4',
+        background: 'linear-gradient(to right, #FFCCFF, #CCE5FF)',
         color: '#787878',
 
         [theme.breakpoints.down('md')]: {
@@ -50,16 +47,15 @@ const NavTitle = styled('div')
     (({ theme }) => ({
         fontSize: theme.typography.h3,
 
-        color: '#6A9153',
+        color: '#4D4D4D',
         [theme.breakpoints.down('md')]: {
-
+            paddingLeft: '2rem',
             gap: theme.spacing(1),
         },
+        [theme.breakpoints.down('sm')]: {
+            display: 'none',
+        },
 
-
-        '&.cart-btn': {
-
-        }
     }));
 
 //THEME BRIGHTNESS ICON TOGGLE
@@ -109,8 +105,6 @@ const NavLanguageIcon = styled(LanguageOutlinedIcon)(({ theme }) => ({
         gap: theme.spacing(1),
     },
 }))
-
-
 //NAVBAR INNER MENU STYLING
 const StyledNavStack = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -121,11 +115,29 @@ const StyledNavStack = styled('div')(({ theme }) => ({
 
     [theme.breakpoints.down('md')]: {
 
-        flexGrow: '2',
+        flexGrow: '1',
         jusitfyContent: 'flex-end',
         gap: theme.spacing(1),
 
     },
+}))
+
+//IMAGE ICON STYLING
+const NavImageIcon = styled(InsertPhotoSharpIcon)(({ theme }) => ({
+
+    color: '#6A9153',
+    width: '2rem',
+    height: '2rem',
+    [theme.breakpoints.up('md')]: {
+        gap: theme.spacing(1),
+        width: '4rem',
+        height: '4rem',
+    },
+    [theme.breakpoints.down('sm')]: {
+        gap: theme.spacing(1),
+        display: 'none',
+    },
+
 }))
 
 // MOBILE MENU
@@ -148,6 +160,9 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
 
 //MOBILE MENU OPEN / CLOSE STYLING
 const open = {
+
+    display: 'flex',
+    flexDirection: 'column',
     position: 'absolute',
     top: '100%',
     left: '0',
@@ -156,8 +171,8 @@ const open = {
     backgroundColor: '#ffffff',
     zIndex: '1',
     transition: 'left 0.5s ease',
-    display: 'flex',
     justifyContent: 'start',
+
 
 };
 const close = {
@@ -167,6 +182,52 @@ const close = {
     left: '-100%'
 };
 
+//SEARCH FIELD WRAPPER
+const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    display: 'flex',
+    flexGrow: 1,
+    borderRadius: theme.shape.borderRadius,
+    border: `${{ backgroundColor: '#fffff' } ? '0.1px solid #9e9e9e' : ''
+        }`,
+    backgroundColor: alpha(theme.palette.common.white, 0.9),
+    '&:hover': {
+        backgroundColor: alpha(theme.palette.common.black, 0.1),
+    },
+    marginLeft: 10,
+    width: '100%',
+
+    [theme.breakpoints.up('sm')]: {
+        width: 'auto',
+    },
+}));
+
+// SEARCH ICON WRAPPER
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+}));
+
+//TEXT FIELD WRAPPER
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    '& .MuiInputBase-input': {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('md')]: {
+            width: '50ch',
+        },
+    },
+}));
+
 const StyledLinks = styled(Link)
     (({ theme }) => ({
         display: 'flex',
@@ -174,9 +235,8 @@ const StyledLinks = styled(Link)
         justifyContent: 'center',
         gap: theme.spacing(1),
         ...theme.typography.body2,
+        color: '#6A9153',
 
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.primary.contrastText,
         [theme.breakpoints.up('md')]: {
             ...theme.typography.h6,
             gap: theme.spacing(1),
@@ -218,7 +278,8 @@ const StyledBox = styled(Box)
         ...theme.typography.subtitle1,
     }));
 
-export default function EcoboNavbarTemplate() {
+
+export default function ModernPinkTemplate() {
 
     const [menu, showMenu] = React.useState(false);
 
@@ -227,12 +288,12 @@ export default function EcoboNavbarTemplate() {
         <NavRoot >
             <StyledNavStack direction="row" >
                 <NavMenuIcon onClick={() => showMenu(!menu)} />
-
+                <NavImageIcon />
                 {/* MOBILE MENU  */}
                 <StyledMobileMenu sx={menu ? open : close}  >
                     <StyledBox >
                         <Typography variant="h5" component="div" sx={{ width: 'fit-content', padding: '0.5rem' }} >
-                            Ecobo
+                            Modern Pink
                         </Typography>
                         <Divider orientation="vertical" flexItem />
                         <StyledButton variant="text" onClick={() => showMenu(!menu)}>Close</StyledButton>
@@ -247,20 +308,38 @@ export default function EcoboNavbarTemplate() {
                     <Divider />
                 </StyledMobileMenu>
 
-
                 {/* TITLE */}
                 <NavTitle>
                     <Typography variant="h4" component="div" >
-                        Ecobo
+                        Modern Pink
                     </Typography>
                 </NavTitle>
             </StyledNavStack>
+
+
+            {/* SEARCH BAR */}
+
             <StyledNavStack direction="row">
+                <Box>
+                    <Search>
+                        <SearchIconWrapper>
+                            <SearchIcon />
+                        </SearchIconWrapper>
+                        <StyledInputBase
+                            placeholder="Search for Products…"
+                            inputProps={{ 'aria-label': 'search' }}
+                        />
+                    </Search>
+                </Box>
+
+
                 <NavBrightnessIcon />
                 <NavLanguageIcon />
                 <NavPeopleIcon />
             </StyledNavStack>
         </NavRoot >
-    </>
-}
 
+    </>
+
+
+}

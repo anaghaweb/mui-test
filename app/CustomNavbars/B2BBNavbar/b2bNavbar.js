@@ -14,7 +14,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import Link from '@mui/material/Link';
 import AtlassianSVG from '@/app/Components/SVGs/atlassian';
-import StarSVG from '@/app/Components/SVGs/starSVG';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 
@@ -30,11 +29,10 @@ const NavRoot = styled('div')
         justifyContent: 'space-between',
         gap: theme.spacing(3),
         padding: theme.spacing(3),
-
         borderRadius: theme.shape.borderRadius,
         boxShadow: theme.shadows[2],
-        backgroundColor: '#D5E8D4',
-        color: '#787878',
+        backgroundColor: '#DAE8FC',
+        color: '#3399FF',
 
         [theme.breakpoints.down('md')]: {
             justifyContent: 'space-evenly',
@@ -49,56 +47,57 @@ const NavRoot = styled('div')
 const NavTitle = styled('div')
     (({ theme }) => ({
         fontSize: theme.typography.h3,
-
-        color: '#6A9153',
+        color: '#3399FF',
         [theme.breakpoints.down('md')]: {
-
+            marginLeft: '2rem',
             gap: theme.spacing(1),
         },
 
-
-        '&.cart-btn': {
-
+        [theme.breakpoints.down('md')]: {
+            display: 'none',
         }
+
     }));
+
 
 //THEME BRIGHTNESS ICON TOGGLE
 const NavBrightnessIcon = styled(BrightnessLowIcon)(({ theme }) =>
 ({
-
     [theme.breakpoints.down('md')]: {
-
         gap: theme.spacing(1),
-
     },
-
+    color: '#787878',
 }));
 
 //PROFILE ICON STYLING
-const NavPeopleIcon = styled(PeopleIcon, {
-    name: 'MuiBasicNav',
-    slot: 'icon_2',
-})
+const NavPeopleIcon = styled(PeopleIcon)
     (({ theme }) => ({
-
         [theme.breakpoints.down('md')]: {
-
             gap: theme.spacing(1),
-
         },
-
+        color: '#787878',
     }));
 
 // HAMBURGER ICON STYLING
 const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
 ({
-    [theme.breakpoints.up('md')]: {
-        display: 'none',
-    },
-    position: 'absolute',
 
+    position: 'absolute',
     color: '#000000',
     left: '0.15rem',
+
+
+    [theme.breakpoints.up('md')]: {
+        display: 'none',
+        height: '2rem',
+        width: '2rem',
+    },
+
+    [theme.breakpoints.down('sm')]: {
+
+        height: '1.5rem',
+        width: '1.5rem',
+    },
 
 
 }))
@@ -108,8 +107,8 @@ const NavLanguageIcon = styled(LanguageOutlinedIcon)(({ theme }) => ({
     [theme.breakpoints.down('md')]: {
         gap: theme.spacing(1),
     },
+    color: '#787878',
 }))
-
 
 //NAVBAR INNER MENU STYLING
 const StyledNavStack = styled('div')(({ theme }) => ({
@@ -118,14 +117,25 @@ const StyledNavStack = styled('div')(({ theme }) => ({
     alignItems: 'center',
     gap: theme.spacing(3),
     position: 'relative',
-
     [theme.breakpoints.down('md')]: {
-
         flexGrow: '2',
         jusitfyContent: 'flex-end',
         gap: theme.spacing(1),
-
     },
+}))
+
+//IMAGE ICON STYLING
+const NavImageIcon = styled(InsertPhotoSharpIcon)(({ theme }) => ({
+    [theme.breakpoints.up('md')]: {
+        gap: theme.spacing(1),
+        width: '3rem',
+        height: '3rem',
+        marginRight: 10,
+    },
+    [theme.breakpoints.down('md')]: {
+        display: 'none',
+    },
+
 }))
 
 // MOBILE MENU
@@ -135,7 +145,7 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
     gap: theme.spacing(0.5),
     padding: '2rem 0.5rem 0.5rem 1rem',
     color: theme.palette.text.primary,
-    background: theme.palette.background.paper,
+
 
     '&.mob-title-wrapper': {
         display: 'flex',
@@ -167,6 +177,7 @@ const close = {
     left: '-100%'
 };
 
+
 const StyledLinks = styled(Link)
     (({ theme }) => ({
         display: 'flex',
@@ -175,16 +186,16 @@ const StyledLinks = styled(Link)
         gap: theme.spacing(1),
         ...theme.typography.body2,
 
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.primary.contrastText,
         [theme.breakpoints.up('md')]: {
             ...theme.typography.h6,
             gap: theme.spacing(1),
         },
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.between('md', 'lg')]: {
 
+            ...theme.typography.subtitle2,
             gap: theme.spacing(1),
         },
+
         [theme.breakpoints.down('sm')]: {
             display: 'none',
 
@@ -196,15 +207,46 @@ const StyledLinks = styled(Link)
 
     }));
 
-const StyledButton = styled(Button)
+const StyledButton = styled('button')
     (({ theme }) => ({
         display: 'flex',
-        justifyContent: 'space-around',
-        width: 'fit-content',
-        color: '#3399FF',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '6rem',
+        height: '2rem',
+        minWidth: 'fit-content',
         textTransform: 'capitalize',
+        backgroundColor: '#ffffff',
+        borderRadius: '0.2rem',
+        border: 'none',
         ...theme.typography.subtitle1,
         gap: theme.spacing(0.5),
+        color: '#3399FF',
+
+        '.hover': {
+            cursor: 'pointer',
+            backgroundColor: '#797979',
+        },
+
+        '&.stl-btn': {
+            [theme.breakpoints.down('md')]:
+            {
+                fontSize: '1rem',
+                backgroundColor: 'transparent',
+                width: 'fit-content',
+            },
+        },
+
+        '.cart-btn': {
+            [theme.breakpoints.down('sm')]:
+            {
+                display: 'none',
+
+            }
+        },
+
+
+
     }));
 
 const StyledBox = styled(Box)
@@ -218,7 +260,7 @@ const StyledBox = styled(Box)
         ...theme.typography.subtitle1,
     }));
 
-export default function EcoboNavbarTemplate() {
+export default function B2BTemplate() {
 
     const [menu, showMenu] = React.useState(false);
 
@@ -227,15 +269,15 @@ export default function EcoboNavbarTemplate() {
         <NavRoot >
             <StyledNavStack direction="row" >
                 <NavMenuIcon onClick={() => showMenu(!menu)} />
-
+                <NavImageIcon />
                 {/* MOBILE MENU  */}
                 <StyledMobileMenu sx={menu ? open : close}  >
                     <StyledBox >
                         <Typography variant="h5" component="div" sx={{ width: 'fit-content', padding: '0.5rem' }} >
-                            Ecobo
+                            B2B
                         </Typography>
                         <Divider orientation="vertical" flexItem />
-                        <StyledButton variant="text" onClick={() => showMenu(!menu)}>Close</StyledButton>
+                        <Button variant="outlined" onClick={() => showMenu(!menu)}>Close</Button>
                     </StyledBox>
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Products</Box>
                     <Divider />
@@ -245,22 +287,62 @@ export default function EcoboNavbarTemplate() {
                     <Divider />
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Logout</Box>
                     <Divider />
+                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Logout</Box>
                 </StyledMobileMenu>
-
 
                 {/* TITLE */}
                 <NavTitle>
                     <Typography variant="h4" component="div" >
-                        Ecobo
+                        B2B
                     </Typography>
                 </NavTitle>
             </StyledNavStack>
+
+            {/* LINKS */}
+            <StyledLinks href="#" >
+                Products
+            </StyledLinks >
+            <StyledLinks href="#" >
+                About Us
+            </StyledLinks >
+
+            <StyledNavStack>
+                <StyledLinks href="#" sx={{ height: "2rem", width: "2rem", justifyContent: 'center' }}>
+                    <AtlassianSVG />
+                </StyledLinks >
+                <StyledLinks href="#" >
+                    For Businesses
+                </StyledLinks >
+            </StyledNavStack>
+
             <StyledNavStack direction="row">
+                <StyledButton className="stl-btn">
+                    <ShoppingCartRoundedIcon />
+                    <div className="cart-btn" >Cart</div>
+                </StyledButton>
+                <StyledButton className="stl-btn">
+                    <LoginOutlinedIcon />
+                    <div className="cart-btn">Login</div>
+                </StyledButton>
                 <NavBrightnessIcon />
                 <NavLanguageIcon />
                 <NavPeopleIcon />
             </StyledNavStack>
         </NavRoot >
+
     </>
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 

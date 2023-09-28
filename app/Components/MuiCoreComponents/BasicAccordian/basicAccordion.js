@@ -11,20 +11,17 @@ export default function SimpleBottomNavigation() {
     const [value, setValue] = React.useState(0);
 
     return (
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: 500 }}>
             <BottomNavigation
-                color="#002884"
+                showLabels
                 value={value}
                 onChange={(event, newValue) => {
                     setValue(newValue);
                 }}
             >
-                <BottomNavigationAction label="Recents" sx={{}} icon={<RestoreIcon
-                    sx={{ maxWidth: '100px', color: "#002884" }} />} />
-                <BottomNavigationAction label="Favorites" sx={{ color: "#002884" }} color="default" icon={<FavoriteIcon
-                    sx={{ maxWidth: '100px' }} />} />
-                <BottomNavigationAction label="Nearby" sx={{ color: "#002884" }} color="default" icon={<LocationOnIcon
-                    sx={{ maxWidth: '100px' }} />} />
+                <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+                <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+                <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
             </BottomNavigation>
         </Box>
     );

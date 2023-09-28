@@ -55,7 +55,7 @@ const Stat = React.forwardRef(function Stat(inProps, ref) {
 Stat.propTypes = {
     unit: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-    variant: PropTypes.oneOf(['outlined']),
+    variant: PropTypes.oneOf(['outlined', '']),
 };
 
 export default function StatFullTemplate({ unit, value, variant }) {

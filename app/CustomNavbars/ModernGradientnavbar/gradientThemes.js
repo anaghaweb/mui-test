@@ -2,8 +2,7 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import theme from '@/app/ThemeRegistry/theme';
 
-
-let baseNavbarTheme = createTheme(theme, {
+let gradientThemePink = createTheme(theme, {
 
     breakpoints: {
         values: {
@@ -20,6 +19,6 @@ let baseNavbarTheme = createTheme(theme, {
     },
 });
 
-baseNavbarTheme = responsiveFontSizes(baseNavbarTheme, 2)
+gradientThemePink = responsiveFontSizes(gradientThemePink, 3)
 
-export default baseNavbarTheme;
+export default gradientThemePink;

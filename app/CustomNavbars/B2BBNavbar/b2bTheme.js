@@ -3,7 +3,7 @@ import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import theme from '@/app/ThemeRegistry/theme';
 
 
-let baseNavbarTheme = createTheme(theme, {
+let b2bTheme = createTheme(theme, {
 
     breakpoints: {
         values: {
@@ -20,6 +20,6 @@ let baseNavbarTheme = createTheme(theme, {
     },
 });
 
-baseNavbarTheme = responsiveFontSizes(baseNavbarTheme, 2)
+b2bTheme = responsiveFontSizes(b2bTheme, 2)
 
-export default baseNavbarTheme;
+export default b2bTheme;
