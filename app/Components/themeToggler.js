@@ -7,9 +7,9 @@ let lTheme = createTheme({
     breakpoints: {
         values: {
             xs: 0,
-            sm: 522,
-            md: 767,
-            lg: 1023,
+            sm: 600,
+            md: 900,
+            lg: 1200,
             xl: 1536,
         }
     },
@@ -29,9 +29,9 @@ let dTheme = createTheme({
     breakpoints: {
         values: {
             xs: 0,
-            sm: 522,
-            md: 767,
-            lg: 1023,
+            sm: 600,
+            md: 900,
+            lg: 1200,
             xl: 1536,
         }
     },

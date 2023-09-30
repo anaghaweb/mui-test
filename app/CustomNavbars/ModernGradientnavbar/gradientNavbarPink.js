@@ -23,10 +23,10 @@ const NavRoot = styled('div')
         display: 'flex',
         width: '100%',
         height: '5rem',
+        padding: theme.spacing(2),
         alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: theme.spacing(3),
-        padding: theme.spacing(3),
+        justifyContent: 'space-around',
+        gap: theme.spacing(2),
         border: '0.05rem solid #FFF2CC',
         borderRadius: theme.shape.borderRadius,
         boxShadow: theme.shadows[2],
@@ -35,8 +35,9 @@ const NavRoot = styled('div')
 
         [theme.breakpoints.down('md')]: {
             justifyContent: 'space-evenly',
-            padding: theme.spacing(1),
-            height: '3rem'
+            marginLeft: '0.5rem',
+            height: '4rem',
+            fontSize: '1rem',
         },
 
     }));
@@ -45,17 +46,14 @@ const NavRoot = styled('div')
 //NAVBAR TITLE 
 const NavTitle = styled('div')
     (({ theme }) => ({
-        fontSize: theme.typography.h3,
 
         color: '#4D4D4D',
+        [theme.breakpoints.up('md')]: {
+            ...theme.typography.h4,
+        },
         [theme.breakpoints.down('md')]: {
-            paddingLeft: '2rem',
-            gap: theme.spacing(1),
+            display: 'none'
         },
-        [theme.breakpoints.down('sm')]: {
-            display: 'none',
-        },
-
     }));
 
 //THEME BRIGHTNESS ICON TOGGLE
@@ -66,6 +64,11 @@ const NavBrightnessIcon = styled(BrightnessLowIcon)(({ theme }) =>
 
         gap: theme.spacing(1),
 
+    },
+    '&:hover': {
+        cursor: 'pointer',
+        backgroundColor: '#e5e5e5',
+        borderRadius: '50%',
     },
 
 }));
@@ -82,6 +85,11 @@ const NavPeopleIcon = styled(PeopleIcon, {
             gap: theme.spacing(1),
 
         },
+        '&:hover': {
+            cursor: 'pointer',
+            backgroundColor: '#e5e5e5',
+            borderRadius: '50%',
+        },
 
     }));
 
@@ -96,6 +104,11 @@ const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
     color: '#000000',
     left: '0.15rem',
 
+    '&:hover': {
+        cursor: 'pointer',
+        backgroundColor: '#e5e5e5',
+        borderRadius: '50%',
+    },
 
 }))
 
@@ -103,6 +116,11 @@ const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
 const NavLanguageIcon = styled(LanguageOutlinedIcon)(({ theme }) => ({
     [theme.breakpoints.down('md')]: {
         gap: theme.spacing(1),
+    },
+    '&:hover': {
+        cursor: 'pointer',
+        backgroundColor: '#e5e5e5',
+        borderRadius: '50%',
     },
 }))
 //NAVBAR INNER MENU STYLING
@@ -183,24 +201,25 @@ const close = {
 };
 
 //SEARCH FIELD WRAPPER
-const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
-    display: 'flex',
-    flexGrow: 1,
-    borderRadius: theme.shape.borderRadius,
-    border: `${{ backgroundColor: '#fffff' } ? '0.1px solid #9e9e9e' : ''
-        }`,
-    backgroundColor: alpha(theme.palette.common.white, 0.9),
-    '&:hover': {
-        backgroundColor: alpha(theme.palette.common.black, 0.1),
-    },
-    marginLeft: 10,
-    width: '100%',
+const Search = styled('div')
+    (({ theme }) => ({
+        position: 'relative',
+        display: 'flex',
+        flexGrow: 1,
+        borderRadius: theme.shape.borderRadius,
+        border: `${{ backgroundColor: '#fffff' } ? '0.1px solid #9e9e9e' : ''
+            }`,
+        backgroundColor: alpha(theme.palette.common.white, 0.9),
+        '&:hover': {
+            backgroundColor: alpha(theme.palette.common.black, 0.1),
+        },
+        marginLeft: 10,
+        width: '100%',
 
-    [theme.breakpoints.up('sm')]: {
-        width: 'auto',
-    },
-}));
+        [theme.breakpoints.up('sm')]: {
+            width: 'auto',
+        },
+    }));
 
 // SEARCH ICON WRAPPER
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -287,7 +306,7 @@ export default function ModernPinkTemplate() {
 
         <NavRoot >
             <StyledNavStack direction="row" >
-                <NavMenuIcon onClick={() => showMenu(!menu)} />
+                <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
                 <NavImageIcon />
                 {/* MOBILE MENU  */}
                 <StyledMobileMenu sx={menu ? open : close}  >

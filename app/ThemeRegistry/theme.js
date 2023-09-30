@@ -1,10 +1,6 @@
 'use client'
 
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
-
-
-
 
 let theme = createTheme({
 

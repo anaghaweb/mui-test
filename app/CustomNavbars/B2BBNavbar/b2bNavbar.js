@@ -48,6 +48,12 @@ const NavTitle = styled('div')
     (({ theme }) => ({
         fontSize: theme.typography.h3,
         color: '#3399FF',
+
+        '&:hover': {
+            cursor: 'pointer',
+            backgroundColor: '#e5e5e5',
+            borderRadius: '50%',
+        },
         [theme.breakpoints.down('md')]: {
             marginLeft: '2rem',
             gap: theme.spacing(1),
@@ -55,7 +61,9 @@ const NavTitle = styled('div')
 
         [theme.breakpoints.down('md')]: {
             display: 'none',
-        }
+        },
+
+
 
     }));
 
@@ -67,11 +75,24 @@ const NavBrightnessIcon = styled(BrightnessLowIcon)(({ theme }) =>
         gap: theme.spacing(1),
     },
     color: '#787878',
+    '&:hover': {
+        cursor: 'pointer',
+        backgroundColor: '#e5e5e5',
+        borderRadius: '50%',
+    },
 }));
 
 //PROFILE ICON STYLING
 const NavPeopleIcon = styled(PeopleIcon)
     (({ theme }) => ({
+
+
+        '&:hover': {
+            cursor: 'pointer',
+            backgroundColor: '#e5e5e5',
+            borderRadius: '50%',
+        },
+
         [theme.breakpoints.down('md')]: {
             gap: theme.spacing(1),
         },
@@ -98,7 +119,11 @@ const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
         height: '1.5rem',
         width: '1.5rem',
     },
-
+    '&:hover': {
+        cursor: 'pointer',
+        backgroundColor: '#e5e5e5',
+        borderRadius: '50%',
+    },
 
 }))
 
@@ -108,6 +133,12 @@ const NavLanguageIcon = styled(LanguageOutlinedIcon)(({ theme }) => ({
         gap: theme.spacing(1),
     },
     color: '#787878',
+
+    '&:hover': {
+        cursor: 'pointer',
+        backgroundColor: '#e5e5e5',
+        borderRadius: '50%',
+    },
 }))
 
 //NAVBAR INNER MENU STYLING
@@ -223,9 +254,9 @@ const StyledButton = styled('button')
         gap: theme.spacing(0.5),
         color: '#3399FF',
 
-        '.hover': {
+        '&:hover': {
             cursor: 'pointer',
-            backgroundColor: '#797979',
+            backgroundColor: '#f2f2f2',
         },
 
         '&.stl-btn': {
@@ -268,7 +299,7 @@ export default function B2BTemplate() {
 
         <NavRoot >
             <StyledNavStack direction="row" >
-                <NavMenuIcon onClick={() => showMenu(!menu)} />
+                <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
                 <NavImageIcon />
                 {/* MOBILE MENU  */}
                 <StyledMobileMenu sx={menu ? open : close}  >

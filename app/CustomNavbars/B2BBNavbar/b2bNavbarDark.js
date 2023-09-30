@@ -53,7 +53,8 @@ const NavTitle = styled('div')
 
         [theme.breakpoints.down('md')]: {
             display: 'none',
-        }
+        },
+
 
     }));
 
@@ -65,6 +66,11 @@ const NavBrightnessIcon = styled(BrightnessLowIcon)(({ theme }) =>
         gap: theme.spacing(1),
     },
     color: '#fafafa',
+    '&:hover': {
+        cursor: 'pointer',
+        backgroundColor: '#69a5e0',
+        borderRadius: '50%',
+    },
 }));
 
 //PROFILE ICON STYLING
@@ -74,6 +80,11 @@ const NavPeopleIcon = styled(PeopleIcon)
             gap: theme.spacing(1),
         },
         color: '#fafafa',
+        '&:hover': {
+            cursor: 'pointer',
+            backgroundColor: '#69a5e0',
+            borderRadius: '50%',
+        },
     }));
 
 // HAMBURGER ICON STYLING
@@ -96,6 +107,11 @@ const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
         height: '1.5rem',
         width: '1.5rem',
     },
+    '&:hover': {
+        cursor: 'pointer',
+        backgroundColor: '#69a5e0',
+        borderRadius: '50%',
+    },
 
 
 }))
@@ -106,6 +122,11 @@ const NavLanguageIcon = styled(LanguageOutlinedIcon)(({ theme }) => ({
         gap: theme.spacing(1),
     },
     color: '#fafafa',
+    '&:hover': {
+        cursor: 'pointer',
+        backgroundColor: '#69a5e0',
+        borderRadius: '50%',
+    },
 }))
 
 //NAVBAR INNER MENU STYLING
@@ -134,6 +155,7 @@ const NavImageIcon = styled(InsertPhotoSharpIcon)(({ theme }) => ({
     [theme.breakpoints.down('md')]: {
         display: 'none',
     },
+
 
 }))
 
@@ -269,7 +291,7 @@ export default function B2BDarkTemplate() {
 
         <NavRoot >
             <StyledNavStack direction="row" >
-                <NavMenuIcon onClick={() => showMenu(!menu)} />
+                <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
                 <NavImageIcon />
                 {/* MOBILE MENU  */}
                 <StyledMobileMenu sx={menu ? open : close}  >

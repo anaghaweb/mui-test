@@ -53,6 +53,11 @@ const NavBrightnessIcon = styled(BrightnessLowIcon)(({ theme }) =>
         gap: theme.spacing(1),
 
     },
+    '&:hover': {
+        cursor: 'pointer',
+        backgroundColor: '#e5e5e5',
+        borderRadius: '50%',
+    },
 
 }));
 
@@ -68,6 +73,11 @@ const NavPeopleIcon = styled(PeopleIcon, {
             gap: theme.spacing(1),
 
         },
+        '&:hover': {
+            cursor: 'pointer',
+            backgroundColor: '#e5e5e5',
+            borderRadius: '50%',
+        },
 
     }));
 
@@ -81,7 +91,11 @@ const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
 
     color: '#000000',
     left: '0.15rem',
-
+    '&:hover': {
+        cursor: 'pointer',
+        backgroundColor: '#e5e5e5',
+        borderRadius: '50%',
+    },
 
 }))
 
@@ -89,6 +103,11 @@ const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
 const NavLanguageIcon = styled(LanguageOutlinedIcon)(({ theme }) => ({
     [theme.breakpoints.down('md')]: {
         gap: theme.spacing(1),
+    },
+    '&:hover': {
+        cursor: 'pointer',
+        backgroundColor: '#e5e5e5',
+        borderRadius: '50%',
     },
 }))
 
@@ -260,7 +279,7 @@ export default function BaseNavbarTemplate() {
 
         <NavRoot >
             <StyledNavStack direction="row" >
-                <NavMenuIcon onClick={() => showMenu(!menu)} />
+                <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
 
                 {/* MOBILE MENU  */}
                 <StyledMobileMenu sx={menu ? open : close}  >

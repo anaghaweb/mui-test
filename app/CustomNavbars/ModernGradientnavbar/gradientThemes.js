@@ -7,8 +7,8 @@ let gradientThemePink = createTheme(theme, {
     breakpoints: {
         values: {
             xs: 0,
-            sm: 522,
-            md: 767,
+            sm: 600,
+            md: 800,
             lg: 1023,
             xl: 1536,
         }

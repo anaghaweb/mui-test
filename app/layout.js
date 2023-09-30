@@ -1,9 +1,6 @@
 import './globals.css'
 import Navbar from './Components/navbar'
 import ThemeRegistry from './ThemeRegistry/ThemeRegistry'
-import { ThemeProvider } from '@emotion/react'
-import Providers from './providers'
-import BaseNavbar from './CustomNavbars/baseNavbar/baseNavbar'
 
 export const metadata = {
   title: 'Create Next App',
