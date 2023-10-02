@@ -46,7 +46,7 @@ const NavRoot = styled('div')
 const NavTitle = styled('div')
     (({ theme }) => ({
         fontSize: theme.typography.h3,
-
+        minWidth: 'fit-content',
         color: '#4D4D4D',
         [theme.breakpoints.down('md')]: {
             paddingLeft: '2rem',
@@ -318,7 +318,7 @@ export default function ModernPurpleTemplate() {
 
     return <>
 
-        <NavRoot >
+        <NavRoot className="modernPurple">
             <StyledNavStack direction="row" >
                 <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
                 <NavImageIcon />
@@ -332,13 +332,11 @@ export default function ModernPurpleTemplate() {
                         <StyledButton variant="text" onClick={() => showMenu(!menu)}>Close</StyledButton>
                     </StyledBox>
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Products</Box>
-                    <Divider />
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Services</Box>
-                    <Divider />
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Profile</Box>
-                    <Divider />
+                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>About Us</Box>
+                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>For Businesses</Box>
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Logout</Box>
-                    <Divider />
                 </StyledMobileMenu>
 
                 {/* TITLE */}

@@ -277,7 +277,7 @@ export default function BaseNavbarTemplate() {
 
     return <>
 
-        <NavRoot >
+        <NavRoot className="base">
             <StyledNavStack direction="row" >
                 <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
 
@@ -291,13 +291,11 @@ export default function BaseNavbarTemplate() {
                         <StyledButton variant="text" onClick={() => showMenu(!menu)}>Close</StyledButton>
                     </StyledBox>
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Products</Box>
-                    <Divider />
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Services</Box>
-                    <Divider />
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Profile</Box>
-                    <Divider />
+                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>About Us</Box>
+                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>For Businesses</Box>
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Logout</Box>
-                    <Divider />
                 </StyledMobileMenu>
 
 

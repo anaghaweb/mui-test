@@ -15,7 +15,7 @@ let gradientThemePink = createTheme(theme, {
     },
 
     palette: {
-        spacing: 2,
+        spacing: 1,
     },
 });
 

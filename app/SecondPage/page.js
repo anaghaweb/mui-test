@@ -5,9 +5,10 @@ import theme from '../ThemeRegistry/theme';
 import { StyledPaper } from '../Components/styledboxes';
 import { Divider } from '@mui/material';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
-import BaseNavbar from '../CustomNavbars/baseNavbar/baseNavbar';
+import B2BTemplate from '../CustomNavbars/B2BBNavbar/b2bNavbar';
 import SimpleBottomNavigation from '../Components/MuiCoreComponents/BasicAccordian/basicAccordion';
-
+import SearchAppBar from '../Components/MuiCoreComponents/AppBarSearchField/searchAppBar';
+import ResponsiveAppBar from '../Components/MuiCoreComponents/ResponsiveNavBar/responsiveNavBar';
 
 const SecondPage = () => {
 
@@ -16,18 +17,12 @@ const SecondPage = () => {
     return <Paper sx={{ height: 'auto', padding: '4' }}>
         <StyledPaper>
             <ThemeProvider theme={baseNavbarTheme}>
-                <BaseNavbar />
-                <SimpleBottomNavigation />
+                <B2BTemplate />
+
             </ThemeProvider>
-            <Divider />
+
         </StyledPaper>
-        <StyledPaper>
-            <ThemeProvider theme={theme}>
-                <BaseNavbar />
-                <SimpleBottomNavigation />
-            </ThemeProvider>
-            <Divider />
-        </StyledPaper>
+
 
     </Paper>
 

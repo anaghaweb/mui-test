@@ -129,6 +129,8 @@ const NavLanguageIcon = styled(LanguageOutlinedIcon)(({ theme }) => ({
     },
 }))
 
+
+
 //NAVBAR INNER MENU STYLING
 const StyledNavStack = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -207,7 +209,10 @@ const StyledLinks = styled(Link)
         gap: theme.spacing(1),
         color: theme.palette.primary.contrastText,
         ...theme.typography.body2,
-
+        textDecoration: 'none',
+        '&:visited': {
+            color: 'inherit',
+        },
         [theme.breakpoints.up('md')]: {
             ...theme.typography.h6,
             gap: theme.spacing(1),
@@ -215,7 +220,7 @@ const StyledLinks = styled(Link)
         [theme.breakpoints.between('md', 'lg')]: {
 
             ...theme.typography.subtitle2,
-            gap: theme.spacing(1),
+
         },
 
         [theme.breakpoints.down('sm')]: {
@@ -289,7 +294,7 @@ export default function B2BDarkTemplate() {
 
     return <>
 
-        <NavRoot >
+        <NavRoot className="b2bDark" >
             <StyledNavStack direction="row" >
                 <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
                 <NavImageIcon />
@@ -303,14 +308,12 @@ export default function B2BDarkTemplate() {
                         <Button variant="outlined" onClick={() => showMenu(!menu)}>Close</Button>
                     </StyledBox>
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Products</Box>
-                    <Divider />
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Services</Box>
-                    <Divider />
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Profile</Box>
-                    <Divider />
+                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>About Us</Box>
+                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>For Businesses</Box>
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Logout</Box>
-                    <Divider />
-                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Logout</Box>
+
                 </StyledMobileMenu>
 
                 {/* TITLE */}
@@ -322,10 +325,10 @@ export default function B2BDarkTemplate() {
             </StyledNavStack>
 
             {/* LINKS */}
-            <StyledLinks href="#" >
+            <StyledLinks href="#" onClick={(e) => { e.preventDefault(); }} >
                 Products
             </StyledLinks >
-            <StyledLinks href="#" >
+            <StyledLinks href="#" onClick={(e) => { e.preventDefault(); }} >
                 About Us
             </StyledLinks >
 
@@ -333,7 +336,7 @@ export default function B2BDarkTemplate() {
                 <StyledLinks href="#" sx={{ height: "2rem", width: "2rem", justifyContent: 'center' }}>
                     <AtlassianSVGLight />
                 </StyledLinks >
-                <StyledLinks href="#" >
+                <StyledLinks href="#" onClick={(e) => { e.preventDefault(); }}>
                     For Businesses
                 </StyledLinks >
             </StyledNavStack>

@@ -18,11 +18,16 @@ export const themeContext = React.createContext();
 export default function Navbar() {
 
   const [mode, setMode] = React.useState(lightTheme);
+  const [anchor, setAnchor] = React.useState(null);
+
+
+
 
   function handlechange (){
         setMode(prev => prev === lightTheme ? darkTheme : lightTheme )
   }
   
+
     return (
       
       <ThemeProvider theme={mode}>
@@ -34,12 +39,11 @@ export default function Navbar() {
           <Box sx={{ position: 'relative', width: '100px', height: '100px' }}>
                    
             <Image src="https://res.cloudinary.com/dixkqgqsi/image/upload/v1695237732/wolfgang-hasselmann-cS8Hc3n3bdM-unsplash_ukbqm7.jpg" alt="placeholder" fill style={{ objectFit: 'contain' }}></Image></Box>
-            <IconButton size='large' color='inherit' sx={{display:{xs: 'block', md:'none'}}}>
-              <MenuIcon  className="mobile-menu"/> 
-          </IconButton>
+            <IconButton size='large' color='inherit' sx={{display:{xs: 'block', md:'none'}}} >
+                <MenuIcon className="mobile-menu"  />                 
+              </IconButton>
           </Box>
-        
-          <Box>
+                  <Box>
                 <Switch defaultChecked={false} onChange={() => handlechange()} name='dark' color='default' />
 
                 <Button variant="outlined" color="primary"

@@ -2,17 +2,15 @@
 import * as React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import BrightnessLowIcon from '@mui/icons-material/BrightnessLow';
-import { IconButton, Typography, Stack, Box, Button, Divider, Container } from "@mui/material";
+import { IconButton, Typography, Box, Button, Divider } from "@mui/material";
 import PeopleIcon from '@mui/icons-material/People';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import InsertPhotoSharpIcon from '@mui/icons-material/InsertPhotoSharp';
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-import Link from '@mui/material/Link';
-import AtlassianSVG from '@/app/Components/SVGs/atlassian';
-import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
-import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
+import Link from 'next/link';
+
 
 
 //NAVROOT
@@ -25,7 +23,7 @@ const NavRoot = styled('div')
         height: '5rem',
         padding: theme.spacing(2),
         alignItems: 'center',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         gap: theme.spacing(2),
         border: '0.05rem solid #FFF2CC',
         borderRadius: theme.shape.borderRadius,
@@ -50,6 +48,7 @@ const NavTitle = styled('div')
         color: '#4D4D4D',
         [theme.breakpoints.up('md')]: {
             ...theme.typography.h4,
+            minWidth: 'fit-content',
         },
         [theme.breakpoints.down('md')]: {
             display: 'none'
@@ -81,16 +80,13 @@ const NavPeopleIcon = styled(PeopleIcon, {
     (({ theme }) => ({
 
         [theme.breakpoints.down('md')]: {
-
             gap: theme.spacing(1),
-
         },
         '&:hover': {
             cursor: 'pointer',
             backgroundColor: '#e5e5e5',
             borderRadius: '50%',
         },
-
     }));
 
 // HAMBURGER ICON STYLING
@@ -123,6 +119,7 @@ const NavLanguageIcon = styled(LanguageOutlinedIcon)(({ theme }) => ({
         borderRadius: '50%',
     },
 }))
+
 //NAVBAR INNER MENU STYLING
 const StyledNavStack = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -130,9 +127,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
     alignItems: 'center',
     gap: theme.spacing(3),
     position: 'relative',
-
     [theme.breakpoints.down('md')]: {
-
         flexGrow: '1',
         jusitfyContent: 'flex-end',
         gap: theme.spacing(1),
@@ -226,10 +221,13 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
     height: '100%',
     position: 'absolute',
-    pointerEvents: 'none',
+    pointerEvents: 'auto',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    '&:hover': {
+        cursor: 'pointer',
+    }
 }));
 
 //TEXT FIELD WRAPPER
@@ -246,34 +244,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         },
     },
 }));
-
-const StyledLinks = styled(Link)
-    (({ theme }) => ({
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: theme.spacing(1),
-        ...theme.typography.body2,
-        color: '#6A9153',
-
-        [theme.breakpoints.up('md')]: {
-            ...theme.typography.h6,
-            gap: theme.spacing(1),
-        },
-        [theme.breakpoints.down('md')]: {
-
-            gap: theme.spacing(1),
-        },
-        [theme.breakpoints.down('sm')]: {
-            display: 'none',
-
-        },
-        '.hover': {
-            textDecoration: 'underline',
-            cursor: 'pointer',
-        },
-
-    }));
 
 const StyledButton = styled(Button)
     (({ theme }) => ({
@@ -304,7 +274,7 @@ export default function ModernPinkTemplate() {
 
     return <>
 
-        <NavRoot >
+        <NavRoot className="modernPink" >
             <StyledNavStack direction="row" >
                 <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
                 <NavImageIcon />
@@ -312,25 +282,27 @@ export default function ModernPinkTemplate() {
                 <StyledMobileMenu sx={menu ? open : close}  >
                     <StyledBox >
                         <Typography variant="h5" component="div" sx={{ width: 'fit-content', padding: '0.5rem' }} >
-                            Modern Pink
+                            <Link href="#">Modern</Link>
+
                         </Typography>
                         <Divider orientation="vertical" flexItem />
-                        <StyledButton variant="text" onClick={() => showMenu(!menu)}>Close</StyledButton>
+                        <StyledButton variant="text" onClick={() => showMenu(!menu)}>
+                            <Link href="#">Close</Link>
+                        </StyledButton>
                     </StyledBox>
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Products</Box>
-                    <Divider />
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Services</Box>
-                    <Divider />
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Profile</Box>
-                    <Divider />
+                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>About Us</Box>
+                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>For Businesses</Box>
                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Logout</Box>
-                    <Divider />
                 </StyledMobileMenu>
 
                 {/* TITLE */}
                 <NavTitle>
                     <Typography variant="h4" component="div" >
-                        Modern Pink
+                        <Link href="#">Modern</Link>
+
                     </Typography>
                 </NavTitle>
             </StyledNavStack>
@@ -342,15 +314,22 @@ export default function ModernPinkTemplate() {
                 <Box>
                     <Search>
                         <SearchIconWrapper>
-                            <SearchIcon />
+                            <SearchIcon
+                            />
                         </SearchIconWrapper>
                         <StyledInputBase
-                            placeholder="Search for Products…"
-                            inputProps={{ 'aria-label': 'search' }}
+                            placeholder="Search for Products..."
+                            type="search"
+                            id="pink-searchfield"
+                            data-testid="search-pink"
+                            inputProps={{
+                                'aria-label': 'search',
+                            }}
                         />
                     </Search>
                 </Box>
 
+                {/*SETTINGS ICONS  */}
 
                 <NavBrightnessIcon />
                 <NavLanguageIcon />

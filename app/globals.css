@@ -1,6 +1,10 @@
-* {
+*  {
     text-decoration: none;
     box-sizing: border-box;
     
+}
+
+*:visited{
+    color:inherit;
 }
 
