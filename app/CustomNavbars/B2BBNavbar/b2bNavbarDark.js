@@ -45,6 +45,7 @@ const NavTitle = styled('div')
         ...theme.typography.h3,
         verticalAlign: 'center',
         color: 'inherit',
+        marginLeft: '0.5rem',
         '&:hover': {
             cursor: 'pointer',
         },
@@ -53,8 +54,10 @@ const NavTitle = styled('div')
             gap: theme.spacing(1),
         },
         [theme.breakpoints.down('sm')]: {
-            display: 'none'
+            ...theme.typography.body2,
+            marginLeft: '0.5rem',
         },
+
     }));
 //THEME BRIGHTNESS ICON TOGGLE
 const NavBrightnessIcon = styled(BrightnessLowIcon)(({ theme }) =>

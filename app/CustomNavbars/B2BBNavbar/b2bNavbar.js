@@ -44,6 +44,7 @@ const NavTitle = styled('div')
         alignItems: 'center',
         ...theme.typography.h3,
         color: 'inherit',
+        marginLeft: '1rem',
         '&:hover': {
             cursor: 'pointer',
         },
@@ -52,7 +53,8 @@ const NavTitle = styled('div')
             gap: theme.spacing(1),
         },
         [theme.breakpoints.down('sm')]: {
-            display: 'none'
+            ...theme.typography.body2,
+            marginLeft: '0.5rem',
         },
     }));
 

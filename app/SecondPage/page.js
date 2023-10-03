@@ -9,6 +9,7 @@ import B2BTemplate from '../CustomNavbars/B2BBNavbar/b2bNavbar';
 import SimpleBottomNavigation from '../Components/MuiCoreComponents/BasicAccordian/basicAccordion';
 import SearchAppBar from '../Components/MuiCoreComponents/AppBarSearchField/searchAppBar';
 import ResponsiveAppBar from '../Components/MuiCoreComponents/ResponsiveNavBar/responsiveNavBar';
+import PrimarySearchAppBar from '../Components/MuiCoreComponents/FullAppbar/fullappbar';
 
 const SecondPage = () => {
 
@@ -17,7 +18,7 @@ const SecondPage = () => {
     return <Paper sx={{ height: 'auto', padding: '4' }}>
         <StyledPaper>
             <ThemeProvider theme={baseNavbarTheme}>
-                <B2BTemplate />
+                <PrimarySearchAppBar />
 
             </ThemeProvider>
 

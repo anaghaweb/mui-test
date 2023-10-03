@@ -7,8 +7,6 @@ import PeopleIcon from '@mui/icons-material/People';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import InsertPhotoSharpIcon from '@mui/icons-material/InsertPhotoSharp';
 import { styled } from '@mui/material/styles';
-import Link from 'next/link';
-
 
 
 
@@ -41,7 +39,8 @@ const NavTitle = styled('div')
         alignItems: 'center',
         ...theme.typography.h3,
         color: 'inherit',
-        marginLeft: '1rem',
+
+        marginLeft: '0.5rem',
         '&:hover': {
             cursor: 'pointer',
         },
@@ -50,7 +49,8 @@ const NavTitle = styled('div')
             gap: theme.spacing(1),
         },
         [theme.breakpoints.down('sm')]: {
-            display: 'none'
+            ...theme.typography.body2,
+            marginLeft: '0.5rem',
         },
     }));
 
@@ -99,23 +99,6 @@ const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
 
 }))
 
-
-//IMAGE ICON STYLING
-const NavImageIcon = styled(InsertPhotoSharpIcon)(({ theme }) => ({
-    [theme.breakpoints.up('md')]: {
-        gap: theme.spacing(1),
-        width: '4rem',
-        height: '4rem',
-    },
-    [theme.breakpoints.down('md')]: {
-        width: '3rem',
-        height: '3rem',
-    },
-    [theme.breakpoints.down('sm')]: {
-        display: 'none'
-    },
-}))
-
 // MOBILE MENU
 const StyledMobileMenu = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -124,12 +107,7 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
     gap: theme.spacing(0.5),
     padding: '2rem 0.5rem 0.5rem 1rem',
     color: 'inherit',
-    '&.mobile-menu': {
-        [theme.breakpoints.down('md')]: {
-            jusitfyContent: 'flex-end',
-            gap: theme.spacing(1),
-        },
-    },
+
     '&.mob-title-wrapper': {
         display: 'flex',
         flexDirection: 'row',
@@ -169,7 +147,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
     [theme.breakpoints.up('lg')]: { gap: theme.spacing(2), },
     [theme.breakpoints.down('sm')]: { gap: theme.spacing(0.5) },
 
-    '&.b2blight-left': {
+    '&.base-left': {
         display: 'flex',
         justifyContent: 'flex-start',
         alignItems: 'center',
@@ -180,10 +158,9 @@ const StyledNavStack = styled('div')(({ theme }) => ({
         [theme.breakpoints.down('sm')]: {
             gap: '0.5rem',
         },
-
     },
 
-    '&.b2blight-right': {
+    '&.base-right': {
         width: 'auto',
         flexShrink: 1,
         display: 'flex',
@@ -192,62 +169,8 @@ const StyledNavStack = styled('div')(({ theme }) => ({
         [theme.breakpoints.down('sm')]: {
             gap: theme.spacing(1),
         },
-
     }
 }))
-
-//LINKS STYLING
-const StyledLinks = styled(Link)
-    (({ theme }) => ({
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        ...theme.typography.h5,
-        gap: theme.spacing(1),
-        color: 'inherit',
-        '&:visited': {
-            color: '#3399FF',
-        },
-    }));
-
-// BUTTONS CART, LOGIN STYLING
-const StyledButton = styled('button')
-    (({ theme }) => ({
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '6rem',
-        height: '2rem',
-        minWidth: 'fit-content',
-        textTransform: 'capitalize',
-        backgroundColor: '#ffffff',
-        borderRadius: '0.2rem',
-        border: 'none',
-        gap: theme.spacing(0.5),
-        color: 'inherit',
-        '&:hover': {
-            cursor: 'pointer',
-            backgroundColor: '#f2f2f2',
-        },
-        '&.stl-btn': {
-            [theme.breakpoints.down('md')]:
-            {
-                backgroundColor: 'transparent',
-                width: 'fit-content',
-            },
-        },
-        '.cart-btn': {
-            ...theme.typography.body1,
-            [theme.breakpoints.up('md')]: {
-                ...theme.typography.subtitle1,
-            },
-            [theme.breakpoints.down('sm')]:
-            {
-                display: 'none',
-            }
-        },
-
-    }));
 
 //MOBILE MENU WRAPPER
 const StyledBox = styled(Box)
@@ -261,8 +184,6 @@ const StyledBox = styled(Box)
         ...theme.typography.subtitle1,
     }));
 
-
-
 export default function BaseNavbarTemplate() {
 
     const [menu, showMenu] = React.useState(false);
@@ -270,7 +191,6 @@ export default function BaseNavbarTemplate() {
     return <>
 
         <NavRoot className="base">
-
             {/* MOBILE MENU  */}
             <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
             <StyledMobileMenu sx={menu ? open : close} className="mobile-menu">
@@ -288,7 +208,7 @@ export default function BaseNavbarTemplate() {
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">For Businesses</a></Box>
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Logout</a></Box>
             </StyledMobileMenu>
-            <StyledNavStack className="b2blight-left">
+            <StyledNavStack className="base-left">
                 {/* NAVBAR TITLE */}
                 <NavTitle>
                     <Typography variant="h4" sx={{ marginTop: 'auto', marginBottom: 'auto' }}>Base</Typography>
@@ -297,8 +217,7 @@ export default function BaseNavbarTemplate() {
             {/* DESKTOP MENU LINKS / ICONS */}
 
             {/* SETTING ICONS */}
-            <StyledNavStack direction="row" className="b2blight-right">
-
+            <StyledNavStack direction="row" className="base-right">
                 <IconWrapper><BrightnessLowIcon /></IconWrapper>
                 <IconWrapper><LanguageOutlinedIcon /></IconWrapper>
                 <IconWrapper><PeopleIcon /></IconWrapper>

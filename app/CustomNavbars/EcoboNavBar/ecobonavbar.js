@@ -48,8 +48,10 @@ const NavTitle = styled('div')
             gap: theme.spacing(1),
         },
         [theme.breakpoints.down('sm')]: {
-            display: 'none'
+            ...theme.typography.body2,
+            marginLeft: '0.5rem',
         },
+
     }));
 
 
