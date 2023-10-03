@@ -10,169 +10,129 @@ import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import Link from '@mui/material/Link';
-import AtlassianSVG from '@/app/Components/SVGs/atlassian';
-import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
-import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
+import LightModeIcon from '@mui/icons-material/LightMode';
 
 
 //NAVROOT
-
 const NavRoot = styled('div')
     (({ theme }) => ({
-
+        position: 'relative',
         display: 'flex',
         width: '100%',
         height: '5rem',
         alignItems: 'center',
         justifyContent: 'space-between',
-        gap: theme.spacing(3),
-        padding: theme.spacing(3),
-        border: '0.05rem solid #FFF2CC',
+        gap: theme.spacing(2),
+        padding: theme.spacing(2),
         borderRadius: theme.shape.borderRadius,
         boxShadow: theme.shadows[2],
         backgroundColor: '#FFF2CC',
-        color: '#787878',
-
+        color: '#6A9153',
         [theme.breakpoints.down('md')]: {
-            justifyContent: 'space-evenly',
+            justifyContent: 'space-between',
             padding: theme.spacing(1),
             height: '3rem'
         },
-
     }));
 
 
 //NAVBAR TITLE 
 const NavTitle = styled('div')
     (({ theme }) => ({
-        fontSize: theme.typography.h3,
+        display: 'flex',
+        alignItems: 'center',
+        ...theme.typography.h3,
+        verticalAlign: 'center',
+        color: 'inherit',
+        '&:hover': {
+            cursor: 'pointer',
+        },
 
-        color: '#6A9153',
         [theme.breakpoints.down('md')]: {
-            paddingLeft: '2rem',
             gap: theme.spacing(1),
         },
         [theme.breakpoints.down('sm')]: {
-            display: 'none',
+            display: 'none'
         },
-
     }));
 
-//THEME BRIGHTNESS ICON TOGGLE
-const NavBrightnessIcon = styled(BrightnessLowIcon)(({ theme }) =>
-({
 
-    [theme.breakpoints.down('md')]: {
+//SETTINGS ICON WRAPPER
+const IconWrapper = styled('div')(({ theme }) => ({
 
-        gap: theme.spacing(1),
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '2rem',
+    height: '2rem',
+    color: 'inherit',
 
-    },
     '&:hover': {
         cursor: 'pointer',
-        backgroundColor: '#e5e5e5',
+        backgroundColor: 'inherit',
         borderRadius: '50%',
+        border: '1px solid #787878'
     },
-
-}));
-
-//PROFILE ICON STYLING
-const NavPeopleIcon = styled(PeopleIcon, {
-    name: 'MuiBasicNav',
-    slot: 'icon_2',
-})
-    (({ theme }) => ({
-
-        [theme.breakpoints.down('md')]: {
-
-            gap: theme.spacing(1),
-
-        },
-        '&:hover': {
-            cursor: 'pointer',
-            backgroundColor: '#e5e5e5',
-            borderRadius: '50%',
-        },
-
-    }));
+    [theme.breakpoints.down('md')]: {
+        gap: theme.spacing(1),
+    },
+    [theme.breakpoints.down('md')]: {
+        gap: theme.spacing(0.5),
+    },
+}))
 
 // HAMBURGER ICON STYLING
 const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
 ({
-    [theme.breakpoints.up('md')]: {
+    position: 'absolute',
+    color: '#000000',
+    left: '1rem',
+    height: '1.5rem',
+    width: '1.5rem',
+
+    [theme.breakpoints.up('lg')]: {
         display: 'none',
     },
-    position: 'absolute',
-
-    color: '#000000',
-    left: '0.15rem',
-    '&:hover': {
-        cursor: 'pointer',
-        backgroundColor: '#e5e5e5',
-        borderRadius: '50%',
-    },
-
-}))
-
-// LANGUAGE ICON STYLING
-const NavLanguageIcon = styled(LanguageOutlinedIcon)(({ theme }) => ({
-    [theme.breakpoints.down('md')]: {
-        gap: theme.spacing(1),
+    [theme.breakpoints.down('lg')]: {
+        display: 'inline-block',
     },
     '&:hover': {
         cursor: 'pointer',
-        backgroundColor: '#e5e5e5',
-        borderRadius: '50%',
     },
-}))
-//NAVBAR INNER MENU STYLING
-const StyledNavStack = styled('div')(({ theme }) => ({
-    display: 'flex',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    gap: theme.spacing(3),
-    position: 'relative',
 
-    [theme.breakpoints.down('md')]: {
-
-        flexGrow: '2',
-        jusitfyContent: 'flex-end',
-        gap: theme.spacing(1),
-
-    },
 }))
 
 //IMAGE ICON STYLING
 const NavImageIcon = styled(InsertPhotoSharpIcon)(({ theme }) => ({
-
-    color: '#6A9153',
-    width: '2rem',
-    height: '2rem',
     [theme.breakpoints.up('md')]: {
         gap: theme.spacing(1),
         width: '4rem',
         height: '4rem',
     },
+    [theme.breakpoints.down('md')]: {
+        width: '3rem',
+        height: '3rem',
+    },
     [theme.breakpoints.down('sm')]: {
-        gap: theme.spacing(1),
-        display: 'none',
+        display: 'none'
     },
-    '&:hover': {
-        cursor: 'pointer',
-        backgroundColor: '#e5e5e5',
-        borderRadius: '50%',
-    },
-
 }))
 
 // MOBILE MENU
 const StyledMobileMenu = styled('div')(({ theme }) => ({
+    position: 'relative',
     display: 'flex',
     flexDirection: 'column',
     gap: theme.spacing(0.5),
     padding: '2rem 0.5rem 0.5rem 1rem',
-    color: theme.palette.text.primary,
-    background: theme.palette.background.paper,
+    color: 'inherit',
 
+    '&.mobile-menu': {
+        [theme.breakpoints.down('md')]: {
+            jusitfyContent: 'flex-end',
+            gap: theme.spacing(1),
+        },
+    },
     '&.mob-title-wrapper': {
         display: 'flex',
         flexDirection: 'row',
@@ -184,19 +144,16 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
 
 //MOBILE MENU OPEN / CLOSE STYLING
 const open = {
-
-    display: 'flex',
-    flexDirection: 'column',
     position: 'absolute',
     top: '100%',
     left: '0',
     width: '50vw',
     height: 'auto',
-    backgroundColor: '#ffffff',
+    backgroundColor: 'inherit',
     zIndex: '1',
     transition: 'left 0.5s ease',
+    display: 'flex',
     justifyContent: 'start',
-
 
 };
 const close = {
@@ -205,6 +162,64 @@ const close = {
     top: '144px',
     left: '-100%'
 };
+//MOBILE MENU WRAPPER
+const StyledBox = styled(Box)
+    (({ theme }) => ({
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        width: '100%',
+        color: 'inherit',
+        textTransform: 'capitalize',
+        ...theme.typography.subtitle1,
+    }));
+
+//NAVBAR INNER MENU STYLING
+const StyledNavStack = styled('div')(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    position: 'relative',
+    height: '3rem',
+    width: 'auto',
+    [theme.breakpoints.up('lg')]: { gap: theme.spacing(2), },
+    [theme.breakpoints.down('sm')]: { gap: theme.spacing(0.5) },
+
+    '&.b2blight-middle':
+    {
+        justifyContent: 'flex-end',
+        flexGrow: '3',
+        gap: theme.spacing(2),
+        [theme.breakpoints.down('lg')]:
+        {
+            gap: theme.spacing(2),
+        }
+    },
+    '&.b2blight-left': {
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        [theme.breakpoints.down('lg')]: {
+            margin: '0 0 0 2rem',
+            gap: theme.spacing(1),
+        },
+        [theme.breakpoints.down('sm')]: {
+            gap: '0.5rem',
+        },
+
+    },
+
+    '&.b2blight-right': {
+        width: 'auto',
+        flexShrink: 1,
+        display: 'flex',
+        justifyContent: 'flex-end',
+        gap: theme.spacing(3),
+        [theme.breakpoints.down('sm')]: {
+            gap: theme.spacing(1),
+        },
+
+    }
+}))
 
 //SEARCH FIELD WRAPPER
 const Search = styled('div')(({ theme }) => ({
@@ -247,61 +262,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         transition: theme.transitions.create('width'),
         width: '100%',
         [theme.breakpoints.up('md')]: {
-            width: '30ch',
+            width: '50ch',
         },
     },
 }));
-
-const StyledLinks = styled(Link)
-    (({ theme }) => ({
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: theme.spacing(1),
-        ...theme.typography.body2,
-        color: '#6A9153',
-
-        [theme.breakpoints.up('md')]: {
-            ...theme.typography.h6,
-            gap: theme.spacing(1),
-        },
-        [theme.breakpoints.down('md')]: {
-
-            gap: theme.spacing(1),
-        },
-        [theme.breakpoints.down('sm')]: {
-            display: 'none',
-
-        },
-        '.hover': {
-            textDecoration: 'underline',
-            cursor: 'pointer',
-        },
-
-    }));
-
-const StyledButton = styled(Button)
-    (({ theme }) => ({
-        display: 'flex',
-        justifyContent: 'space-around',
-        width: 'fit-content',
-        color: '#3399FF',
-        textTransform: 'capitalize',
-        ...theme.typography.subtitle1,
-        gap: theme.spacing(0.5),
-    }));
-
-const StyledBox = styled(Box)
-    (({ theme }) => ({
-        display: 'flex',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        width: '100%',
-        color: '#3399FF',
-        textTransform: 'capitalize',
-        ...theme.typography.subtitle1,
-    }));
-
 
 export default function ReharvestNavbarTemplate() {
 
@@ -310,53 +274,55 @@ export default function ReharvestNavbarTemplate() {
     return <>
 
         <NavRoot className="reharvest" >
-            <StyledNavStack direction="row" >
-                <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
-                <NavImageIcon />
-                {/* MOBILE MENU  */}
-                <StyledMobileMenu sx={menu ? open : close}  >
-                    <StyledBox >
-                        <Typography variant="h5" component="div" sx={{ width: 'fit-content', padding: '0.5rem' }} >
-                            Reharvest
-                        </Typography>
-                        <Divider orientation="vertical" flexItem />
-                        <StyledButton variant="text" onClick={() => showMenu(!menu)}>Close</StyledButton>
-                    </StyledBox>
-                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Products</Box>
-                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Services</Box>
-                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Profile</Box>
-                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>About Us</Box>
-                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>For Businesses</Box>
-                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>Logout</Box>
-                </StyledMobileMenu>
+            <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
+            <StyledMobileMenu sx={menu ? open : close} className="mobile-menu">
+                <StyledBox >
+                    <Typography variant="h5" component="div">
+                        Reharvest
+                    </Typography>
+                    <Divider orientation="vertical" flexItem />
+                    <Button variant="outlined" onClick={() => showMenu(!menu)}>Close</Button>
+                </StyledBox>
+                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Products</a></Box>
+                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Services</a></Box>
+                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Profile</a></Box>
+                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">About Us</a></Box>
+                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">For Businesses</a></Box>
+                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Logout</a></Box>
+            </StyledMobileMenu>
 
-                {/* TITLE */}
+            <StyledNavStack className="b2blight-left">
+                {/* NAVBAR LOGO / IMAGE */}
+                <NavImageIcon />
+
+                {/* NAVBAR TITLE */}
                 <NavTitle>
                     <Typography variant="h4" component="div" >
                         Reharvest
                     </Typography>
                 </NavTitle>
             </StyledNavStack>
+            {/* DESKTOP MENU LINKS / ICONS */}
+            <StyledNavStack className="b2blight-middle">
+                <Box >
+                    <Search>
+                        <SearchIconWrapper>
+                            <SearchIcon />
+                        </SearchIconWrapper>
+                        <StyledInputBase
+                            placeholder="Search for Products…"
+                            inputProps={{ 'aria-label': 'search' }}
+                        />
+                    </Search>
+                </Box>
+            </StyledNavStack>
 
+            {/* SETTING ICONS */}
+            <StyledNavStack direction="row" className="b2blight-right">
 
-            {/* SEARCH BAR */}
-            <Box >
-                <Search>
-                    <SearchIconWrapper>
-                        <SearchIcon />
-                    </SearchIconWrapper>
-                    <StyledInputBase
-                        placeholder="Search for Products…"
-                        inputProps={{ 'aria-label': 'search' }}
-                    />
-                </Search>
-            </Box>
-
-            <StyledNavStack direction="row">
-
-                <NavBrightnessIcon />
-                <NavLanguageIcon />
-                <NavPeopleIcon />
+                <IconWrapper><BrightnessLowIcon sx={{ color: '#787878' }} /></IconWrapper>
+                <IconWrapper><LanguageOutlinedIcon sx={{ color: '#787878' }} /></IconWrapper>
+                <IconWrapper><PeopleIcon sx={{ color: '#787878' }} /></IconWrapper>
             </StyledNavStack>
         </NavRoot >
 

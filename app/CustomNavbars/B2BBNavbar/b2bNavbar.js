@@ -2,15 +2,16 @@
 import * as React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import BrightnessLowIcon from '@mui/icons-material/BrightnessLow';
-import { IconButton, Typography, Stack, Box, Button, Divider, Container } from "@mui/material";
+import { Typography, Box, Button, Divider } from "@mui/material";
 import PeopleIcon from '@mui/icons-material/People';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import InsertPhotoSharpIcon from '@mui/icons-material/InsertPhotoSharp';
-import { styled, alpha } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Link from 'next/link';
 import AtlassianSVG from '@/app/Components/SVGs/atlassian';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
+import LightModeIcon from '@mui/icons-material/LightMode';
 
 
 
@@ -28,7 +29,6 @@ const NavRoot = styled('div')
         boxShadow: theme.shadows[2],
         backgroundColor: '#DAE8FC',
         color: '#3399FF',
-
         [theme.breakpoints.down('md')]: {
             justifyContent: 'space-between',
             padding: theme.spacing(1),
@@ -40,11 +40,14 @@ const NavRoot = styled('div')
 //NAVBAR TITLE 
 const NavTitle = styled('div')
     (({ theme }) => ({
+        display: 'flex',
+        alignItems: 'center',
         ...theme.typography.h3,
-        color: '#3399FF',
+        color: 'inherit',
         '&:hover': {
             cursor: 'pointer',
         },
+
         [theme.breakpoints.down('md')]: {
             gap: theme.spacing(1),
         },
@@ -52,45 +55,30 @@ const NavTitle = styled('div')
             display: 'none'
         },
     }));
-//THEME BRIGHTNESS ICON TOGGLE
-const NavBrightnessIcon = styled(BrightnessLowIcon)(({ theme }) =>
-({
-    [theme.breakpoints.down('md')]: {
-        gap: theme.spacing(1),
-    },
+
+
+//SETTINGS ICON WRAPPER
+const IconWrapper = styled('div')(({ theme }) => ({
+
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '2rem',
+    height: '2rem',
     color: '#787878',
     '&:hover': {
         cursor: 'pointer',
-    },
-}));
-
-//PROFILE ICON STYLING
-const NavPeopleIcon = styled(PeopleIcon)
-    (({ theme }) => ({
-
-        '&:hover': {
-            cursor: 'pointer',
-
-        },
-        [theme.breakpoints.down('md')]: {
-            gap: theme.spacing(1),
-        },
-        color: '#787878',
-    }));
-
-// LANGUAGE ICON STYLING
-const NavLanguageIcon = styled(LanguageOutlinedIcon)(({ theme }) => ({
-    [theme.breakpoints.down('md')]: {
-        gap: theme.spacing(1),
-    },
-    color: '#787878',
-    '&:hover': {
-        cursor: 'pointer',
-        backgroundColor: '#69a5e0',
+        backgroundColor: 'inherit',
         borderRadius: '50%',
+        border: '1px solid #787878'
+    },
+    [theme.breakpoints.down('md')]: {
+        gap: theme.spacing(1),
+    },
+    [theme.breakpoints.down('md')]: {
+        gap: theme.spacing(0.5),
     },
 }))
-
 
 // HAMBURGER ICON STYLING
 const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
@@ -113,23 +101,29 @@ const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
 
 }))
 
+//ATTLASIAN-CROWD LOGO WRAPPER
+const AtlassianWrapper = styled(AtlassianSVG)(({ theme }) => ({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '2rem',
+    height: '2rem',
 
+}))
 //IMAGE ICON STYLING
 const NavImageIcon = styled(InsertPhotoSharpIcon)(({ theme }) => ({
     [theme.breakpoints.up('md')]: {
         gap: theme.spacing(1),
+        width: '4rem',
+        height: '4rem',
+    },
+    [theme.breakpoints.down('md')]: {
         width: '3rem',
         height: '3rem',
-
-    },
-    [theme.breakpoints.down('lg')]: {
-        margin: '0 1rem 0 3rem',
     },
     [theme.breakpoints.down('sm')]: {
         display: 'none'
     },
-
-
 }))
 
 // MOBILE MENU
@@ -158,16 +152,15 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
 //MOBILE MENU OPEN / CLOSE STYLING
 const open = {
     position: 'absolute',
+    display: 'flex',
+    justifyContent: 'center',
     top: '100%',
-    left: '0',
+    left: '0.15rem',
     width: '50vw',
     height: 'auto',
     backgroundColor: 'inherit',
-    zIndex: '1',
+    zIndex: '99',
     transition: 'left 0.5s ease',
-    display: 'flex',
-    justifyContent: 'start',
-
 };
 const close = {
     display: 'none',
@@ -182,14 +175,15 @@ const StyledNavStack = styled('div')(({ theme }) => ({
     alignItems: 'center',
     position: 'relative',
     flexGrow: '1',
+    height: '4rem',
 
     [theme.breakpoints.up('lg')]: { gap: theme.spacing(2), },
     [theme.breakpoints.down('sm')]: { gap: theme.spacing(0.5) },
 
     '&.b2blight-middle':
     {
-        flexGrow: '1',
         justifyContent: 'center',
+        gap: theme.spacing(3),
         [theme.breakpoints.down('lg')]:
         {
             display: 'none',
@@ -198,9 +192,15 @@ const StyledNavStack = styled('div')(({ theme }) => ({
     '&.b2blight-left': {
         display: 'flex',
         justifyContent: 'flex-start',
-        [theme.breakpoints.down('sm')]: {
-            gap: '0.5rem'
+        alignItems: 'center',
+        [theme.breakpoints.down('lg')]: {
+            margin: '0 0 0 2rem',
+            gap: theme.spacing(1),
         },
+        [theme.breakpoints.down('sm')]: {
+            gap: '0.5rem',
+        },
+
     },
 
     '&.b2blight-right': {
@@ -219,17 +219,11 @@ const StyledLinks = styled(Link)
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        ...theme.typography.body2,
+        ...theme.typography.h5,
+        gap: theme.spacing(1),
         color: 'inherit',
         '&:visited': {
             color: '#3399FF',
-        },
-        [theme.breakpoints.up('lg')]: {
-            ...theme.typography.h6,
-        },
-        '.hover': {
-            cursor: 'pointer',
-            color: '#70b7ff',
         },
     }));
 
@@ -246,9 +240,8 @@ const StyledButton = styled('button')
         backgroundColor: '#ffffff',
         borderRadius: '0.2rem',
         border: 'none',
-        ...theme.typography.subtitle1,
         gap: theme.spacing(0.5),
-        color: '#3399FF',
+        color: 'inherit',
         '&:hover': {
             cursor: 'pointer',
             backgroundColor: '#f2f2f2',
@@ -256,17 +249,21 @@ const StyledButton = styled('button')
         '&.stl-btn': {
             [theme.breakpoints.down('md')]:
             {
-                fontSize: '1rem',
                 backgroundColor: 'transparent',
                 width: 'fit-content',
             },
         },
         '.cart-btn': {
+            ...theme.typography.body1,
+            [theme.breakpoints.up('md')]: {
+                ...theme.typography.subtitle1,
+            },
             [theme.breakpoints.down('sm')]:
             {
                 display: 'none',
             }
         },
+
     }));
 
 //MOBILE MENU WRAPPER
@@ -308,19 +305,15 @@ export default function B2BTemplate() {
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">For Businesses</a></Box>
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Logout</a></Box>
             </StyledMobileMenu>
-
             <StyledNavStack className="b2blight-left">
                 {/* NAVBAR LOGO / IMAGE */}
                 <NavImageIcon />
 
                 {/* NAVBAR TITLE */}
                 <NavTitle>
-                    <Typography variant="h4" component="div" >
-                        B2B
-                    </Typography>
+                    <Typography variant="h4" sx={{ marginTop: 'auto', marginBottom: 'auto' }}>B2B</Typography>
                 </NavTitle>
             </StyledNavStack>
-
             {/* DESKTOP MENU LINKS / ICONS */}
             <StyledNavStack className="b2blight-middle">
                 <StyledLinks href="#" >
@@ -329,14 +322,13 @@ export default function B2BTemplate() {
                 <StyledLinks href="#" >
                     About Us
                 </StyledLinks >
-                <StyledLinks href="#" sx={{ height: "2rem", width: "2rem", justifyContent: 'center' }}>
-                    <AtlassianSVG />
-                </StyledLinks >
                 <StyledLinks href="#" >
+                    <AtlassianWrapper className="atlassian-logo">
+                        <AtlassianSVG />
+                    </AtlassianWrapper >
                     For Businesses
                 </StyledLinks >
             </StyledNavStack>
-
             {/* SETTING ICONS */}
             <StyledNavStack direction="row" className="b2blight-right">
                 <StyledButton className="stl-btn">
@@ -347,9 +339,9 @@ export default function B2BTemplate() {
                     <StyledLinks className="stl-btn" href="#"> <LoginOutlinedIcon />
                         <Box className="cart-btn">Login</Box></StyledLinks>
                 </StyledButton>
-                <NavBrightnessIcon />
-                <NavLanguageIcon />
-                <NavPeopleIcon />
+                <IconWrapper><BrightnessLowIcon /></IconWrapper>
+                <IconWrapper><LanguageOutlinedIcon /></IconWrapper>
+                <IconWrapper><PeopleIcon /></IconWrapper>
             </StyledNavStack>
         </NavRoot >
 
