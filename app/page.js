@@ -46,13 +46,13 @@ export default function Home() {
         </StyledPaper>
       </ThemeProvider>
       <Divider />
-      {/* 
+
 
       <ThemeProvider theme={EcoboNavbarTheme} >
         <StyledPaper>
           <EcoboNavbar />
 
-          < BasicTable />
+          {/* < BasicTable />
           < BasicAccordion />
           <DiscreteSliderSteps />
           <Stack direction="row" sx={{ display: 'flex', justifyContent: 'space-around', height: 'auto', margin: '1rem', padding: '2rem', width: '100%', flexDirection: { xs: 'column', md: 'row' } }}>
@@ -60,7 +60,7 @@ export default function Home() {
             <StatFullTemplate value={3.8} unit="GHz" ></StatFullTemplate>
             <OutlinedCard />
             <GroupOrientation />
-          </Stack>
+          </Stack> */}
         </StyledPaper>
       </ThemeProvider>
       <Divider />
@@ -70,7 +70,7 @@ export default function Home() {
         <StyledPaper>
           <ReharvestNavbar />
 
-          < BasicTable />
+          {/* < BasicTable />
           < BasicAccordion />
           <DiscreteSliderSteps />
           <Stack direction="row" sx={{ display: 'flex', justifyContent: 'space-around', height: 'auto', margin: '1rem', padding: '2rem', width: '100%', flexDirection: { xs: 'column', md: 'row' } }}>
@@ -78,7 +78,7 @@ export default function Home() {
             <StatFullTemplate value={3.8} unit="GHz" ></StatFullTemplate>
             <OutlinedCard />
             <GroupOrientation />
-          </Stack>
+          </Stack> */}
         </StyledPaper>
       </ThemeProvider>
       <Divider />
@@ -86,7 +86,8 @@ export default function Home() {
       <ThemeProvider theme={b2bTheme} >
         <StyledPaper>
           <B2BNavbar />
-          < BasicTable />
+
+          {/* < BasicTable />
           < BasicAccordion />
           <DiscreteSliderSteps />
           <Stack direction="row" sx={{ display: 'flex', justifyContent: 'space-around', height: 'auto', margin: '1rem', padding: '2rem', width: '100%', flexDirection: { xs: 'column', md: 'row' } }}>
@@ -94,7 +95,7 @@ export default function Home() {
             <StatFullTemplate value={3.8} unit="GHz" ></StatFullTemplate>
             <OutlinedCard />
             <GroupOrientation />
-          </Stack>
+          </Stack> */}
         </StyledPaper>
       </ThemeProvider>
       <Divider />
@@ -102,7 +103,8 @@ export default function Home() {
       <ThemeProvider theme={b2bTheme} >
         <StyledPaper>
           <B2BDarkNavbar />
-          < BasicTable />
+
+          {/* < BasicTable />
           < BasicAccordion />
           <DiscreteSliderSteps />
           <Stack direction="row" sx={{ display: 'flex', justifyContent: 'space-around', height: 'auto', margin: '1rem', padding: '2rem', width: '100%', flexDirection: { xs: 'column', md: 'row' } }}>
@@ -110,7 +112,7 @@ export default function Home() {
             <StatFullTemplate value={3.8} unit="GHz" ></StatFullTemplate>
             <OutlinedCard />
             <GroupOrientation />
-          </Stack>
+          </Stack> */}
         </StyledPaper>
       </ThemeProvider>
 
@@ -118,7 +120,8 @@ export default function Home() {
       <ThemeProvider theme={gradientTheme} >
         <StyledPaper>
           <ModernPinkTemplate />
-          < BasicTable />
+
+          {/* < BasicTable />
           < BasicAccordion />
           <DiscreteSliderSteps />
           <Stack direction="row" sx={{ display: 'flex', justifyContent: 'space-around', height: 'auto', margin: '1rem', padding: '2rem', width: '100%', flexDirection: { xs: 'column', md: 'row' } }}>
@@ -126,7 +129,7 @@ export default function Home() {
             <StatFullTemplate value={3.8} unit="GHz" ></StatFullTemplate>
             <OutlinedCard />
             <GroupOrientation />
-          </Stack>
+          </Stack> */}
         </StyledPaper>
       </ThemeProvider>
 
@@ -134,7 +137,8 @@ export default function Home() {
       <ThemeProvider theme={gradientTheme} >
         <StyledPaper>
           <ModernBlueTemplate />
-          < BasicTable />
+
+          {/* < BasicTable />
           < BasicAccordion />
           <DiscreteSliderSteps />
           <Stack direction="row" sx={{ display: 'flex', justifyContent: 'space-around', height: 'auto', margin: '1rem', padding: '2rem', width: '100%', flexDirection: { xs: 'column', md: 'row' } }}>
@@ -142,7 +146,7 @@ export default function Home() {
             <StatFullTemplate value={3.8} unit="GHz" ></StatFullTemplate>
             <OutlinedCard />
             <GroupOrientation />
-          </Stack>
+          </Stack> */}
         </StyledPaper>
       </ThemeProvider>
 
@@ -150,7 +154,8 @@ export default function Home() {
       <ThemeProvider theme={gradientTheme} >
         <StyledPaper>
           <ModernPurpleTemplate />
-          < BasicTable />
+
+          {/* < BasicTable />
           < BasicAccordion />
           <DiscreteSliderSteps />
           <Stack direction="row" sx={{ display: 'flex', justifyContent: 'space-around', height: 'auto', margin: '1rem', padding: '2rem', width: '100%', flexDirection: { xs: 'column', md: 'row' } }}>
@@ -158,9 +163,9 @@ export default function Home() {
             <StatFullTemplate value={3.8} unit="GHz" ></StatFullTemplate>
             <OutlinedCard />
             <GroupOrientation />
-          </Stack>
+          </Stack> */}
         </StyledPaper>
-      </ThemeProvider> */}
+      </ThemeProvider>
 
 
     </main >

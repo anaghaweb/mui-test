@@ -186,6 +186,7 @@ const StyledBox = styled(Box)
 
 export default function BaseNavbarTemplate() {
 
+
     const [menu, showMenu] = React.useState(false);
 
     return <>

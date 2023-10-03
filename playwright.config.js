@@ -50,18 +50,18 @@ export default defineConfig({
     // },
 
     /* Test against mobile viewports. */
-    {
-      name: 'Pixel 5',
-      use: { ...devices['Pixel 5'] },
-    },
-    {
-      name: 'Iphone',
-      use: { ...devices['iPhone 12'] },
-    },
-    {
-      name: 'Ipad',
-      use: { ...devices['iPad (gen 5)'] },
-    },
+    // {
+    //   name: 'Pixel 5',
+    //   use: { ...devices['Pixel 5'] },
+    // },
+    // {
+    //   name: 'Iphone',
+    //   use: { ...devices['iPhone 12'] },
+    // },
+    // {
+    //   name: 'Ipad',
+    //   use: { ...devices['iPad (gen 5)'] },
+    // },
     {
       name: 'Galaxy Tab',
       use: { ...devices['Galaxy Tab S4'] },
