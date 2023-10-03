@@ -192,8 +192,8 @@ export default function BaseNavbarTemplate() {
 
         <NavRoot className="base">
             {/* MOBILE MENU  */}
-            <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
-            <StyledMobileMenu sx={menu ? open : close} className="mobile-menu">
+            <NavMenuIcon onClick={() => showMenu(!menu)} className="base-mobile-menu" />
+            <StyledMobileMenu sx={menu ? open : close} className="base-menu-list">
                 <StyledBox >
                     <Typography variant="h5" component="div">
                         Base
