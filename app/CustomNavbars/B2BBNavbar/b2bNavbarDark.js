@@ -175,12 +175,7 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
     gap: theme.spacing(0.5),
     padding: '2rem 0.5rem 0.5rem 1rem',
     color: 'inherit',
-    '&.mobile-menu': {
-        [theme.breakpoints.down('md')]: {
-            jusitfyContent: 'flex-end',
-            gap: theme.spacing(1),
-        },
-    },
+
     '&.mob-title-wrapper': {
         display: 'flex',
         flexDirection: 'row',
@@ -222,7 +217,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
     [theme.breakpoints.up('lg')]: { gap: theme.spacing(2), },
     [theme.breakpoints.down('sm')]: { gap: theme.spacing(0.5) },
 
-    '&.b2blight-middle':
+    '&.b2bdark-middle':
     {
         justifyContent: 'center',
         gap: theme.spacing(3),
@@ -231,7 +226,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
             display: 'none',
         }
     },
-    '&.b2blight-left': {
+    '&.b2bdark-left': {
         display: 'flex',
         justifyContent: 'flex-start',
         alignItems: 'center',
@@ -245,7 +240,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
 
     },
 
-    '&.b2blight-right': {
+    '&.b2bdark-right': {
         display: 'flex',
         justifyContent: 'flex-end',
         gap: theme.spacing(3),
@@ -329,11 +324,11 @@ export default function B2BTemplate() {
 
     return <>
 
-        <NavRoot className="b2bLight">
+        <NavRoot className="b2bdark">
 
             {/* MOBILE MENU  */}
-            <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
-            <StyledMobileMenu sx={menu ? open : close} className="mobile-menu">
+            <NavMenuIcon onClick={() => showMenu(!menu)} className="b2bdark-mobile-menu" />
+            <StyledMobileMenu sx={menu ? open : close} className="b2bdark-menu-list">
                 <StyledBox >
                     <Typography variant="h5" component="div">
                         B2B
@@ -349,7 +344,7 @@ export default function B2BTemplate() {
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Logout</a></Box>
             </StyledMobileMenu>
 
-            <StyledNavStack className="b2blight-left">
+            <StyledNavStack className="b2bdark-left">
                 {/* NAVBAR LOGO / IMAGE */}
                 <NavImageIcon />
 
@@ -361,7 +356,7 @@ export default function B2BTemplate() {
                 </NavTitle>
             </StyledNavStack>
             {/* DESKTOP MENU LINKS / ICONS */}
-            <StyledNavStack className="b2blight-middle">
+            <StyledNavStack className="b2bdark-middle">
                 <StyledLinks href="#" >
                     Products
                 </StyledLinks >
@@ -376,7 +371,7 @@ export default function B2BTemplate() {
                 </StyledLinks >
             </StyledNavStack>
             {/* SETTING ICONS */}
-            <StyledNavStack direction="row" className="b2blight-right">
+            <StyledNavStack direction="row" className="b2bdark-right">
                 <StyledButton className="stl-btn">
                     <StyledLinks className="stl-btn" href="#" ><ShoppingCartRoundedIcon />
                         <Box className="cart-btn">Cart</Box></StyledLinks>

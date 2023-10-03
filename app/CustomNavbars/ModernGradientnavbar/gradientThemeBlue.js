@@ -127,12 +127,7 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
     padding: '2rem 0.5rem 0.5rem 1rem',
     color: '#191919',
     background: 'linear-gradient(to right, #66B2FF, #B9E0A5)',
-    '&.mobile-menu': {
-        [theme.breakpoints.down('md')]: {
-            jusitfyContent: 'flex-end',
-            gap: theme.spacing(1),
-        },
-    },
+
     '&.mob-title-wrapper': {
         display: 'flex',
         flexDirection: 'row',
@@ -184,7 +179,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
     [theme.breakpoints.up('lg')]: { gap: theme.spacing(2), },
     [theme.breakpoints.down('sm')]: { gap: theme.spacing(0.5) },
 
-    '&.b2blight-middle':
+    '&.modernblue-middle':
     {
         justifyContent: 'flex-end',
         flexGrow: '3',
@@ -194,7 +189,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
             gap: theme.spacing(2),
         }
     },
-    '&.b2blight-left': {
+    '&.modernblue-left': {
         display: 'flex',
         justifyContent: 'flex-start',
         alignItems: 'center',
@@ -208,7 +203,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
 
     },
 
-    '&.b2blight-right': {
+    '&.modernblue-right': {
         width: 'auto',
         flexShrink: 1,
         display: 'flex',
@@ -274,8 +269,8 @@ export default function ModernBlueTemplate() {
     return <>
 
         <NavRoot className="modernBlue" >
-            <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
-            <StyledMobileMenu sx={menu ? open : close} className="mobile-menu">
+            <NavMenuIcon onClick={() => showMenu(!menu)} className="modernblue-mobile-menu" />
+            <StyledMobileMenu sx={menu ? open : close} className="modernblue-menu-list">
                 <StyledBox >
                     <Typography variant="h5" component="div">
                         Modern
@@ -291,7 +286,7 @@ export default function ModernBlueTemplate() {
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Logout</a></Box>
             </StyledMobileMenu>
 
-            <StyledNavStack className="b2blight-left">
+            <StyledNavStack className="modernblue-left">
                 {/* NAVBAR LOGO / IMAGE */}
                 <NavImageIcon />
 
@@ -303,7 +298,7 @@ export default function ModernBlueTemplate() {
                 </NavTitle>
             </StyledNavStack>
             {/* DESKTOP MENU LINKS / ICONS */}
-            <StyledNavStack className="b2blight-middle">
+            <StyledNavStack className="modernblue-middle">
                 <Box >
                     <Search>
                         <SearchIconWrapper>
@@ -318,7 +313,7 @@ export default function ModernBlueTemplate() {
             </StyledNavStack>
 
             {/* SETTING ICONS */}
-            <StyledNavStack direction="row" className="b2blight-right">
+            <StyledNavStack direction="row" className="modernblue-right">
 
                 <IconWrapper><BrightnessLowIcon sx={{ color: '#787878' }} /></IconWrapper>
                 <IconWrapper><LanguageOutlinedIcon sx={{ color: '#787878' }} /></IconWrapper>

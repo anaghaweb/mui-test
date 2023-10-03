@@ -291,8 +291,8 @@ export default function B2BTemplate() {
         <NavRoot className="b2bLight">
 
             {/* MOBILE MENU  */}
-            <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
-            <StyledMobileMenu sx={menu ? open : close} className="mobile-menu">
+            <NavMenuIcon onClick={() => showMenu(!menu)} className="b2b-mobile-menu" />
+            <StyledMobileMenu sx={menu ? open : close} className="b2b-menu-link">
                 <StyledBox >
                     <Typography variant="h5" component="div">
                         B2B

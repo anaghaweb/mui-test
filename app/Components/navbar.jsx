@@ -18,7 +18,7 @@ export const themeContext = React.createContext();
 export default function Navbar() {
 
   const [mode, setMode] = React.useState(lightTheme);
-  const [anchor, setAnchor] = React.useState(null);
+  const [anchor, setAnchor] = React.useState(false);
 
 
 

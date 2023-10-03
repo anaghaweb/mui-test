@@ -202,12 +202,14 @@ export default function BaseNavbarTemplate() {
                     <Divider orientation="vertical" flexItem />
                     <Button variant="outlined" onClick={() => showMenu(!menu)}>Close</Button>
                 </StyledBox>
-                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Products</a></Box>
+                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
+                    <a href="#">Products</a></Box>
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Services</a></Box>
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Profile</a></Box>
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">About Us</a></Box>
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">For Businesses</a></Box>
-                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Logout</a></Box>
+                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
+                    <a href="#">Logout</a></Box>
             </StyledMobileMenu>
             <StyledNavStack className="base-left">
                 {/* NAVBAR TITLE */}

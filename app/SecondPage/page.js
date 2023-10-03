@@ -10,6 +10,7 @@ import SimpleBottomNavigation from '../Components/MuiCoreComponents/BasicAccordi
 import SearchAppBar from '../Components/MuiCoreComponents/AppBarSearchField/searchAppBar';
 import ResponsiveAppBar from '../Components/MuiCoreComponents/ResponsiveNavBar/responsiveNavBar';
 import PrimarySearchAppBar from '../Components/MuiCoreComponents/FullAppbar/fullappbar';
+import BaseNavbarTemplate from '../CustomNavbars/baseNavbar/baseNavbar';
 
 const SecondPage = () => {
 
@@ -18,8 +19,7 @@ const SecondPage = () => {
     return <Paper sx={{ height: 'auto', padding: '4' }}>
         <StyledPaper>
             <ThemeProvider theme={baseNavbarTheme}>
-                <PrimarySearchAppBar />
-
+                < BaseNavbarTemplate />
             </ThemeProvider>
 
         </StyledPaper>

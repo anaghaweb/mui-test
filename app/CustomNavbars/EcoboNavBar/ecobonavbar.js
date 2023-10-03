@@ -107,12 +107,7 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
     gap: theme.spacing(0.5),
     padding: '2rem 0.5rem 0.5rem 1rem',
     color: 'inherit',
-    '&.mobile-menu': {
-        [theme.breakpoints.down('md')]: {
-            jusitfyContent: 'flex-end',
-            gap: theme.spacing(1),
-        },
-    },
+
     '&.mob-title-wrapper': {
         display: 'flex',
         flexDirection: 'row',
@@ -153,7 +148,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
     [theme.breakpoints.up('lg')]: { gap: theme.spacing(2), },
     [theme.breakpoints.down('sm')]: { gap: theme.spacing(0.5) },
 
-    '&.b2blight-middle':
+    '&.ecobo-middle':
     {
         justifyContent: 'center',
         gap: theme.spacing(3),
@@ -162,7 +157,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
             display: 'none',
         }
     },
-    '&.b2blight-left': {
+    '&.ecobo-left': {
         display: 'flex',
         justifyContent: 'flex-start',
         alignItems: 'center',
@@ -176,7 +171,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
 
     },
 
-    '&.b2blight-right': {
+    '&.ecobo-right': {
         display: 'flex',
         justifyContent: 'flex-end',
         gap: theme.spacing(3),
@@ -206,8 +201,8 @@ export default function EcoboNavbarTemplate() {
 
         <NavRoot className="ecobo">
             {/* MOBILE MENU  */}
-            <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
-            <StyledMobileMenu sx={menu ? open : close} className="mobile-menu">
+            <NavMenuIcon onClick={() => showMenu(!menu)} className="ecobo-mobile-menu" />
+            <StyledMobileMenu sx={menu ? open : close} className="ecobo-menu-list">
                 <StyledBox >
                     <Typography variant="h5" component="div">
                         Ecobo
@@ -222,7 +217,7 @@ export default function EcoboNavbarTemplate() {
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">For Businesses</a></Box>
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Logout</a></Box>
             </StyledMobileMenu>
-            <StyledNavStack className="b2blight-left">
+            <StyledNavStack className="ecobo-left">
                 {/* NAVBAR TITLE */}
                 <NavTitle>
                     <Typography variant="h4" sx={{ marginTop: 'auto', marginBottom: 'auto' }}>Ecobo</Typography>
@@ -231,7 +226,7 @@ export default function EcoboNavbarTemplate() {
 
 
             {/* SETTING ICONS */}
-            <StyledNavStack direction="row" className="b2blight-right">
+            <StyledNavStack direction="row" className="ecobo-right">
 
                 <IconWrapper><BrightnessLowIcon /></IconWrapper>
                 <IconWrapper><LanguageOutlinedIcon /></IconWrapper>

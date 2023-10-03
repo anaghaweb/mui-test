@@ -128,12 +128,7 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
     padding: '2rem 0.5rem 0.5rem 1rem',
     background: 'linear-gradient(to right, #FFCCFF, #CCE5FF)',
     color: '#191919',
-    '&.mobile-menu': {
-        [theme.breakpoints.down('md')]: {
-            jusitfyContent: 'flex-end',
-            gap: theme.spacing(1),
-        },
-    },
+
     '&.mob-title-wrapper': {
         display: 'flex',
         flexDirection: 'row',
@@ -174,7 +169,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
     [theme.breakpoints.up('lg')]: { gap: theme.spacing(2), },
     [theme.breakpoints.down('sm')]: { gap: theme.spacing(0.5) },
 
-    '&.b2blight-middle':
+    '&.modernpink-middle':
     {
         justifyContent: 'flex-end',
         flexGrow: '3',
@@ -184,7 +179,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
             gap: theme.spacing(2),
         }
     },
-    '&.b2blight-left': {
+    '&.modernpink-left': {
         display: 'flex',
         justifyContent: 'flex-start',
         alignItems: 'center',
@@ -198,7 +193,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
 
     },
 
-    '&.b2blight-right': {
+    '&.modernpink-right': {
         width: 'auto',
         flexShrink: 1,
         display: 'flex',
@@ -276,8 +271,8 @@ export default function ModernPinkTemplate() {
     return <>
 
         <NavRoot className="modernPink" >
-            <NavMenuIcon onClick={() => showMenu(!menu)} className="mobile-menu" />
-            <StyledMobileMenu sx={menu ? open : close} className="mobile-menu">
+            <NavMenuIcon onClick={() => showMenu(!menu)} className="modernpink-mobile-menu" />
+            <StyledMobileMenu sx={menu ? open : close} className="modernpink-menu-list">
                 <StyledBox >
                     <Typography variant="h5" component="div">
                         Modern
@@ -293,7 +288,7 @@ export default function ModernPinkTemplate() {
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Logout</a></Box>
             </StyledMobileMenu>
 
-            <StyledNavStack className="b2blight-left">
+            <StyledNavStack className="modernpink-left">
                 {/* NAVBAR LOGO / IMAGE */}
                 <NavImageIcon />
 
@@ -305,7 +300,7 @@ export default function ModernPinkTemplate() {
                 </NavTitle>
             </StyledNavStack>
             {/* DESKTOP MENU LINKS / ICONS */}
-            <StyledNavStack className="b2blight-middle">
+            <StyledNavStack className="modernpink-middle">
                 <Box >
                     <Search>
                         <SearchIconWrapper>
@@ -320,7 +315,7 @@ export default function ModernPinkTemplate() {
             </StyledNavStack>
 
             {/* SETTING ICONS */}
-            <StyledNavStack direction="row" className="b2blight-right">
+            <StyledNavStack direction="row" className="modernpink-right">
 
                 <IconWrapper><BrightnessLowIcon sx={{ color: '#787878' }} /></IconWrapper>
                 <IconWrapper><LanguageOutlinedIcon sx={{ color: '#787878' }} /></IconWrapper>
