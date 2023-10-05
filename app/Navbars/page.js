@@ -9,24 +9,22 @@ import SearchAppBar from '../Components/MuiCoreComponents/AppBarSearchField/sear
 import ResponsiveAppBar from '../Components/MuiCoreComponents/ResponsiveNavBar/responsiveNavBar';
 import PrimarySearchAppBar from '../Components/MuiCoreComponents/FullAppbar/fullappbar';
 import ReharvestnavbarTheme from '../CustomNavbars/ReharvestNavbar/reharvestnavbartheme';
+import ReharvestNavbarTemplate from '../CustomNavbars/ReharvestNavbar/reharvestNavbar';
 
 
 const SecondPage = () => {
 
-    return <Paper sx={{ height: 'auto', padding: '4' }}>
+    return <Paper >
         <StyledPaper>
-            <ThemeProvider theme={ReharvestnavbarTheme}>
-                <SearchAppBar />
-                <Divider />
-                <ResponsiveAppBar />
-                <Divider />
-                <PrimarySearchAppBar />
-                <Divider />
-            </ThemeProvider>
+        <ResponsiveAppBar />
+        <Divider />
+        <ReharvestNavbarTemplate />
         </StyledPaper>
 
 
-    </Paper>
+
+
+    </Paper >
 
 }
 

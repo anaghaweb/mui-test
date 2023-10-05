@@ -2,15 +2,14 @@
 import * as React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import BrightnessLowIcon from '@mui/icons-material/BrightnessLow';
-import { IconButton, Typography, Stack, Box, Button, Divider, Container } from "@mui/material";
+import { Typography, Box, Button, Divider } from "@mui/material";
 import PeopleIcon from '@mui/icons-material/People';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import InsertPhotoSharpIcon from '@mui/icons-material/InsertPhotoSharp';
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-import Link from '@mui/material/Link';
-import LightModeIcon from '@mui/icons-material/LightMode';
+
 
 
 //NAVROOT
@@ -305,6 +304,8 @@ export default function ReharvestNavbarTemplate() {
             </StyledNavStack>
             {/* DESKTOP MENU LINKS / ICONS */}
             <StyledNavStack className="reharvest-middle">
+
+                {/* SEARCH BAR */}
                 <Box >
                     <Search>
                         <SearchIconWrapper>

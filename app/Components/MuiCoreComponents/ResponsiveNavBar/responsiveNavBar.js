@@ -12,15 +12,156 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import { styled, alpha } from '@mui/material/styles'
+import InsertPhotoSharpIcon from '@mui/icons-material/InsertPhotoSharp';
+import PeopleIcon from '@mui/icons-material/People';
+import DarkModeIcon from '@mui/icons-material/DarkMode'
+import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
+import InputBase from '@mui/material/InputBase';
+import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close'
 
-const pages = ['Products', 'Pricing', 'Blog'];
+
+const ModBar = styled(Toolbar)(({ theme }) => ({
+
+    backgroundColor: '#FFF2CC',
+    color: '#6A9153',
+    fontFamily: 'inherit'
+}))
+
+const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: '#ffffff',
+    color: '#000000',
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+        marginLeft: theme.spacing(1),
+        width: 'auto',
+    },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    '& .MuiInputBase-input': {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+            width: '10ch',
+            '&:focus': {
+                width: '50ch',
+            },
+        },
+    },
+}));
+
+const pages = ['Products', 'About Us', 'For Businesses'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const brightnessMenu = ['System', 'Lightmode', 'Darkmode'];
+const languageMenu = ['English', 'Hindi', 'Kannada', 'Tamil', 'Telugu', 'Malayalam', 'Marathi'];
+
+function FullScreenSearchbar() {
+
+    const [close, setClose] = React.useState(true)
+
+    const handleChange = () => {
+        setClose(!close)
+    }
+
+    return <>
+        <Box sx={
+            close ? { height: '100vh', width: '100%', position: 'absolute', top: '0', left: '0', zIndex: '99', backgroundColor: '#ffffff' }
+                :
+                { display: 'none' }
+
+        }  >
+            <Search
+                sx={{ width: '100%', backgroundColor: '#ffffff' }}
+                variant="outlined"
+            >
+                <SearchIconWrapper>
+                    <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                    variant="outlined"
+                    sx={{ width: '100%' }}
+                    placeholder="Search…"
+                    inputProps={{ 'aria-label': 'search' }}
+                />
+                <Button
+                    onClick={handleChange}
+                    sx={{
+                        cursor: 'pointer',
+                        padding: '0',
+                        display: 'flex',
+                        alignItems: 'center',
+                        width: '1rem',
+                        backgroundColor: '#3399FF',
+                        position: 'absolute',
+                        top: '0',
+                        bottom: '0',
+                        right: '0.15rem'
+                    }}
+                >
+                    <CloseIcon />
+                </Button>
+            </Search>
+
+        </Box>
+    </>
+}
+
+function SearchAppBar() {
+    return <Box>
+        <Search>
+            <SearchIconWrapper>
+                <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ 'aria-label': 'search' }}
+            />
+
+        </Search>
+
+    </Box>
+
+}
+
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorElBrightness, setAnchorElBrightness] = React.useState(null);
+    const [anchorElLang, setAnchorElLang] = React.useState(null);
+    const [search, setSearch] = React.useState(false)
 
+    const handleSearchBar = () => {
+        setSearch(!search);
+    }
+
+
+
+    const handleOpenLanguageMenu = (event) => {
+        setAnchorElLang(event.currentTarget);
+    }
+    const handleCloseLanguageMenu = () => {
+        setAnchorElLang(null)
+    };
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -36,30 +177,22 @@ function ResponsiveAppBar() {
         setAnchorElUser(null);
     };
 
-    return (
-        <AppBar position="static">
-            <Container maxWidth="xl">
-                <Toolbar disableGutters>
-                    <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="#app-bar-with-responsive-menu"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        LOGO
-                    </Typography>
+    const handleOpenBrightnessMenu = (event) => {
+        setAnchorElBrightness(event.currentTarget)
+    }
+    const handleCloseBrightnessMenu = () => {
+        setAnchorElBrightness(null)
+    }
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+    const searchActive = { width: '100%', height: '100%' };
+    const searchClose = { display: 'none' };
+    return (
+
+        <AppBar position="static">
+            <Container maxWidth="xl" disableGutters>
+                <ModBar disableGutters sx={{ padding: '0.5rem', position: 'relative' }} >
+                    {/* Mobile Icon & Menu */}
+                    <Box sx={{ flexGrow: 0, display: { xs: 'flex', lg: 'none', color: 'inherit' } }}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -67,6 +200,7 @@ function ResponsiveAppBar() {
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
                             color="inherit"
+                            sx={{ padding: '0.5rem' }}
                         >
                             <MenuIcon />
                         </IconButton>
@@ -85,7 +219,7 @@ function ResponsiveAppBar() {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: 'block', md: 'none' },
+                                display: { xs: 'block', lg: 'none' },
                             }}
                         >
                             {pages.map((page) => (
@@ -95,43 +229,146 @@ function ResponsiveAppBar() {
                             ))}
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                    <Typography
-                        variant="h5"
-                        noWrap
-                        component="a"
-                        href="#app-bar-with-responsive-menu"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
-                            flexGrow: 1,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        LOGO
-                    </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    {/* Mobile Icon & Menu*/}
+
+                    {/* LOGO AND TITLE */}
+                    <Box sx={{ flexGrow: 0, display: { xs: 'flex', justifyContent: 'flex-start', alignItems: 'center', color: 'inherit', backgroundColor: 'inherit' } }}>
+                        <IconButton
+                            sx={{ height: '5rem', width: '5rem', display: { xs: 'none', md: 'flex' } }}
+                            aria-label="logo of reharvest"
+                            aria-controls="menu-appbar"
+
+                            color="inherit"
+                        >
+                            <InsertPhotoSharpIcon
+                                sx={{ height: '100%', width: '100%', mr: 1 }} />
+                        </IconButton>
+                        <Typography
+                            variant="h4"
+                            noWrap
+                            component="a"
+                            href="#app-bar-with-responsive-menu"
+                            sx={{
+                                mr: 2,
+                                display: { xs: 'flex', fontSize: '1rem' },
+                                fontFamily: 'inherit',
+                                fontWeight: 500,
+
+                                color: 'inherit',
+                                textDecoration: 'none',
+
+                            }}
+                        >
+                            {/* NAVBAR TITLE */}
+                            Reharvest
+                        </Typography>
+                    </Box>
+                    {/* LOGO AND TITLE */}
+
+                    {/* Large screen Menu */}
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', lg: 'flex', justifyContent: 'center', color: 'inherit' } }}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{
+                                    my: 1,
+                                    color: 'inherit',
+                                    display: 'block',
+                                    textTransform: 'capitalize',
+                                    fontSize: { sm: '1.5rem', lg: '1.5rem' },
+                                    letterSpacing: 'none'
+                                }}
                             >
                                 {page}
                             </Button>
                         ))}
                     </Box>
+                    {/* Large screen Menu */}
 
-                    <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+
+                    {/* SEARCH FIELD */}
+                    <Box sx={{ display: { xs: 'none', lg: 'flex' } }}>
+                        <SearchAppBar />
+                    </Box>
+
+                    <Button variant="outlined" sx={{ display: { xs: 'flex', lg: 'none' }, width: 'fit-content' }}
+                        onClick={handleSearchBar}
+                    >
+                        <SearchIcon />
+                    </Button>
+
+                    {search && <FullScreenSearchbar />}
+
+                    {/* SEARCH FIELD */}
+
+                    {/* SETTINGS MENU */}
+                    <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'flex-end' }}>
+                        <Tooltip title="Switch to Dark Mode">
+                            <IconButton onClick={handleOpenBrightnessMenu} sx={{ p: '0.5rem' }}>
+                                <DarkModeIcon />
                             </IconButton>
                         </Tooltip>
+                        <Tooltip title="Change Language">
+                            <IconButton onClick={handleOpenLanguageMenu} sx={{ p: '0.5rem' }}>
+                                <LanguageOutlinedIcon />
+                            </IconButton>
+                        </Tooltip>
+                        <Tooltip title="Manage Profile">
+                            <IconButton onClick={handleOpenUserMenu} sx={{ p: '0.5rem' }}>
+                                <PeopleIcon />
+                            </IconButton>
+                        </Tooltip>
+
+                        {/* LANGUAGE MENU */}
+                        <Menu
+                            sx={{ mt: '45px' }}
+                            id="menu-appbar"
+                            anchorEl={anchorElLang}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            open={Boolean(anchorElLang)}
+                            onClose={handleCloseLanguageMenu}
+                        >
+                            {languageMenu.map((language) => (
+                                <MenuItem key={language} onClick={handleCloseLanguageMenu}>
+                                    <Typography textAlign="center">{language}</Typography>
+                                </MenuItem>
+                            ))}
+                        </Menu>
+
+                        {/* DARK / LIGHT MENU */}
+                        <Menu
+                            sx={{ mt: '45px' }}
+                            id="menu-appbar"
+                            anchorEl={anchorElBrightness}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            open={Boolean(anchorElBrightness)}
+                            onClose={handleCloseBrightnessMenu}
+                        >
+                            {brightnessMenu.map((brightness) => (
+                                <MenuItem key={brightness} onClick={handleCloseBrightnessMenu}>
+                                    <Typography textAlign="center">{brightness}</Typography>
+                                </MenuItem>
+                            ))}
+                        </Menu>
+
+                        {/* USER PROFILE MENU */}
                         <Menu
                             sx={{ mt: '45px' }}
                             id="menu-appbar"
@@ -155,9 +392,12 @@ function ResponsiveAppBar() {
                             ))}
                         </Menu>
                     </Box>
-                </Toolbar>
+                    {/* SETTINGS MENU */}
+
+                </ModBar>
             </Container>
-        </AppBar>
+        </AppBar >
+
     );
 }
 export default ResponsiveAppBar;

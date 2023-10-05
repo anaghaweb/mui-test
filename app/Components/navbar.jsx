@@ -126,9 +126,9 @@ export default function Navbar() {
                     />
             <StyledMobileMenu sx={menu ? open : close} className="base-menu-list">
                 <StyledBox >
-                    <Typography variant="h5" component="div">
-                        Mui Test
-                    </Typography>
+                    <Link href="/"><Typography variant="h5" component="div">
+                        Home
+                    </Typography></Link>
                     <Divider orientation="vertical" flexItem />
                     <Button variant="filled" onClick={() => showMenu(!menu)}>Close</Button>
                 </StyledBox>

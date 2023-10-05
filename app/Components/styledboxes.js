@@ -5,7 +5,7 @@ import Paper from '@mui/material/Paper';
 
 
 export const StyledBox = styled(Box)(({ theme }) => ({
-    height: '300px',
+    height: '100vh',
     width: '100%',
     display: 'flex',
     color: 'black',
