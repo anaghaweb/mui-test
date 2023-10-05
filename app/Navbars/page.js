@@ -8,13 +8,14 @@ import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import SearchAppBar from '../Components/MuiCoreComponents/AppBarSearchField/searchAppBar';
 import ResponsiveAppBar from '../Components/MuiCoreComponents/ResponsiveNavBar/responsiveNavBar';
 import PrimarySearchAppBar from '../Components/MuiCoreComponents/FullAppbar/fullappbar';
+import ReharvestnavbarTheme from '../CustomNavbars/ReharvestNavbar/reharvestnavbartheme';
 
 
 const SecondPage = () => {
 
     return <Paper sx={{ height: 'auto', padding: '4' }}>
         <StyledPaper>
-            <ThemeProvider theme={baseNavbarTheme}>
+            <ThemeProvider theme={ReharvestnavbarTheme}>
                 <SearchAppBar />
                 <Divider />
                 <ResponsiveAppBar />

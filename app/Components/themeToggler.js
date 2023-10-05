@@ -1,8 +1,8 @@
 'use client'
-
+import theme from '../ThemeRegistry/theme';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
-let lTheme = createTheme({
+let lTheme = createTheme(theme, {
 
     breakpoints: {
         values: {

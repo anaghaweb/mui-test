@@ -46,7 +46,12 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
     flexDirection: 'column',
     gap: theme.spacing(0.5),
     padding: '2rem 0.5rem 0.5rem 1rem',
-    color: 'inherit',
+    color: '#ffffff',
+    backgroundColor: 'inherit',
+    
+    '&:visited':{
+        color: 'inherit'
+    },
 
     '&.mob-title-wrapper': {
         display: 'flex',
@@ -64,7 +69,7 @@ const StyledBox = styled(Box)
         justifyContent: 'space-around',
         alignItems: 'center',
         width: '100%',
-        color: '#3399FF',
+        color: 'inherit',
         textTransform: 'capitalize',
         ...theme.typography.subtitle1,
     }));
@@ -78,7 +83,7 @@ const open = {
     left: '0.15rem',
     width: '50vw',
     height: 'auto',
-    backgroundColor: 'inherit',
+    backgroundColor: '#3399ff',
     zIndex: '99',
     transition: 'left 0.5s ease',
 };
@@ -103,37 +108,53 @@ export default function Navbar() {
     
       <ThemeProvider theme={mode}>
         
-      <AppBar position="sticky">
-          <Toolbar sx={{ display: 'flex', justifyContent: 'space-between'}}>
+            <AppBar           
+                position="sticky"
+            >
+                <Toolbar
+                    position="relative"
+                    sx={{ display: 'flex', justifyContent: 'flex-end', width: '100%', color:'inherit', backgroundColor:'inherit' }}>
         
-        <NavMenuIcon onClick={() => showMenu(!menu)} className="base-mobile-menu" />
+                    <NavMenuIcon
+                        onClick={() => showMenu(!menu)}
+                        className="base-mobile-menu"
+                        sx={{
+                            position: 'absolute',
+                            top: '0', bottom: '0', left: '0.5rem', margin: 'auto'
+                        }}
+
+                    />
             <StyledMobileMenu sx={menu ? open : close} className="base-menu-list">
                 <StyledBox >
                     <Typography variant="h5" component="div">
                         Mui Test
                     </Typography>
                     <Divider orientation="vertical" flexItem />
-                    <Button variant="outlined" onClick={() => showMenu(!menu)}>Close</Button>
+                    <Button variant="filled" onClick={() => showMenu(!menu)}>Close</Button>
                 </StyledBox>
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
-                    <a href="/Navbars">Navbars</a></Box>
-                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Services</a></Box>
-                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Profile</a></Box>
-                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">About Us</a></Box>
-                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">For Businesses</a></Box>
+                    <Link href="/Navbars">Navbars</Link></Box>
+                        <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
+                            <Link href="#">Services</Link></Box>
+                        <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
+                            <Link href="#">Profile</Link></Box>
+                        <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
+                            <Link href="#">About Us</Link></Box>
+                        <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
+                            <Link href="#">For Businesses</Link></Box>
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
-                    <a href="#">Logout</a></Box>
+                            <Link href="#">Logout</Link></Box>
             </StyledMobileMenu>
-                  <Box>
-                <Switch defaultChecked={false} onChange={() => handlechange()} name='dark' color='default' />
-
+                 <Box>
+                
                 <Button variant="outlined" color="primary"
                 sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
               ><Link href="/" style={{color:'#ffffff'}}>Home</Link></Button>                    
            
             <Button variant="outlined" color="primary"
                 sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
-              ><Link href="/Navbars" style={{color:'#ffffff'}}>Navbars</Link></Button>
+                        ><Link href="/Navbars" style={{ color: '#ffffff' }}>Navbars</Link></Button>
+                        <Switch defaultChecked={false} onChange={() => handlechange()} name='dark' color='default' />
             </Box>
                                      
           
