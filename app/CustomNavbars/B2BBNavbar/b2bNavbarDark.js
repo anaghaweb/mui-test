@@ -28,7 +28,7 @@ const NavRoot = styled('div')
         borderRadius: theme.shape.borderRadius,
         boxShadow: theme.shadows[2],
         backgroundColor: '#2A7FD4',
-        color: '#fafafa',
+        color: '#ffffff',
         [theme.breakpoints.down('md')]: {
             justifyContent: 'space-between',
             padding: theme.spacing(1),
@@ -278,15 +278,15 @@ const StyledButton = styled('button')
         borderRadius: '0.2rem',
         border: 'none',
         gap: theme.spacing(0.5),
-        color: '#3399FF',
+        color: '#2A7FD4',
         '&:hover': {
             cursor: 'pointer',
-            backgroundColor: '#f2f2f2',
+            backgroundColor: '#ffffff',
         },
         '&.stl-btn': {
             [theme.breakpoints.down('md')]:
             {
-                color: '#f2f2f2',
+                color: '#ffffff',
                 backgroundColor: 'transparent',
                 width: 'fit-content',
             },
@@ -327,7 +327,7 @@ export default function B2BTemplate() {
         <NavRoot className="b2bdark">
 
             {/* MOBILE MENU  */}
-            <NavMenuIcon onClick={() => showMenu(!menu)} className="b2bdark-mobile-menu" />
+            <NavMenuIcon onClick={() => showMenu(!menu)} className="b2bdark-mobile-menu" id="b2bMenuIconDark" />
             <StyledMobileMenu sx={menu ? open : close} className="b2bdark-menu-list">
                 <StyledBox >
                     <Typography variant="h5" component="div">
@@ -350,7 +350,7 @@ export default function B2BTemplate() {
 
                 {/* NAVBAR TITLE */}
                 <NavTitle>
-                    <Typography variant="h4" component="div" >
+                    <Typography variant="h4">
                         B2B
                     </Typography>
                 </NavTitle>
@@ -373,16 +373,16 @@ export default function B2BTemplate() {
             {/* SETTING ICONS */}
             <StyledNavStack direction="row" className="b2bdark-right">
                 <StyledButton className="stl-btn">
-                    <StyledLinks className="stl-btn" href="#" ><ShoppingCartRoundedIcon />
+                    <StyledLinks className="stl-btn svgIconCartDark" href="#" ><ShoppingCartRoundedIcon />
                         <Box className="cart-btn">Cart</Box></StyledLinks>
                 </StyledButton>
                 <StyledButton className="stl-btn">
                     <StyledLinks className="stl-btn" href="#"> <LoginOutlinedIcon />
                         <Box className="cart-btn">Login</Box></StyledLinks>
                 </StyledButton>
-                <IconWrapper><BrightnessLowIcon /></IconWrapper>
-                <IconWrapper><LanguageOutlinedIcon /></IconWrapper>
-                <IconWrapper><PeopleIcon /></IconWrapper>
+                <IconWrapper className="b2bdark-icon1"><BrightnessLowIcon /></IconWrapper>
+                <IconWrapper className="b2bdark-icon2"><LanguageOutlinedIcon /></IconWrapper>
+                <IconWrapper className="b2bdark-icon3"><PeopleIcon /></IconWrapper>
             </StyledNavStack>
         </NavRoot >
 

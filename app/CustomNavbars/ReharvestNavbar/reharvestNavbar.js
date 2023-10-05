@@ -184,7 +184,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
     [theme.breakpoints.up('lg')]: { gap: theme.spacing(2), },
     [theme.breakpoints.down('sm')]: { gap: theme.spacing(0.5) },
 
-    '&.b2blight-middle':
+    '&.reharvest-middle':
     {
         justifyContent: 'flex-end',
         flexGrow: '3',
@@ -194,7 +194,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
             gap: theme.spacing(2),
         }
     },
-    '&.b2blight-left': {
+    '&.reharvest-left': {
         display: 'flex',
         justifyContent: 'flex-start',
         alignItems: 'center',
@@ -208,7 +208,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
 
     },
 
-    '&.b2blight-right': {
+    '&.reharvest-right': {
         width: 'auto',
         flexShrink: 1,
         display: 'flex',
@@ -230,6 +230,7 @@ const Search = styled('div')(({ theme }) => ({
     border: `${{ backgroundColor: '#fffff' } ? '0.1px solid #9e9e9e' : ''
         }`,
     backgroundColor: alpha(theme.palette.common.white, 0.9),
+
     '&:hover': {
         backgroundColor: alpha(theme.palette.common.black, 0.1),
     },
@@ -291,7 +292,7 @@ export default function ReharvestNavbarTemplate() {
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}><a href="#">Logout</a></Box>
             </StyledMobileMenu>
 
-            <StyledNavStack className="b2blight-left">
+            <StyledNavStack className="reharvest-left">
                 {/* NAVBAR LOGO / IMAGE */}
                 <NavImageIcon />
 
@@ -303,7 +304,7 @@ export default function ReharvestNavbarTemplate() {
                 </NavTitle>
             </StyledNavStack>
             {/* DESKTOP MENU LINKS / ICONS */}
-            <StyledNavStack className="b2blight-middle">
+            <StyledNavStack className="reharvest-middle">
                 <Box >
                     <Search>
                         <SearchIconWrapper>
@@ -311,14 +312,15 @@ export default function ReharvestNavbarTemplate() {
                         </SearchIconWrapper>
                         <StyledInputBase
                             placeholder="Search for Products…"
-                            inputProps={{ 'aria-label': 'search' }}
+                            inputProps={{ 'aria-label': 'reharvest-search' }}
+                            id="research"
                         />
                     </Search>
                 </Box>
             </StyledNavStack>
 
             {/* SETTING ICONS */}
-            <StyledNavStack direction="row" className="b2blight-right">
+            <StyledNavStack direction="row" className="reharvest-right">
 
                 <IconWrapper><BrightnessLowIcon sx={{ color: '#787878' }} /></IconWrapper>
                 <IconWrapper><LanguageOutlinedIcon sx={{ color: '#787878' }} /></IconWrapper>

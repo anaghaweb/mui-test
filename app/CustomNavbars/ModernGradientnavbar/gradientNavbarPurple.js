@@ -308,7 +308,8 @@ export default function ModernBlueTemplate() {
                         </SearchIconWrapper>
                         <StyledInputBase
                             placeholder="Search for Products…"
-                            inputProps={{ 'aria-label': 'search' }}
+                            inputProps={{ 'aria-label': 'purple-search' }}
+
                         />
                     </Search>
                 </Box>

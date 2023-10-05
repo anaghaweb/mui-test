@@ -117,6 +117,18 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
     }
 }))
 
+//MOBILE MENU WRAPPER
+const StyledBox = styled(Box)
+    (({ theme }) => ({
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        width: '100%',
+        color: '#3399FF',
+        textTransform: 'capitalize',
+        ...theme.typography.subtitle1,
+    }));
+
 //MOBILE MENU OPEN / CLOSE STYLING
 const open = {
     position: 'absolute',
@@ -172,17 +184,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
     }
 }))
 
-//MOBILE MENU WRAPPER
-const StyledBox = styled(Box)
-    (({ theme }) => ({
-        display: 'flex',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        width: '100%',
-        color: '#3399FF',
-        textTransform: 'capitalize',
-        ...theme.typography.subtitle1,
-    }));
+
 
 export default function BaseNavbarTemplate() {
 

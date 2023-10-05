@@ -308,7 +308,7 @@ export default function ModernPinkTemplate() {
                         </SearchIconWrapper>
                         <StyledInputBase
                             placeholder="Search for Products…"
-                            inputProps={{ 'aria-label': 'search' }}
+                            inputProps={{ 'aria-label': 'pink-search' }}
                         />
                     </Search>
                 </Box>

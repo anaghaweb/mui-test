@@ -14,7 +14,6 @@ import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import LightModeIcon from '@mui/icons-material/LightMode';
 
 
-
 const NavRoot = styled('div')
     (({ theme }) => ({
         position: 'relative',
@@ -181,7 +180,6 @@ const StyledNavStack = styled('div')(({ theme }) => ({
 
     [theme.breakpoints.up('lg')]: { gap: theme.spacing(2), },
     [theme.breakpoints.down('sm')]: { gap: theme.spacing(0.5) },
-
     '&.b2blight-middle':
     {
         justifyContent: 'center',
@@ -202,9 +200,7 @@ const StyledNavStack = styled('div')(({ theme }) => ({
         [theme.breakpoints.down('sm')]: {
             gap: '0.5rem',
         },
-
     },
-
     '&.b2blight-right': {
         display: 'flex',
         justifyContent: 'flex-end',
@@ -291,8 +287,8 @@ export default function B2BTemplate() {
         <NavRoot className="b2bLight">
 
             {/* MOBILE MENU  */}
-            <NavMenuIcon onClick={() => showMenu(!menu)} className="b2b-mobile-menu" />
-            <StyledMobileMenu sx={menu ? open : close} className="b2b-menu-link">
+            <NavMenuIcon onClick={() => showMenu(!menu)} className="b2blight-mobile-menu" id="b2bMenuIcon" />
+            <StyledMobileMenu sx={menu ? open : close} className="b2blight-menu-link">
                 <StyledBox >
                     <Typography variant="h5" component="div">
                         B2B
@@ -313,7 +309,7 @@ export default function B2BTemplate() {
 
                 {/* NAVBAR TITLE */}
                 <NavTitle>
-                    <Typography variant="h4" sx={{ marginTop: 'auto', marginBottom: 'auto' }}>B2B</Typography>
+                    <Typography variant="h4">B2B</Typography>
                 </NavTitle>
             </StyledNavStack>
             {/* DESKTOP MENU LINKS / ICONS */}
@@ -334,16 +330,16 @@ export default function B2BTemplate() {
             {/* SETTING ICONS */}
             <StyledNavStack direction="row" className="b2blight-right">
                 <StyledButton className="stl-btn">
-                    <StyledLinks className="stl-btn" href="#" ><ShoppingCartRoundedIcon />
+                    <StyledLinks className="stl-btn svgIconCart" href="#"><ShoppingCartRoundedIcon />
                         <Box className="cart-btn">Cart</Box></StyledLinks>
                 </StyledButton>
                 <StyledButton className="stl-btn">
                     <StyledLinks className="stl-btn" href="#"> <LoginOutlinedIcon />
                         <Box className="cart-btn">Login</Box></StyledLinks>
                 </StyledButton>
-                <IconWrapper><BrightnessLowIcon /></IconWrapper>
-                <IconWrapper><LanguageOutlinedIcon /></IconWrapper>
-                <IconWrapper><PeopleIcon /></IconWrapper>
+                <IconWrapper className="b2blight-icon1"><BrightnessLowIcon /></IconWrapper>
+                <IconWrapper className="b2blight-icon2"><LanguageOutlinedIcon /></IconWrapper>
+                <IconWrapper className="b2blight-icon3"><PeopleIcon /></IconWrapper>
             </StyledNavStack>
         </NavRoot >
 
