@@ -14,8 +14,8 @@ import { green } from '@mui/material/colors';
 import { darkTheme, lightTheme } from './themeToggler';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import { ThemeContext } from '../ThemeRegistry/ThemeRegistry';
 
-export const themeContext = React.createContext();
 
 
 // HAMBURGER ICON STYLING
@@ -44,6 +44,7 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
     position: 'relative',
     display: 'flex',
     flexDirection: 'column',
+    width:'100vw',
     gap: theme.spacing(0.5),
     padding: '2rem 0.5rem 0.5rem 1rem',
     color: '#ffffff',
@@ -81,7 +82,7 @@ const open = {
     justifyContent: 'center',
     top: '100%',
     left: '0.15rem',
-    width: '50vw',
+    width: {xs:'100vw', sm:'15rem'},
     height: 'auto',
     backgroundColor: '#3399ff',
     zIndex: '99',
@@ -97,17 +98,15 @@ const close = {
 
 export default function Navbar() {
 
-  const [mode, setMode] = React.useState(lightTheme);
+   const [bright, setbright] = React.useContext(ThemeContext);
    const [menu, showMenu] = React.useState(false);
-
-  function handlechange (){
-        setMode(prev => prev === lightTheme ? darkTheme : lightTheme )
-  }
+    const theme = React.useContext(ThemeContext);
+ 
   
     return (
     
-      <ThemeProvider theme={mode}>
-        
+      
+        <ThemeContext.Provider theme={theme}>
             <AppBar           
                 position="sticky"
             >
@@ -154,15 +153,15 @@ export default function Navbar() {
             <Button variant="outlined" color="primary"
                 sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
                         ><Link href="/Navbars" style={{ color: '#ffffff' }}>Navbars</Link></Button>
-                        <Switch defaultChecked={false} onChange={() => handlechange()} name='dark' color='default' />
+                        <Switch defaultChecked={false} onChange={()=>setbright(!bright)} name='dark' color='default' />
             </Box>
                                      
           
         </Toolbar>
         </AppBar>
-            
+        </ThemeContext.Provider>    
         
-        </ThemeProvider>
+        
     
       
   );

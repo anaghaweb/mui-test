@@ -19,12 +19,14 @@ import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import CloseIcon from '@mui/icons-material/Close'
+import CloseIcon from '@mui/icons-material/Close';
+import { ThemeContext } from '@/app/ThemeRegistry/ThemeRegistry';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
 
 
 const ModBar = styled(Toolbar)(({ theme }) => ({
 
-    backgroundColor: '#FFF2CC',
+    background: 'linear-gradient(to right, #CC99FF, #CCFFE6)',
     color: '#6A9153',
     fontFamily: 'inherit'
 }))
@@ -37,19 +39,22 @@ const Search = styled('div')(({ theme }) => ({
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(1),
+
         width: 'auto',
     },
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
+    padding: theme.spacing(0, 1),
     height: '100%',
     position: 'absolute',
     pointerEvents: 'none',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    '& .mui-8je8zh-MuiTouchRipple-root': {
+        minWidth: '1.5rem'
+    }
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -57,14 +62,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+        paddingLeft: `calc(1em + ${theme.spacing(2)})`,
         transition: theme.transitions.create('width'),
         width: '100%',
         [theme.breakpoints.up('sm')]: {
-            width: '10ch',
-            '&:focus': {
-                width: '50ch',
-            },
+            width: '50ch',
+
         },
     },
 }));
@@ -124,12 +127,13 @@ function SearchAppBar() {
 
 }
 
-function ResponsiveAppBar() {
+function ResponsiveModernPurple() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [anchorElBrightness, setAnchorElBrightness] = React.useState(null);
     const [anchorElLang, setAnchorElLang] = React.useState(null);
     const [search, setSearch] = React.useState(false)
+
 
     const handleSearchBar = () => {
         setSearch(!search);
@@ -165,9 +169,15 @@ function ResponsiveAppBar() {
 
     return (
 
-        <AppBar position="static">
-            <Container maxWidth="xl" disableGutters>
-                <ModBar disableGutters sx={{ padding: '0.5rem', position: 'relative' }} >
+        <AppBar
+            position="static"
+            sx={{ height: { xs: '3rem', md: '5rem' } }}
+        >
+            <Container maxWidth="xl"
+                disableGutters
+                sx={{ height: 'inherit' }}
+            >
+                <ModBar disableGutters sx={{ padding: '0.5rem', position: 'relative', height: 'inherit' }} >
                     {/* Mobile Icon & Menu */}
                     <Box sx={{ flexGrow: 0, display: { xs: 'flex', lg: 'none', color: 'inherit' } }}>
                         <IconButton
@@ -176,7 +186,7 @@ function ResponsiveAppBar() {
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
-                            color="inherit"
+                            color="#000000"
                             sx={{ padding: '0.5rem' }}
                         >
                             <MenuIcon />
@@ -212,7 +222,7 @@ function ResponsiveAppBar() {
                     <Box sx={{ flexGrow: 0, display: { xs: 'flex', justifyContent: 'flex-start', alignItems: 'center', color: 'inherit', backgroundColor: 'inherit' } }}>
                         <IconButton
                             sx={{ height: '5rem', width: '5rem', display: { xs: 'none', md: 'flex' } }}
-                            aria-label="logo of reharvest"
+                            aria-label="logo of ModernPurple"
                             aria-controls="menu-appbar"
 
                             color="inherit"
@@ -226,24 +236,24 @@ function ResponsiveAppBar() {
                             component="a"
                             href="#app-bar-with-responsive-menu"
                             sx={{
-                                mr: 2,
-                                display: { xs: 'flex', fontSize: '1rem' },
+                                mr: 0.5,
+                                display: { xs: 'flex', fontSize: '0.8rem' },
                                 fontFamily: 'inherit',
                                 fontWeight: 500,
 
-                                color: 'inherit',
+                                color: '#4D4D4D',
                                 textDecoration: 'none',
 
                             }}
                         >
                             {/* NAVBAR TITLE */}
-                            Reharvest
+                            ModernPurple
                         </Typography>
                     </Box>
                     {/* LOGO AND TITLE */}
 
                     {/* Large screen Menu */}
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', lg: 'flex', justifyContent: 'center', color: 'inherit' } }}>
+                    {/* <Box sx={{ flexGrow: 1, display: { xs: 'none', lg: 'flex', justifyContent: 'center', color: 'inherit' } }}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
@@ -260,17 +270,17 @@ function ResponsiveAppBar() {
                                 {page}
                             </Button>
                         ))}
-                    </Box>
+                    </Box> */}
                     {/* Large screen Menu */}
 
 
                     {/* SEARCH FIELD */}
-                    <Box sx={{ display: { xs: 'none', lg: 'flex', justifyContent: 'flex-end' } }}>
+                    <Box sx={{ display: { xs: 'none', lg: 'flex', flexGrow: 4, justifyContent: 'flex-end' } }}>
                         <SearchAppBar />
                     </Box>
                     {search && <FullScreenSearchbar />}
                     {search && <Button
-                        variant="outlined"
+                        variant="text"
                         onClick={handleSearchBar}
                         sx={{
                             cursor: 'pointer',
@@ -279,7 +289,7 @@ function ResponsiveAppBar() {
                             alignItems: 'center',
                             width: 'fit-content',
                             height: '39px',
-                            backgroundColor: '#ffffff',
+                            backgroundColor: 'transparent',
                             position: 'absolute',
                             top: '0',
                             bottom: '0',
@@ -294,24 +304,40 @@ function ResponsiveAppBar() {
 
 
                     {/* SETTINGS MENU */}
-                    <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'flex-end' }}>
-                        <Button variant="text" sx={{ display: { xs: 'flex', lg: 'none' }, width: 'fit-content', color: 'inherit', justifyContent: 'flex-end' }}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexGrow: 1,
+                            justifyContent: 'flex-end',
+                            flexBasis: '2%',
+                        }}>
+                        <Button
+                            variant="text"
+                            sx={{
+                                display: { xs: 'flex', lg: 'none' },
+                                width: 'fit-content',
+                                color: 'inherit',
+                                justifyContent: 'flex-end'
+                            }}
                             onClick={handleSearchBar}
                         >
                             <SearchIcon />
                         </Button>
                         <Tooltip title="Switch to Dark Mode">
-                            <IconButton onClick={handleOpenBrightnessMenu} sx={{ p: '0.5rem' }}>
+                            <IconButton onClick={handleOpenBrightnessMenu}
+                                sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}>
                                 <DarkModeIcon />
                             </IconButton>
                         </Tooltip>
                         <Tooltip title="Change Language">
-                            <IconButton onClick={handleOpenLanguageMenu} sx={{ p: '0.5rem' }}>
+                            <IconButton onClick={handleOpenLanguageMenu}
+                                sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}>
                                 <LanguageOutlinedIcon />
                             </IconButton>
                         </Tooltip>
                         <Tooltip title="Manage Profile">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: '0.5rem' }}>
+                            <IconButton onClick={handleOpenUserMenu}
+                                sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}>
                                 <PeopleIcon />
                             </IconButton>
                         </Tooltip>
@@ -395,4 +421,4 @@ function ResponsiveAppBar() {
 
     );
 }
-export default ResponsiveAppBar;
+export default ResponsiveModernPurple;

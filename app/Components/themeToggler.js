@@ -1,6 +1,8 @@
 'use client'
 import theme from '../ThemeRegistry/theme';
+import * as React from 'react';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+
 
 let lTheme = createTheme(theme, {
 
@@ -21,8 +23,6 @@ let lTheme = createTheme(theme, {
 
 });
 const lightTheme = responsiveFontSizes(lTheme);
-
-
 
 let dTheme = createTheme({
 
