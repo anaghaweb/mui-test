@@ -309,6 +309,19 @@ function ResponsiveModernPink() {
                             justifyContent: 'flex-end',
                             flexBasis: '2%',
                         }}>
+                        <Button
+                            variant="text"
+                            sx={{
+                                display: { xs: 'flex', lg: 'none' },
+                                width: 'fit-content',
+                                color: 'inherit',
+                                justifyContent: 'flex-end'
+                            }}
+                            onClick={handleSearchBar}
+                        >
+                            <SearchIcon />
+                        </Button>
+
                         <Tooltip title="Settings">
                             <IconButton onClick={handleOpenBrightnessMenu}
                                 sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}>

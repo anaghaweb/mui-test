@@ -323,6 +323,7 @@ function ResponsiveModernBlue() {
                         >
                             <SearchIcon />
                         </Button>
+
                         <Tooltip title="Settings">
                             <IconButton onClick={handleOpenBrightnessMenu}
                                 sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}>
