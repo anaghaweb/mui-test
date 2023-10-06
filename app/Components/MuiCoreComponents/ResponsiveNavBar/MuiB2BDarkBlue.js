@@ -145,7 +145,7 @@ const StyledButton = styled('button')
         borderRadius: '0.2rem',
         border: 'none',
 
-        color: 'inherit',
+        color: '#2A7FD4',
         '&:hover': {
             cursor: 'pointer',
             backgroundColor: '#f2f2f2',
@@ -177,7 +177,7 @@ const StyledLinks = styled(Link)
         justifyContent: 'center',
         ...theme.typography.h5,
         gap: theme.spacing(1),
-        color: 'inherit',
+        color: '#2A7FD4',
         '&:visited': {
             color: '#2A7FD4',
             [theme.breakpoints.up('md')]: {
