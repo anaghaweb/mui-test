@@ -14,7 +14,7 @@ import { green } from '@mui/material/colors';
 import { darkTheme, lightTheme } from './themeToggler';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { ThemeContext } from '../ThemeRegistry/ThemeRegistry';
+
 
 
 
@@ -98,15 +98,13 @@ const close = {
 
 export default function Navbar() {
 
-   const [bright, setbright] = React.useContext(ThemeContext);
+  
    const [menu, showMenu] = React.useState(false);
-    const theme = React.useContext(ThemeContext);
+    
  
   
     return (
-    
-      
-        <ThemeContext.Provider theme={theme}>
+        
             <AppBar           
                 position="sticky"
             >
@@ -159,7 +157,7 @@ export default function Navbar() {
           
         </Toolbar>
         </AppBar>
-        </ThemeContext.Provider>    
+           
         
         
     

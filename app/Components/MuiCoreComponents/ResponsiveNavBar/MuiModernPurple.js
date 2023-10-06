@@ -15,7 +15,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { styled, alpha } from '@mui/material/styles'
 import InsertPhotoSharpIcon from '@mui/icons-material/InsertPhotoSharp';
 import PeopleIcon from '@mui/icons-material/People';
-import DarkModeIcon from '@mui/icons-material/DarkMode'
+import SettingsIcon from '@mui/icons-material/Settings';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
@@ -73,8 +73,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const pages = ['Products', 'About Us', 'For Businesses'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-const brightnessMenu = ['System', 'Lightmode', 'Darkmode'];
+const profileSettings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['System', 'Brightness', 'Installation'];
 const languageMenu = ['English', 'Hindi', 'Kannada', 'Tamil', 'Telugu', 'Malayalam', 'Marathi'];
 
 
@@ -311,22 +311,10 @@ function ResponsiveModernPurple() {
                             justifyContent: 'flex-end',
                             flexBasis: '2%',
                         }}>
-                        <Button
-                            variant="text"
-                            sx={{
-                                display: { xs: 'flex', lg: 'none' },
-                                width: 'fit-content',
-                                color: 'inherit',
-                                justifyContent: 'flex-end'
-                            }}
-                            onClick={handleSearchBar}
-                        >
-                            <SearchIcon />
-                        </Button>
-                        <Tooltip title="Switch to Dark Mode">
+                        <Tooltip title="Settings">
                             <IconButton onClick={handleOpenBrightnessMenu}
                                 sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}>
-                                <DarkModeIcon />
+                                <SettingsIcon />
                             </IconButton>
                         </Tooltip>
                         <Tooltip title="Change Language">
@@ -383,9 +371,9 @@ function ResponsiveModernPurple() {
                             open={Boolean(anchorElBrightness)}
                             onClose={handleCloseBrightnessMenu}
                         >
-                            {brightnessMenu.map((brightness) => (
-                                <MenuItem key={brightness} onClick={handleCloseBrightnessMenu}>
-                                    <Typography textAlign="center">{brightness}</Typography>
+                            {settings.map((settings) => (
+                                <MenuItem key={settings} onClick={handleCloseBrightnessMenu}>
+                                    <Typography textAlign="center">{settings}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -407,9 +395,9 @@ function ResponsiveModernPurple() {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
+                            {profileSettings.map((profileSettings) => (
+                                <MenuItem key={profileSettings} onClick={handleCloseUserMenu}>
+                                    <Typography textAlign="center">{profileSettings}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>

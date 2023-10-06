@@ -26,6 +26,7 @@ import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import AtlassianSVGLight from '../../SVGs/atlassianLight';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 
 const ModBar = styled(Toolbar)(({ theme }) => ({
@@ -239,8 +240,8 @@ const StyledLinks = styled(Link)
 // }))
 
 const pages = ['Products', 'About Us', 'For Businesses'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-const brightnessMenu = ['System', 'Lightmode', 'Darkmode'];
+const profileSettings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['System', 'Brightness', 'Installation'];
 const languageMenu = ['English', 'Hindi', 'Kannada', 'Tamil', 'Telugu', 'Malayalam', 'Marathi'];
 
 function ResponsiveB2BDark() {
@@ -467,7 +468,7 @@ function ResponsiveB2BDark() {
                         <Tooltip title="Switch to Dark Mode">
                             <IconButton onClick={handleOpenBrightnessMenu}
                                 sx={{ p: { xs: '0.2rem', sm: '0.5rem', color: 'inherit' } }}>
-                                <DarkModeIcon />
+                                <SettingsIcon />
                             </IconButton>
                         </Tooltip>
                         <Tooltip title="Change Language">
@@ -524,9 +525,9 @@ function ResponsiveB2BDark() {
                             open={Boolean(anchorElBrightness)}
                             onClose={handleCloseBrightnessMenu}
                         >
-                            {brightnessMenu.map((brightness) => (
-                                <MenuItem key={brightness} onClick={handleCloseBrightnessMenu}>
-                                    <Typography textAlign="center">{brightness}</Typography>
+                            {settings.map((settings) => (
+                                <MenuItem key={settings} onClick={handleCloseBrightnessMenu}>
+                                    <Typography textAlign="center">{settings}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -548,9 +549,9 @@ function ResponsiveB2BDark() {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
+                            {profileSettings.map((profileSettings) => (
+                                <MenuItem key={profileSettings} onClick={handleCloseUserMenu}>
+                                    <Typography textAlign="center">{profileSettings}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>

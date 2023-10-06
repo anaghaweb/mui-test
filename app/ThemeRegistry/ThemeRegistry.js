@@ -5,7 +5,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import NextAppDirEmotionCacheProvider from './EmotionCache';
 import { createTheme } from '@mui/material/styles';
 import theme from './theme';
-import { darkTheme, lightTheme } from '../Components/themeToggler';
 
 
 let defaultTheme = createTheme(theme, {
@@ -26,21 +25,21 @@ let defaultTheme = createTheme(theme, {
     },
 });
 
-export const ThemeContext = React.createContext();
+
 
 export default function ThemeRegistry({ children }) {
 
-    const [bright, setbright] = React.useState({ lightTheme })
+
 
     return (
         <NextAppDirEmotionCacheProvider options={{ key: 'mui' }}>
-            <ThemeContext.Provider value={[bright, setbright]}>
-                <ThemeProvider theme={defaultTheme}>
-                    <CssBaseline />
 
-                    {children}
-                </ThemeProvider>
-            </ThemeContext.Provider>
+            <ThemeProvider theme={defaultTheme}>
+                <CssBaseline />
+
+                {children}
+            </ThemeProvider>
+
         </NextAppDirEmotionCacheProvider>
     );
 }
