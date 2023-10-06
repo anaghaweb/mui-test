@@ -145,7 +145,7 @@ const StyledButton = styled('button')
         borderRadius: '0.2rem',
         border: 'none',
 
-        color: '#2A7FD4',
+
         '&:hover': {
             cursor: 'pointer',
             backgroundColor: '#f2f2f2',
@@ -153,6 +153,7 @@ const StyledButton = styled('button')
         '&.stl-btn': {
             [theme.breakpoints.down('md')]:
             {
+                color: '#ffffff',
                 backgroundColor: 'transparent',
                 width: 'fit-content',
             },
@@ -161,6 +162,7 @@ const StyledButton = styled('button')
             ...theme.typography.body1,
             [theme.breakpoints.up('md')]: {
                 ...theme.typography.subtitle1,
+                color: '#2A7FD4',
             },
             [theme.breakpoints.down('sm')]:
             {
@@ -188,17 +190,14 @@ const StyledLinks = styled(Link)
             },
 
         },
-
-
-
-        // '& .stl-btn': {
-        //     [theme.breakpoints.down('md')]:
-        //     {
-        //         color: '#ffffff',
-        //         backgroundColor: 'transparent',
-        //         width: 'fit-content',
-        //     },
-        // },
+        '& .stl-btn': {
+            [theme.breakpoints.down('md')]:
+            {
+                color: '#ffffff',
+                backgroundColor: 'transparent',
+                width: 'fit-content',
+            },
+        },
 
     }));
 
