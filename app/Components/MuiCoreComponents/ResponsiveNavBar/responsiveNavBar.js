@@ -74,60 +74,42 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const brightnessMenu = ['System', 'Lightmode', 'Darkmode'];
 const languageMenu = ['English', 'Hindi', 'Kannada', 'Tamil', 'Telugu', 'Malayalam', 'Marathi'];
 
+
 function FullScreenSearchbar() {
-
-    const [close, setClose] = React.useState(true)
-
-    const handleChange = () => {
-        setClose(!close)
-    }
-
     return <>
         <Box sx={
-            close ? { height: '100vh', width: '100%', position: 'absolute', top: '0', left: '0', zIndex: '99', backgroundColor: '#ffffff' }
-                :
-                { display: 'none' }
 
+            {
+                height: '100vh', width: '100%',
+                position: 'absolute', top: '0', left: '0',
+                backgroundColor: '#ffffff', zIndex: '98',
+
+            }
         }  >
             <Search
-                sx={{ width: '100%', backgroundColor: '#ffffff' }}
-                variant="outlined"
+                sx={{ width: '100%', backgroundColor: '#f8f8f8' }}
             >
                 <SearchIconWrapper>
                     <SearchIcon />
                 </SearchIconWrapper>
                 <StyledInputBase
-                    variant="outlined"
                     sx={{ width: '100%' }}
                     placeholder="Search…"
                     inputProps={{ 'aria-label': 'search' }}
                 />
-                <Button
-                    onClick={handleChange}
-                    sx={{
-                        cursor: 'pointer',
-                        padding: '0',
-                        display: 'flex',
-                        alignItems: 'center',
-                        width: '1rem',
-                        backgroundColor: '#3399FF',
-                        position: 'absolute',
-                        top: '0',
-                        bottom: '0',
-                        right: '0.15rem'
-                    }}
-                >
-                    <CloseIcon />
-                </Button>
             </Search>
-
+            <Container>
+                <Typography>No recent searches</Typography>
+            </Container>
         </Box>
     </>
 }
 
 function SearchAppBar() {
     return <Box>
-        <Search>
+        <Search
+            sx={{ backgroundColor: '#f8f8f8' }}
+        >
             <SearchIconWrapper>
                 <SearchIcon />
             </SearchIconWrapper>
@@ -142,7 +124,6 @@ function SearchAppBar() {
 
 }
 
-
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -153,8 +134,6 @@ function ResponsiveAppBar() {
     const handleSearchBar = () => {
         setSearch(!search);
     }
-
-
 
     const handleOpenLanguageMenu = (event) => {
         setAnchorElLang(event.currentTarget);
@@ -184,8 +163,6 @@ function ResponsiveAppBar() {
         setAnchorElBrightness(null)
     }
 
-    const searchActive = { width: '100%', height: '100%' };
-    const searchClose = { display: 'none' };
     return (
 
         <AppBar position="static">
@@ -288,22 +265,41 @@ function ResponsiveAppBar() {
 
 
                     {/* SEARCH FIELD */}
-                    <Box sx={{ display: { xs: 'none', lg: 'flex' } }}>
+                    <Box sx={{ display: { xs: 'none', lg: 'flex', justifyContent: 'flex-end' } }}>
                         <SearchAppBar />
                     </Box>
-
-                    <Button variant="outlined" sx={{ display: { xs: 'flex', lg: 'none' }, width: 'fit-content' }}
-                        onClick={handleSearchBar}
-                    >
-                        <SearchIcon />
-                    </Button>
-
                     {search && <FullScreenSearchbar />}
-
+                    {search && <Button
+                        variant="outlined"
+                        onClick={handleSearchBar}
+                        sx={{
+                            cursor: 'pointer',
+                            padding: '8px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            width: 'fit-content',
+                            height: '39px',
+                            backgroundColor: '#ffffff',
+                            position: 'absolute',
+                            top: '0',
+                            bottom: '0',
+                            right: '0.15rem',
+                            zIndex: '99',
+                        }}
+                    >
+                        Cancel
+                    </Button>}
                     {/* SEARCH FIELD */}
+
+
 
                     {/* SETTINGS MENU */}
                     <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'flex-end' }}>
+                        <Button variant="text" sx={{ display: { xs: 'flex', lg: 'none' }, width: 'fit-content', color: 'inherit', justifyContent: 'flex-end' }}
+                            onClick={handleSearchBar}
+                        >
+                            <SearchIcon />
+                        </Button>
                         <Tooltip title="Switch to Dark Mode">
                             <IconButton onClick={handleOpenBrightnessMenu} sx={{ p: '0.5rem' }}>
                                 <DarkModeIcon />
@@ -393,7 +389,6 @@ function ResponsiveAppBar() {
                         </Menu>
                     </Box>
                     {/* SETTINGS MENU */}
-
                 </ModBar>
             </Container>
         </AppBar >
