@@ -179,12 +179,16 @@ const StyledLinks = styled(Link)
         gap: theme.spacing(1),
         color: 'inherit',
         '&:visited': {
-            color: '#3399ff',
+            color: '#2A7FD4',
+            [theme.breakpoints.up('md')]: {
+                color: '#2A7FD4'
+            },
             [theme.breakpoints.down('md')]: {
-                color: 'inherit'
+                color: '#ffffff'
             },
 
         },
+
 
 
         // '& .stl-btn': {
@@ -436,12 +440,12 @@ function ResponsiveB2BDark() {
                         <StyledButton className="stl-btn"
                             sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}
                         >
-                            <StyledLinks className="stl-btn svgIconCart" href="#"><ShoppingCartRoundedIcon />
+                            <StyledLinks className="stl-btn svgIcon" href="#"><ShoppingCartRoundedIcon />
                                 <Box className="cart-btn">
                                     Cart</Box></StyledLinks>
                         </StyledButton>
 
-                        <StyledButton className="stl-btn"
+                        <StyledButton className="stl-btn svgIcon"
                             sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}>
                             <StyledLinks className="stl-btn" href="#"> <LoginOutlinedIcon />
                                 <Box className="cart-btn">Login</Box></StyledLinks>
