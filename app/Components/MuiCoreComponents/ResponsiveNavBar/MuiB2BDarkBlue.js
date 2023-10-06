@@ -132,6 +132,20 @@ const AtlassianWrapper = styled(AtlassianSVGLight)(({ theme }) => ({
 
 }))
 
+const StyledLinks = styled(Link)
+    (({ theme }) => ({
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        ...theme.typography.h5,
+        gap: theme.spacing(1),
+        color: 'inherit',
+        '&:visited': {
+            color: 'inherit',
+        },
+    }));
+
+// BUTTONS CART, LOGIN STYLING
 const StyledButton = styled('button')
     (({ theme }) => ({
         display: 'flex',
@@ -144,11 +158,11 @@ const StyledButton = styled('button')
         backgroundColor: '#ffffff',
         borderRadius: '0.2rem',
         border: 'none',
-
-
+        gap: theme.spacing(0.5),
+        color: '#2A7FD4',
         '&:hover': {
             cursor: 'pointer',
-            backgroundColor: '#f2f2f2',
+            backgroundColor: '#ffffff',
         },
         '&.stl-btn': {
             [theme.breakpoints.down('md')]:
@@ -162,7 +176,6 @@ const StyledButton = styled('button')
             ...theme.typography.body1,
             [theme.breakpoints.up('md')]: {
                 ...theme.typography.subtitle1,
-                color: '#2A7FD4',
             },
             [theme.breakpoints.down('sm')]:
             {
@@ -172,33 +185,16 @@ const StyledButton = styled('button')
 
     }));
 
-const StyledLinks = styled(Link)
+//MOBILE MENU WRAPPER
+const StyledBox = styled(Box)
     (({ theme }) => ({
         display: 'flex',
+        justifyContent: 'space-around',
         alignItems: 'center',
-        justifyContent: 'center',
-        ...theme.typography.h5,
-        gap: theme.spacing(1),
-        color: '#2A7FD4',
-        '&:visited': {
-            color: '#2A7FD4',
-            [theme.breakpoints.up('md')]: {
-                color: '#2A7FD4'
-            },
-            [theme.breakpoints.down('md')]: {
-                color: '#ffffff'
-            },
-
-        },
-        '& .stl-btn': {
-            [theme.breakpoints.down('md')]:
-            {
-                color: '#ffffff',
-                backgroundColor: 'transparent',
-                width: 'fit-content',
-            },
-        },
-
+        width: '100%',
+        color: 'inherit',
+        textTransform: 'capitalize',
+        ...theme.typography.subtitle1,
     }));
 
 // const StyledNavStack = styled('div')(({ theme }) => ({
