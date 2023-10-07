@@ -21,9 +21,9 @@ const TesterPage = () => {
             <ResponsiveModernBlue />
             <ResponsiveModernPurple />
             <ResponsiveReharvest />
-            <ResponsiveB2BLight />
-            <ResponsiveB2BDark /> */}
-            <ResponsiveBase />
+            <ResponsiveB2BLight /> */}
+            <ResponsiveB2BDark />
+            {/* <ResponsiveBase /> */}
             {/* <ResponsiveEcobo /> */}
             <Divider />
 
