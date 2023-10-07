@@ -132,7 +132,7 @@ export default function Navbar() {
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
                     <Link href="/Navbars">Navbars</Link></Box>
                         <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
-                            <Link href="#">Services</Link></Box>
+                            <Link href="/TestHere">Playground</Link></Box>
                         <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
                             <Link href="#">Profile</Link></Box>
                         <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
@@ -142,16 +142,29 @@ export default function Navbar() {
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
                             <Link href="#">Logout</Link></Box>
             </StyledMobileMenu>
-                 <Box>
+                 <Box sx={{textTransform:'capitalize'}}>
                 
                 <Button variant="outlined" color="primary"
-                sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
-              ><Link href="/" style={{color:'#ffffff'}}>Home</Link></Button>                    
+                     sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
+                    ><Link href="/" style={{ color: '#ffffff' }}>
+                            Home
+                        </Link>
+                </Button>                    
            
             <Button variant="outlined" color="primary"
                 sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
-                        ><Link href="/Navbars" style={{ color: '#ffffff' }}>Navbars</Link></Button>
-                        <Switch defaultChecked={false} onChange={()=>setbright(!bright)} name='dark' color='default' />
+                    ><Link href="/Navbars" style={{ color: '#ffffff' }}>
+                            Navbars
+                        </Link>
+                    </Button>
+                    <Button variant="outlined" color="primary"
+                sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
+                    ><Link href="/TestHere" style={{ color: '#ffffff' }}>
+                            Playground
+                        </Link>
+            </Button>
+                        
+                    <Switch defaultChecked={false} name='dark' color='default' />
             </Box>
                                      
           

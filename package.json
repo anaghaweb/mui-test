@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test-ct": "playwright test -c playwright-ct.config.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -22,5 +23,8 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.11.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@playwright/test": "^1.38.1",
+    "@types/node": "^20.8.3"
+  }
 }

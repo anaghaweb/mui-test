@@ -20,8 +20,8 @@ export const StyledPaper = styled(Paper)(({ theme }) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
-    height: 'auto',
-    margin: '5rem auto',
+    height: '100vh',
+    margin: 'auto',
     padding: 2,
     gap: 10,
 }));

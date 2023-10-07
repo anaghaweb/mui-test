@@ -44,3 +44,15 @@ next-env.d.ts
 /playwright/.cache/
 /tests
 /tests-examples
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/test-results/
+/playwright-report/
+/playwright/.cache/
