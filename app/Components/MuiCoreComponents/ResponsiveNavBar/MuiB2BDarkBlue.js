@@ -185,59 +185,6 @@ const StyledButton = styled('button')
 
     }));
 
-//MOBILE MENU WRAPPER
-const StyledBox = styled(Box)
-    (({ theme }) => ({
-        display: 'flex',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        width: '100%',
-        color: 'inherit',
-        textTransform: 'capitalize',
-        ...theme.typography.subtitle1,
-    }));
-
-// const StyledNavStack = styled('div')(({ theme }) => ({
-//     display: 'flex',
-//     alignItems: 'center',
-//     position: 'relative',
-
-//     flexGrow: '2',
-//     height: '4rem',
-
-//     [theme.breakpoints.up('lg')]: { gap: theme.spacing(2), },
-//     [theme.breakpoints.down('sm')]: { gap: theme.spacing(0.5) },
-//     '&.B2BDark-middle':
-//     {
-//         justifyContent: 'center',
-//         gap: theme.spacing(3),
-//         [theme.breakpoints.down('lg')]:
-//         {
-//             display: 'none',
-//         }
-//     },
-//     '&.B2BDark-left': {
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         [theme.breakpoints.down('lg')]: {
-//             margin: '0 0 0 2rem',
-//             gap: theme.spacing(1),
-//         },
-//         [theme.breakpoints.down('sm')]: {
-//             gap: '0.5rem',
-//         },
-//     },
-//     '&.B2BDark-right': {
-//         display: 'flex',
-//         justifyContent: 'flex-end',
-//         gap: theme.spacing(3),
-//         [theme.breakpoints.down('sm')]: {
-//             gap: theme.spacing(1),
-//         },
-//     }
-// }))
-
 const pages = ['Products', 'About Us', 'For Businesses'];
 const profileSettings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const settings = ['System', 'Brightness', 'Installation'];
@@ -248,12 +195,7 @@ function ResponsiveB2BDark() {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [anchorElBrightness, setAnchorElBrightness] = React.useState(null);
     const [anchorElLang, setAnchorElLang] = React.useState(null);
-    const [search, setSearch] = React.useState(false)
 
-
-    const handleSearchBar = () => {
-        setSearch(!search);
-    }
 
     const handleOpenLanguageMenu = (event) => {
         setAnchorElLang(event.currentTarget);
@@ -419,10 +361,8 @@ function ResponsiveB2BDark() {
                         {/* Large screen Menu */}
 
                     </Box>
-                    <Box sx={{ flexGrow: 1, display: { lg: 'flex', justifyContent: 'flex-end', color: 'inherit', gap: '0.5rem' } }}>
-
-
-                    </Box>
+                    {/* <Box sx={{ flexGrow: 1, display: { lg: 'flex', justifyContent: 'flex-end', color: 'inherit', gap: '0.5rem' } }}>
+                    </Box> */}
 
 
                     {/* SEARCH FIELD */}
@@ -461,8 +401,6 @@ function ResponsiveB2BDark() {
                             justifyContent: 'flex-end',
                             flexBasis: '2%',
                         }}>
-
-
                         {/* ICONS */}
                         <Tooltip title="Switch to Dark Mode">
                             <IconButton onClick={handleOpenBrightnessMenu}

@@ -61,7 +61,10 @@ const NavTitle = styled('div', {
         } : ownerState.variant === 'violet' ? {
             backgroundColor: theme.palette.violet.main,
             color: theme.palette.violet.contrastText,
-        } : { backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText, }),
+        } : {
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.primary.contrastText,
+        }),
 
     }));
 
@@ -88,7 +91,6 @@ const NavBrightnessIcon = styled(BrightnessLowIcon,
 const NavPeopleIcon = styled(PeopleIcon, {
     name: 'MuiBasicNav',
     slot: 'icon_2',
-
 })
     (({ theme, ownerState }) => ({
         ...(ownerState.variant === 'blue' ? {
@@ -103,7 +105,6 @@ const NavPeopleIcon = styled(PeopleIcon, {
         } : { backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText, }),
 
     }));
-
 const NavMenuIcon = styled(MenuIcon, {
     name: 'MuiBasicNav',
     slot: 'icon_3',
@@ -121,15 +122,11 @@ const NavMenuIcon = styled(MenuIcon, {
         backgroundColor: theme.palette.violet.main,
         color: theme.palette.violet.contrastText,
     } : { backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText, }),
-
 }))
-
 const NavLanguageIcon = styled(LanguageOutlinedIcon, {
     name: 'MuiBasicNav',
     slot: 'icon_4',
-
 })(({ theme, ownerState }) => ({
-
     ...(ownerState.variant === 'blue' ? {
         backgroundColor: theme.palette.secondary.main,
         color: theme.palette.ochre.contrastText,
@@ -140,12 +137,7 @@ const NavLanguageIcon = styled(LanguageOutlinedIcon, {
         backgroundColor: theme.palette.violet.main,
         color: theme.palette.violet.contrastText,
     } : { backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText, }),
-
-
-
 }))
-
-
 const StyledNavStack = styled('div')(({ theme }) => ({
     display: 'flex',
     justifyContent: 'space-evenly',
@@ -155,12 +147,9 @@ const StyledNavStack = styled('div')(({ theme }) => ({
 }))
 
 const BasicNavbar = React.forwardRef(function BasicNavbar(inProps, ref) {
-
     const props = useThemeProps({ props: inProps, name: 'MuiBasicNav' })
     const { title, variant, icon_1, icon_2, icon_3, icon_4, ...other } = props;
     const ownerState = { ...props, variant };
-
-
     return (
         <NavRoot ref={ref} ownerState={ownerState} {...other}>
             <StyledNavStack direction="row" >
@@ -172,22 +161,15 @@ const BasicNavbar = React.forwardRef(function BasicNavbar(inProps, ref) {
                 <NavLanguageIcon ownerState={ownerState} />
                 <NavPeopleIcon ownerState={ownerState} />
             </StyledNavStack>
-
         </NavRoot >
     )
-
 })
-
 BasicNavbar.propTypes = {
     title: PropTypes.string.isRequired,
     variant: PropTypes.oneOf(['basic', 'ochre', 'blue', 'violet', '']),
 };
-
 export default function BasicNavbarTemplate({ title, variant }) {
-
     return <>
-
         <BasicNavbar title={title} variant={variant} />
-
     </>
 }

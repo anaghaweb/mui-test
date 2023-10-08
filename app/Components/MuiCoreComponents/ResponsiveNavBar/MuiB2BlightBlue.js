@@ -182,46 +182,6 @@ const StyledLinks = styled(Link)
         },
     }));
 
-// const StyledNavStack = styled('div')(({ theme }) => ({
-//     display: 'flex',
-//     alignItems: 'center',
-//     position: 'relative',
-
-//     flexGrow: '2',
-//     height: '4rem',
-
-//     [theme.breakpoints.up('lg')]: { gap: theme.spacing(2), },
-//     [theme.breakpoints.down('sm')]: { gap: theme.spacing(0.5) },
-//     '&.b2blight-middle':
-//     {
-//         justifyContent: 'center',
-//         gap: theme.spacing(3),
-//         [theme.breakpoints.down('lg')]:
-//         {
-//             display: 'none',
-//         }
-//     },
-//     '&.b2blight-left': {
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         [theme.breakpoints.down('lg')]: {
-//             margin: '0 0 0 2rem',
-//             gap: theme.spacing(1),
-//         },
-//         [theme.breakpoints.down('sm')]: {
-//             gap: '0.5rem',
-//         },
-//     },
-//     '&.b2blight-right': {
-//         display: 'flex',
-//         justifyContent: 'flex-end',
-//         gap: theme.spacing(3),
-//         [theme.breakpoints.down('sm')]: {
-//             gap: theme.spacing(1),
-//         },
-//     }
-// }))
 
 const pages = ['Products', 'About Us', 'For Businesses'];
 const profileSettings = ['Profile', 'Account', 'Dashboard', 'Logout'];

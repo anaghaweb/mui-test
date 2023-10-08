@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
@@ -18,13 +17,9 @@ import PeopleIcon from '@mui/icons-material/People';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import CloseIcon from '@mui/icons-material/Close';
 import SettingsIcon from '@mui/icons-material/Settings';
-import ThemeProvider from '@mui/material/styles/ThemeProvider';
-
 
 const ModBar = styled(Toolbar)(({ theme }) => ({
-
     backgroundColor: '#FFF2CC',
     color: '#6A9153',
     fontFamily: 'inherit'
@@ -248,27 +243,6 @@ function ResponsiveReharvest() {
                     </Box>
                     {/* LOGO AND TITLE */}
 
-                    {/* Large screen Menu */}
-                    {/* <Box sx={{ flexGrow: 1, display: { xs: 'none', lg: 'flex', justifyContent: 'center', color: 'inherit' } }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{
-                                    my: 1,
-                                    color: 'inherit',
-                                    display: 'block',
-                                    textTransform: 'capitalize',
-                                    fontSize: { sm: '1.5rem', lg: '1.5rem' },
-                                    letterSpacing: 'none'
-                                }}
-                            >
-                                {page}
-                            </Button>
-                        ))}
-                    </Box> */}
-                    {/* Large screen Menu */}
-
 
                     {/* SEARCH FIELD */}
                     <Box sx={{ display: { xs: 'none', lg: 'flex', flexGrow: 4, justifyContent: 'flex-end' } }}>
@@ -297,8 +271,6 @@ function ResponsiveReharvest() {
                     </Button>}
                     {/* SEARCH FIELD */}
 
-
-
                     {/* SETTINGS MENU */}
                     <Box
                         sx={{
@@ -307,6 +279,7 @@ function ResponsiveReharvest() {
                             justifyContent: 'flex-end',
                             flexBasis: '2%',
                         }}>
+                        {/* SEARCH ICON */}
                         <Button
                             variant="text"
                             sx={{
