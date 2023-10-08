@@ -8,7 +8,6 @@ import theme from './theme';
 
 
 let defaultTheme = createTheme(theme, {
-
     breakpoints: {
         values: {
             xs: 0,

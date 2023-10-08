@@ -110,26 +110,31 @@ export default function Navbar() {
             >
                 <Toolbar
                     position="relative"
-                    sx={{ display: 'flex', justifyContent: 'flex-end', width: '100%', color:'inherit', backgroundColor:'inherit' }}>
+                    sx={{ display: 'flex', justifyContent: 'flex-end', width: '100%', backgroundColor: '#fafafa', color:'#717171' }}>
         
                     <NavMenuIcon
                         onClick={() => showMenu(!menu)}
                         className="base-mobile-menu"
                         sx={{
                             position: 'absolute',
-                            top: '0', bottom: '0', left: '0.5rem', margin: 'auto'
+                            top: '0', bottom: '0', left: '0.5rem', margin: 'auto',
+                            color:'#000000'
                         }}
 
                     />
             <StyledMobileMenu sx={menu ? open : close} className="base-menu-list">
-                <StyledBox >
+                    <StyledBox
+                        sx={{color:'inherit'}}
+                    >
                     <Link href="/"><Typography variant="h5" component="div">
                         Home
                     </Typography></Link>
                     <Divider orientation="vertical" flexItem />
                     <Button variant="filled" onClick={() => showMenu(!menu)}>Close</Button>
                 </StyledBox>
-                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
+                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}
+                        sx={{color:'inherit'}}
+                    >
                     <Link href="/Navbars">Navbars</Link></Box>
                         <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
                             <Link href="/TestHere">Playground</Link></Box>
@@ -141,25 +146,28 @@ export default function Navbar() {
                             <Link href="#">For Businesses</Link></Box>
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
                             <Link href="#">Logout</Link></Box>
-            </StyledMobileMenu>
+                </StyledMobileMenu>
+                <Box
+                    sx={{display:'flex', justifyContent: 'center', flexGrow: 1, color:'inherit'}}
+                ><Typography variant="h6" sx={{fontFamily:'monospace'}} >Testing Components</Typography></Box>
                  <Box sx={{textTransform:'capitalize'}}>
                 
                 <Button variant="outlined" color="primary"
                      sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
-                    ><Link href="/" style={{ color: '#ffffff' }}>
+                    ><Link href="/" style={{ color: '#717171' }}>
                             Home
                         </Link>
                 </Button>                    
            
             <Button variant="outlined" color="primary"
                 sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
-                    ><Link href="/Navbars" style={{ color: '#ffffff' }}>
+                    ><Link href="/Navbars" style={{ color: '#717171' }}>
                             Navbars
                         </Link>
                     </Button>
                     <Button variant="outlined" color="primary"
                 sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
-                    ><Link href="/TestHere" style={{ color: '#ffffff' }}>
+                    ><Link href="/TestHere" style={{ color: '#717171' }}>
                             Playground
                         </Link>
             </Button>
