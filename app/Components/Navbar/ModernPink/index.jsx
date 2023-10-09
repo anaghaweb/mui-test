@@ -96,7 +96,7 @@ const ModernNavbarVariant = React.forwardRef(function ModernNavbarVariant(inProp
                     </LogoTitleWrapper>
    
                     {/* SEARCH FIELD */}
-                    <Box sx={{ display: { xs: 'none', lg: 'flex', flexGrow: 1, justifyContent: 'flex-end' } }}>
+                       <Box sx={{ display: { xs: 'none', lg: 'flex', flexGrow: 1, justifyContent: 'flex-end' } }}>
                         <SearchAppBar />
                     </Box>
                     {search && <FullScreenSearchbar />}

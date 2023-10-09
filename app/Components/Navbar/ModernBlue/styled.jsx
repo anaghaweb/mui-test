@@ -13,7 +13,7 @@ export const TitleStyled = styled(Typography)(({ theme }) => ({
     display: 'flex',
     fontFamily: 'inherit',
     fontWeight: 500,
-    color: 'inherit',
+    color: '#fafafa',
     textDecoration: 'none',
     [theme.breakpoints.down('sm')]: {
         ...theme.typography.h6,
@@ -61,8 +61,9 @@ export const CancelButtonWrapper = styled(Button)(({ theme }) => ({
 }))
 export const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
-     height:'39px',
+    
     '& .MuiInputBase-input': {
+         height:'39px',
         padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(3)})`,

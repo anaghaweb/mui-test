@@ -30,7 +30,7 @@ export const Search = styled('div')(({ theme }) => ({
     width: '100%',
     [theme.breakpoints.up('sm')]: {
         marginLeft: theme.spacing(1),
-        width: 'auto',
+        width: 'auto', 
     },
 }));
 
@@ -42,6 +42,23 @@ export const SearchIconWrapper = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+}));
+
+
+export const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+   
+    '& .MuiInputBase-input': {
+         
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(3)})`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+            width: '50ch',
+        },
+    },
 }));
 
 export const CancelButtonWrapper = styled(Button)(({ theme }) => ({
@@ -58,20 +75,6 @@ export const CancelButtonWrapper = styled(Button)(({ theme }) => ({
     right: '0.15rem',
     zIndex: '99',
 }))
-export const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    height:'39px',
-    '& .MuiInputBase-input': {
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(3)})`,
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            width: '50ch',
-        },
-    },
-}));
 
 export const LogoTitleWrapper = styled(Box)(({ theme }) => ({     
     display: 'flex',

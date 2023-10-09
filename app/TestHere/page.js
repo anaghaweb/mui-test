@@ -18,7 +18,7 @@ const TestPage = () => {
             <BasicNavbar />
         </StyledPaper>
 
-        {/* <Divider />
+        <Divider />
         <EcoboNavbar />
         <Divider />
         <ResponsiveB2BDarkBlue />
@@ -31,7 +31,7 @@ const TestPage = () => {
         <Divider />
         <ModernPink />
         <Divider />
-        <ModernPurple /> */}
+        <ModernPurple />
 
     </Paper >
 }
