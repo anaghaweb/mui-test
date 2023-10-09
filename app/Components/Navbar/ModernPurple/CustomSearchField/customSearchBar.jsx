@@ -4,7 +4,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import SearchIcon from '@mui/icons-material/Search';
-import { Search, SearchIconWrapper, StyledInputBase } from '../styled';
+import { Search, SearchIconWrapper } from '../styled';
+import { StyledInputBase } from '../styled';
 
 function FullScreenSearchbar() {
     return <Box sx={
