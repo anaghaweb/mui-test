@@ -13,7 +13,6 @@ function FullScreenSearchbar() {
                 height: '100vh', width: '100%',
                 position: 'absolute', top: '0', left: '0',
                 backgroundColor: '#ffffff', zIndex: '98',
-
                 }}>
                 <Search
                 sx={{ width: '100%', backgroundColor: '#f8f8f8' }}

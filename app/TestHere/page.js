@@ -15,10 +15,12 @@ const TestPage = () => {
 
     return <Paper sx={{ height: 'auto' }}>
         <StyledPaper >
-            <BasicNavbar />
+
+            <ResponsiveB2BLightBlue />
         </StyledPaper>
 
-        <Divider />
+        {/* <Divider />
+        <BasicNavbar />
         <EcoboNavbar />
         <Divider />
         <ResponsiveB2BDarkBlue />
@@ -31,7 +33,7 @@ const TestPage = () => {
         <Divider />
         <ModernPink />
         <Divider />
-        <ModernPurple />
+        <ModernPurple /> */}
 
     </Paper >
 }
