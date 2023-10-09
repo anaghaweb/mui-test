@@ -8,7 +8,7 @@ import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import InsertPhotoSharpIcon from '@mui/icons-material/InsertPhotoSharp';
 import { styled } from '@mui/material/styles';
 import Link from 'next/link';
-import AtlassianSVG from '@/app/Components/SVGs/atlassian';
+import AtlassianSVG from '@/public/SVGs/atlassian';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import LightModeIcon from '@mui/icons-material/LightMode';

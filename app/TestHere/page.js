@@ -1,33 +1,38 @@
 import * as React from 'react'
 import Paper from '@mui/material/Paper'
-import { StyledPaper } from '../Components/styledboxes';
+import { StyledPaper } from '../CustomComponents/styledboxes';
 import Divider from '@mui/material/Divider';
-import ResponsiveModernPink from '../Components/MuiCoreComponents/ResponsiveNavBar/MuiModernPink';
-import ResponsiveModernBlue from '../Components/MuiCoreComponents/ResponsiveNavBar/MuiModernBlue';
-import ResponsiveModernPurple from '../Components/MuiCoreComponents/ResponsiveNavBar/MuiModernPurple';
-import ResponsiveB2BLight from '../Components/MuiCoreComponents/ResponsiveNavBar/MuiB2BlightBlue';
-import ResponsiveB2BDark from '../Components/MuiCoreComponents/ResponsiveNavBar/MuiB2BDarkBlue';
-import ResponsiveBase from '../Components/MuiCoreComponents/ResponsiveNavBar/MuiBase';
-import ResponsiveEcobo from '../Components/MuiCoreComponents/ResponsiveNavBar/MuiEcobo';
-import ResponsiveReharvest from '../Components/Navbar/ReharvestNavbar/ReharvestNavbar';
-import ResponsiveB2BNavbar from '../Components/Navbar/B2bNavbars/b2bnavbar';
+import ResponsiveReharvest from '../Components/Navbar/ReharvestNavbar';
+import ModernBlue from '../Components/Navbar/ModernBlue';
+import ModernPink from '../Components/Navbar/ModernPink';
+import ModernPurple from '../Components/Navbar/ModernPurple';
+import ResponsiveB2BDarkBlue from '../Components/Navbar/B2bNavbarDarkBlue';
+import ResponsiveB2BLightBlue from '../Components/Navbar/B2bNavbarLightBlue';
+import BasicNavbar from '../Components/Navbar/BaseNavbar';
+import EcoboNavbar from '../Components/Navbar/EcoboNavbar';
 
-const TesterPage = () => {
+const TestPage = () => {
 
     return <Paper sx={{ height: 'auto' }}>
         <StyledPaper >
-
-            <ResponsiveB2BNavbar variant="dark" />
-            {/* <ResponsiveModernPink /> */}
-            {/* <ResponsiveModernBlue /> */}
-            {/* <ResponsiveModernPurple /> */}
-            {/* < ResponsiveReharvest variant='modernPurple' /> */}
-            {/* <ResponsiveB2BLight /> */}
-            {/* <ResponsiveB2BDark /> */}
-            {/* <ResponsiveBase /> */}
-            {/* <ResponsiveEcobo /> */}
-            <Divider />
+            <BasicNavbar />
         </StyledPaper>
+
+        {/* <Divider />
+        <EcoboNavbar />
+        <Divider />
+        <ResponsiveB2BDarkBlue />
+        <Divider />
+        < ResponsiveReharvest />
+        <Divider />
+        <ResponsiveB2BLightBlue />
+        <Divider />
+        <ModernBlue />
+        <Divider />
+        <ModernPink />
+        <Divider />
+        <ModernPurple /> */}
+
     </Paper >
 }
-export default TesterPage;
+export default TestPage;

@@ -15,24 +15,23 @@ import MenuItem from '@mui/material/MenuItem';
 import { styled, alpha } from '@mui/material/styles'
 import InsertPhotoSharpIcon from '@mui/icons-material/InsertPhotoSharp';
 import PeopleIcon from '@mui/icons-material/People';
-import DarkModeIcon from '@mui/icons-material/DarkMode'
+import SettingsIcon from '@mui/icons-material/Settings';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import Link from 'next/link';
-import AtlassianSVG from '@/app/Components/SVGs/atlassian';
+import AtlassianSVG from '@/public/SVGs/atlassian';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import LightModeIcon from '@mui/icons-material/LightMode';
-import AtlassianSVGLight from '../../SVGs/atlassianLight';
-import SettingsIcon from '@mui/icons-material/Settings';
+
 
 
 const ModBar = styled(Toolbar)(({ theme }) => ({
 
-    backgroundColor: '#2A7FD4',
-    color: '#ffffff',
+    backgroundColor: '#DAE8FC',
+    color: '#3399FF',
     fontFamily: 'inherit'
 }))
 
@@ -123,7 +122,7 @@ function SearchAppBar() {
 
 }
 
-const AtlassianWrapper = styled(AtlassianSVGLight)(({ theme }) => ({
+const AtlassianWrapper = styled(AtlassianSVG)(({ theme }) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -132,20 +131,6 @@ const AtlassianWrapper = styled(AtlassianSVGLight)(({ theme }) => ({
 
 }))
 
-const StyledLinks = styled(Link)
-    (({ theme }) => ({
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        ...theme.typography.h5,
-        gap: theme.spacing(1),
-        color: 'inherit',
-        '&:visited': {
-            color: 'inherit',
-        },
-    }));
-
-// BUTTONS CART, LOGIN STYLING
 const StyledButton = styled('button')
     (({ theme }) => ({
         display: 'flex',
@@ -158,16 +143,15 @@ const StyledButton = styled('button')
         backgroundColor: '#ffffff',
         borderRadius: '0.2rem',
         border: 'none',
-        gap: theme.spacing(0.5),
-        color: '#2A7FD4',
+
+        color: 'inherit',
         '&:hover': {
             cursor: 'pointer',
-            backgroundColor: '#ffffff',
+            backgroundColor: '#f2f2f2',
         },
         '&.stl-btn': {
             [theme.breakpoints.down('md')]:
             {
-                color: '#ffffff',
                 backgroundColor: 'transparent',
                 width: 'fit-content',
             },
@@ -185,17 +169,36 @@ const StyledButton = styled('button')
 
     }));
 
+const StyledLinks = styled(Link)
+    (({ theme }) => ({
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        ...theme.typography.h5,
+        gap: theme.spacing(1),
+        color: 'inherit',
+        '&:visited': {
+            color: '#3399FF',
+        },
+    }));
+
+
 const pages = ['Products', 'About Us', 'For Businesses'];
 const profileSettings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const settings = ['System', 'Brightness', 'Installation'];
 const languageMenu = ['English', 'Hindi', 'Kannada', 'Tamil', 'Telugu', 'Malayalam', 'Marathi'];
 
-function ResponsiveB2BDark() {
+function ResponsiveB2BLight() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [anchorElBrightness, setAnchorElBrightness] = React.useState(null);
     const [anchorElLang, setAnchorElLang] = React.useState(null);
+    const [search, setSearch] = React.useState(false)
 
+
+    const handleSearchBar = () => {
+        setSearch(!search);
+    }
 
     const handleOpenLanguageMenu = (event) => {
         setAnchorElLang(event.currentTarget);
@@ -280,7 +283,7 @@ function ResponsiveB2BDark() {
                     <Box sx={{ flexGrow: 0, display: { xs: 'flex', justifyContent: 'flex-start', alignItems: 'center', color: 'inherit', backgroundColor: 'inherit' } }}>
                         <IconButton
                             sx={{ height: '5rem', width: '5rem', display: { xs: 'none', md: 'flex' } }}
-                            aria-label="logo of B2BDark"
+                            aria-label="logo of B2BLight"
                             aria-controls="menu-appbar"
 
                             color="inherit"
@@ -305,7 +308,7 @@ function ResponsiveB2BDark() {
                             }}
                         >
                             {/* NAVBAR TITLE */}
-                            B2BDark
+                            B2BLight
                         </Typography>
                     </Box>
                     {/* LOGO AND TITLE */}
@@ -353,7 +356,7 @@ function ResponsiveB2BDark() {
                             }}
                         >
                             <AtlassianWrapper>
-                                <AtlassianSVGLight />
+                                <AtlassianSVG />
                             </AtlassianWrapper>
                             <Typography variant="h5">For Businesses</Typography>
                         </Button>
@@ -361,8 +364,10 @@ function ResponsiveB2BDark() {
                         {/* Large screen Menu */}
 
                     </Box>
-                    {/* <Box sx={{ flexGrow: 1, display: { lg: 'flex', justifyContent: 'flex-end', color: 'inherit', gap: '0.5rem' } }}>
-                    </Box> */}
+                    <Box sx={{ flexGrow: 1, display: { lg: 'flex', justifyContent: 'flex-end', color: 'inherit', gap: '0.5rem' } }}>
+
+
+                    </Box>
 
 
                     {/* SEARCH FIELD */}
@@ -375,12 +380,11 @@ function ResponsiveB2BDark() {
                         <StyledButton className="stl-btn"
                             sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}
                         >
-                            <StyledLinks className="stl-btn svgIcon" href="#"><ShoppingCartRoundedIcon />
-                                <Box className="cart-btn">
-                                    Cart</Box></StyledLinks>
+                            <StyledLinks className="stl-btn svgIconCart" href="#"><ShoppingCartRoundedIcon />
+                                <Box className="cart-btn">Cart</Box></StyledLinks>
                         </StyledButton>
 
-                        <StyledButton className="stl-btn svgIcon"
+                        <StyledButton className="stl-btn"
                             sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}>
                             <StyledLinks className="stl-btn" href="#"> <LoginOutlinedIcon />
                                 <Box className="cart-btn">Login</Box></StyledLinks>
@@ -401,22 +405,21 @@ function ResponsiveB2BDark() {
                             justifyContent: 'flex-end',
                             flexBasis: '2%',
                         }}>
-                        {/* ICONS */}
-                        <Tooltip title="Switch to Dark Mode">
+                        <Tooltip title="Settings">
                             <IconButton onClick={handleOpenBrightnessMenu}
-                                sx={{ p: { xs: '0.2rem', sm: '0.5rem', color: 'inherit' } }}>
+                                sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}>
                                 <SettingsIcon />
                             </IconButton>
                         </Tooltip>
                         <Tooltip title="Change Language">
                             <IconButton onClick={handleOpenLanguageMenu}
-                                sx={{ p: { xs: '0.2rem', sm: '0.5rem', color: 'inherit' } }}>
+                                sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}>
                                 <LanguageOutlinedIcon />
                             </IconButton>
                         </Tooltip>
                         <Tooltip title="Manage Profile">
                             <IconButton onClick={handleOpenUserMenu}
-                                sx={{ p: { xs: '0.2rem', sm: '0.5rem', color: 'inherit' } }}>
+                                sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}>
                                 <PeopleIcon />
                             </IconButton>
                         </Tooltip>
@@ -500,4 +503,4 @@ function ResponsiveB2BDark() {
 
     );
 }
-export default ResponsiveB2BDark;
+export default ResponsiveB2BLight;

@@ -1,5 +1,5 @@
 import './globals.css'
-import Navbar from './Components/navbar'
+import Navbar from './LocalNavbar'
 import ThemeRegistry from './ThemeRegistry/ThemeRegistry'
 
 export const metadata = {

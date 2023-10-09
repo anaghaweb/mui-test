@@ -9,12 +9,12 @@ import PeopleIcon from '@mui/icons-material/People';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import InsertPhotoSharpIcon from '@mui/icons-material/InsertPhotoSharp';
 import { styled, alpha } from '@mui/material/styles';
-import { StyledBox } from '@/app/Components/styledboxes';
+import { StyledBox } from '@/app/CustomComponents/styledboxes';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import Link from '@mui/material/Link';
-import AtlassianSVG from '@/app/Components/SVGs/atlassian';
-import StarSVG from '@/app/Components/SVGs/starSVG';
+import AtlassianSVG from '@/public/SVGs/atlassian';
+import StarSVG from '@/public/SVGs/starSVG';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 

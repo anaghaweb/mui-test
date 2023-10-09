@@ -24,6 +24,13 @@ const ModBar = styled(Toolbar, {
     padding: '0.5rem',
     position: 'relative',
     height: 'inherit',
+    '*':{
+    textDecoration: 'none',
+    boxSizing: 'border-box', 
+    },
+    '*:visited':{
+    color: 'inherit',
+    },
     ...(ownerState.variant === 'dark' ? {
         background: '#2A7FD4',
         color: '#ffffff',
@@ -117,10 +124,10 @@ B2BNavbarVariant.propTypes = {
     variant: PropTypes.oneOf(['dark', '']),
 };
 
-function ResponsiveB2BNavbar({variant}) {
+function ResponsiveB2BLightBlue({variant}) {
        return (
         <B2BNavbarVariant
          variant={variant} />  
     );
 }
-export default ResponsiveB2BNavbar;
+export default ResponsiveB2BLightBlue;

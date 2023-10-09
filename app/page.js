@@ -1,5 +1,5 @@
 import Divider from '@mui/material/Divider';
-import { StyledPaper } from './Components/styledboxes';
+import { StyledPaper } from './CustomComponents/styledboxes';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import baseNavbarTheme from './CustomNavbars/baseNavbar/baseNavbarTheme';
 import EcoboNavbar from './CustomNavbars/EcoboNavBar/ecobonavbar';

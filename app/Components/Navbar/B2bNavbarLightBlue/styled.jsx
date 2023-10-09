@@ -1,12 +1,9 @@
 'use client'
 import { styled } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Link from 'next/link';
-
 import AtlassianSVGLight from './LargeScreenMenu/AtlassianSVG/atlassianSVGLight';
 import AtlassianDark from './LargeScreenMenu/AtlassianSVG/atlassianSVGdark';
 
@@ -19,8 +16,7 @@ export const TitleStyled = styled(Typography)(({ theme }) => ({
     color: 'inherit',
     textDecoration: 'none',
     [theme.breakpoints.down('sm')]: {
-        ...theme.typography.h6,
-        
+        ...theme.typography.h6,     
     }
     
 }));
@@ -103,7 +99,7 @@ export const StyledButton = styled('button')
         },
     }));
 
-   export const AtlassianLightWrapper = styled(AtlassianSVGLight)(({ theme }) => ({
+   export const LightWrapper = styled(AtlassianSVGLight)(({ theme }) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -111,7 +107,7 @@ export const StyledButton = styled('button')
     height: '2.2rem',
 
    }))
-   export const AtlassianDarkWrapper = styled(AtlassianDark)(({ theme }) => ({
+   export const DarkWrapper = styled(AtlassianDark)(({ theme }) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

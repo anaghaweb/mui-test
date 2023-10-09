@@ -3,9 +3,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import AtlassianSVGLight from './AtlassianSVG/atlassianSVGLight';
-import { AtlassianLightWrapper, AtlassianDarkWrapper } from '../styled';
-import AtlassianDark from './AtlassianSVG/atlassianSVGdark';
+import { LightWrapper, DarkWrapper } from '../styled';
 
 
 const LargeScreenMenu = ({variantcolor}) => {  
@@ -59,8 +57,8 @@ const LargeScreenMenu = ({variantcolor}) => {
                                 textTransform: 'capitalize',
                             }}
                         >
-                            {variantcolor === 'dark' ? <AtlassianLightWrapper/>
-                                : <AtlassianDarkWrapper />    
+                            {variantcolor === 'dark' ? <LightWrapper/>
+                                : <DarkWrapper />    
                             }                 
                            <Typography variant="h5">For Businesses</Typography>
                         </Button>

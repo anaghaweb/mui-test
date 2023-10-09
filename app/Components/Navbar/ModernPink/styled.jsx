@@ -8,7 +8,8 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton'
 
 export const TitleStyled = styled(Typography)(({ theme }) => ({
-    //  marginRight: '0.5rem',
+   
+    mr: 0.5,
     display: 'flex',
     fontFamily: 'inherit',
     fontWeight: 500,
@@ -60,7 +61,7 @@ export const CancelButtonWrapper = styled(Button)(({ theme }) => ({
 }))
 export const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
-    height:'39px',
+     height:'39px',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
@@ -73,7 +74,8 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export const LogoTitleWrapper = styled(Box)(({ theme }) => ({     
+export const LogoTitleWrapper = styled(Box)(({ theme }) => ({
+        
     display: 'flex',
     flexGrow: 0,
     justifyContent: 'flex-start',
@@ -82,7 +84,8 @@ export const LogoTitleWrapper = styled(Box)(({ theme }) => ({
     backgroundColor: 'inherit'
 }))
 
-export const SearchButtonWrapper = styled(Button)(({ theme }) => ({     
+export const SearchButtonWrapper = styled(Button)(({ theme }) => ({
+        
     display:'flex',
     flexGrow: 1,
     minWidth: 'fit-content',
@@ -94,13 +97,13 @@ export const SearchButtonWrapper = styled(Button)(({ theme }) => ({
 }))
 
 export const LogoWrapper = styled(IconButton)(({ theme }) => ({
-    height: '5rem', 
+    height: '5rem',
     width: '5rem',
     display: 'flex' ,
     [theme.breakpoints.down('sm')]: {
         display:'none'
     },
-    [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down('md')]: {
         height:'3rem'
     }
 }))

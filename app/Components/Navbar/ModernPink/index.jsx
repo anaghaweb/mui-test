@@ -23,6 +23,13 @@ const ModBar = styled(Toolbar, {
     padding: '0.5rem',
     position: 'relative',
     height: 'inherit',
+     '*':{
+    textDecoration: 'none',
+    boxSizing: 'border-box', 
+    },
+    '*:visited':{
+    color: 'inherit',
+    },
      ...(ownerState.variant === 'modernBlue' ? {
             background: 'linear-gradient(to right, #66B2FF, #B9E0A5)',
             color: '#6A9153',
@@ -38,7 +45,7 @@ const ModBar = styled(Toolbar, {
         }),
 }))
 
-const BasicNavbarVariant = React.forwardRef(function BasicNavbarVariant(inProps, ref) {
+const ModernNavbarVariant = React.forwardRef(function ModernNavbarVariant(inProps, ref) {
     const props = useThemeProps({ props: inProps, name: 'Basic' })
     const { variant, ...other } = props;
     const ownerState = {...props, variant };
@@ -113,13 +120,13 @@ const BasicNavbarVariant = React.forwardRef(function BasicNavbarVariant(inProps,
         </AppBar >        
     )
 })
-BasicNavbarVariant.propTypes = {
+ModernNavbarVariant.propTypes = {
     variant: PropTypes.oneOf(['modernPink', 'modernPurple', 'modernBlue','']),
 };
 
-function ResponsiveReharvest({variant}) {
+function ModernPink({variant}) {
        return (
-        <BasicNavbarVariant variant={variant} />  
+        <ModernNavbarVariant variant="modernPink" />  
     );
 }
-export default ResponsiveReharvest;
+export default ModernPink;

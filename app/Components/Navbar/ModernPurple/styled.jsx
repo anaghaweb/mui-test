@@ -18,7 +18,6 @@ export const TitleStyled = styled(Typography)(({ theme }) => ({
         ...theme.typography.h6,
         
     }
-    
 }));
 
 export const Search = styled('div')(({ theme }) => ({
@@ -44,6 +43,22 @@ export const SearchIconWrapper = styled('div')(({ theme }) => ({
     justifyContent: 'center',
 }));
 
+export const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    height:'39px',
+    '& .MuiInputBase-input': {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(3)})`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+            width: '50ch',
+
+        },
+    },
+}));
+
 export const CancelButtonWrapper = styled(Button)(({ theme }) => ({
     
     cursor: 'pointer',
@@ -58,20 +73,6 @@ export const CancelButtonWrapper = styled(Button)(({ theme }) => ({
     right: '0.15rem',
     zIndex: '99',
 }))
-export const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    height:'39px',
-    '& .MuiInputBase-input': {
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(3)})`,
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            width: '50ch',
-        },
-    },
-}));
 
 export const LogoTitleWrapper = styled(Box)(({ theme }) => ({     
     display: 'flex',

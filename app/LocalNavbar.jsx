@@ -11,7 +11,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Switch from '@mui/material/Switch';
 import { ThemeProvider } from '@mui/material/styles';
 import { green } from '@mui/material/colors';
-import { darkTheme, lightTheme } from './themeToggler';
+import { darkTheme, lightTheme } from './CustomComponents/themeToggler';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 

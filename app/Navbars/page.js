@@ -1,40 +1,31 @@
 import * as React from 'react'
 import Paper from '@mui/material/Paper'
-import { StyledPaper } from '../Components/styledboxes';
+import { StyledPaper } from '../CustomComponents/styledboxes';
 import Divider from '@mui/material/Divider';
-import ResponsiveModernPink from '../Components/MuiCoreComponents/ResponsiveNavBar/MuiModernPink';
-import ResponsiveModernBlue from '../Components/MuiCoreComponents/ResponsiveNavBar/MuiModernBlue';
-import ResponsiveModernPurple from '../Components/MuiCoreComponents/ResponsiveNavBar/MuiModernPurple';
-import ResponsiveReharvest from '../Components/MuiCoreComponents/ResponsiveNavBar/MuiReharvest';
-import ResponsiveB2BLight from '../Components/MuiCoreComponents/ResponsiveNavBar/MuiB2BlightBlue';
-import ResponsiveB2BDark from '../Components/MuiCoreComponents/ResponsiveNavBar/MuiB2BDarkBlue';
-import ResponsiveBase from '../Components/MuiCoreComponents/ResponsiveNavBar/MuiBase';
-import ResponsiveEcobo from '../Components/MuiCoreComponents/ResponsiveNavBar/MuiEcobo';
+import ResponsiveReharvest from '../Components/Navbar/ReharvestNavbar';
+import ModernBlue from '../Components/Navbar/ModernBlue';
+import ModernPink from '../Components/Navbar/ModernPink';
+import ModernPurple from '../Components/Navbar/ModernPurple';
+import ResponsiveB2BDarkBlue from '../Components/Navbar/B2bNavbarDarkBlue';
+import ResponsiveB2BLightBlue from '../Components/Navbar/B2bNavbarLightBlue';
+import BasicNavbar from '../Components/Navbar/BaseNavbar';
+import EcoboNavbar from '../Components/Navbar/EcoboNavbar';
+
 
 const SecondPage = () => {
 
 
     return <Paper sx={{ height: 'auto' }}>
         <StyledPaper >
-
-            <ResponsiveModernPink />
-
-            <ResponsiveModernBlue />
-            <ResponsiveModernPurple />
+            <ModernPurple />
+            <ModernBlue />
+            <ModernPink />
             <ResponsiveReharvest />
-            <ResponsiveB2BLight />
-            <ResponsiveB2BDark />
-            <ResponsiveBase />
-            <ResponsiveEcobo />
-            <Divider />
-
+            <ResponsiveB2BDarkBlue />
+            <ResponsiveB2BLightBlue />
+            <EcoboNavbar />
+            <BasicNavbar />
         </StyledPaper>
-
-
-
-
     </Paper >
-
 }
-
 export default SecondPage;
