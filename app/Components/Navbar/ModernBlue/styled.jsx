@@ -36,7 +36,7 @@ export const Search = styled('div')(({ theme }) => ({
 }));
 
 export const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 1),
+    padding: theme.spacing(0,1),
     height: '100%',
     position: 'absolute',
     pointerEvents: 'none',
@@ -44,6 +44,33 @@ export const SearchIconWrapper = styled('div')(({ theme }) => ({
     alignItems: 'center',
     justifyContent: 'center',
 }));
+
+export const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    
+    '& .MuiInputBase-input': {
+       
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(3)})`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+            width: '50ch',
+
+        },
+    },
+}));
+
+export const LogoTitleWrapper = styled(Box)(({ theme }) => ({
+        
+    display: 'flex',
+    flexGrow: 0,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    color: 'inherit',
+    backgroundColor: 'inherit'
+}))
 
 export const CancelButtonWrapper = styled(Button)(({ theme }) => ({
     
@@ -58,31 +85,6 @@ export const CancelButtonWrapper = styled(Button)(({ theme }) => ({
     bottom: '0',
     right: '0.15rem',
     zIndex: '99',
-}))
-export const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    
-    '& .MuiInputBase-input': {
-         height:'39px',
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(3)})`,
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            width: '50ch',
-        },
-    },
-}));
-
-export const LogoTitleWrapper = styled(Box)(({ theme }) => ({
-        
-    display: 'flex',
-    flexGrow: 0,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    color: 'inherit',
-    backgroundColor: 'inherit'
 }))
 
 export const SearchButtonWrapper = styled(Button)(({ theme }) => ({
