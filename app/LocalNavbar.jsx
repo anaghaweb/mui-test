@@ -106,7 +106,8 @@ export default function Navbar() {
     return (
         
             <AppBar           
-                position="sticky"
+            position="sticky"
+            sx={{ display: 'none' }}
             >
                 <Toolbar
                     position="relative"

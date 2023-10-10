@@ -50,7 +50,7 @@ const BasicNavbarVariant = React.forwardRef(function BasicNavbarVariant(inProps,
          <AppBar
             position="static"
             sx={{ height: { xs: '3rem', md: '5rem' } }}   
-           
+        
         >
             <Container maxWidth="xl"
                 disableGutters
@@ -89,7 +89,6 @@ const BasicNavbarVariant = React.forwardRef(function BasicNavbarVariant(inProps,
 BasicNavbarVariant.propTypes = {
     variant: PropTypes.oneOf(['ecobo','base']),
 };
-
 function BasicNavbar({variant}) {
        return (
         <BasicNavbarVariant variant="base" />  

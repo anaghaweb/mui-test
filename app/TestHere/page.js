@@ -8,7 +8,7 @@ import ModernPink from '../Components/Navbar/ModernPink';
 import ModernPurple from '../Components/Navbar/ModernPurple';
 import ResponsiveB2BDarkBlue from '../Components/Navbar/B2bNavbarDarkBlue';
 import ResponsiveB2BLightBlue from '../Components/Navbar/B2bNavbarLightBlue';
-import BasicNavbar from '../Components/Navbar/BaseNavbar';
+import BaseNavbar from '../Components/Navbar/BaseNavbar';
 import EcoboNavbar from '../Components/Navbar/EcoboNavbar';
 
 const TestPage = () => {
@@ -16,7 +16,7 @@ const TestPage = () => {
     return <Paper sx={{ height: 'auto' }}>
         <StyledPaper >
 
-            <ResponsiveB2BLightBlue />
+            <BaseNavbar />
         </StyledPaper>
 
         {/* <Divider />
