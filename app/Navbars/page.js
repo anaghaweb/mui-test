@@ -17,14 +17,14 @@ const SecondPage = () => {
 
     return (
         <div >
-            <ModernPurple />
+            {/* <ModernPurple />
             <ModernBlue />
             <ModernPink />
             <ResponsiveReharvest />
             <ResponsiveB2BDarkBlue />
             <ResponsiveB2BLightBlue />
             <EcoboNavbar />
-            <BasicNavbar />
+            <BasicNavbar /> */}
         </div>
     )
 }

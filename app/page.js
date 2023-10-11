@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <><main >
 
-      <Divider />
+      {/* <Divider />
       <ThemeProvider theme={baseNavbarTheme} >
         <PaperStyled>
           <BaseNavbar />
@@ -91,7 +91,7 @@ export default function Home() {
 
 
         </PaperStyled>
-      </ThemeProvider>
+      </ThemeProvider> */}
 
 
     </main >
