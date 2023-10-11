@@ -8,8 +8,6 @@ import AtlassianSVGLight from './LargeScreenMenu/AtlassianSVG/atlassianSVGLight'
 import AtlassianDark from './LargeScreenMenu/AtlassianSVG/atlassianSVGdark';
 
 export const TitleStyled = styled(Typography)(({ theme }) => ({
-   
-    mr: 0.5,
     display: 'flex',
     fontFamily: 'inherit',
     fontWeight: 500,
@@ -21,8 +19,7 @@ export const TitleStyled = styled(Typography)(({ theme }) => ({
     
 }));
 
-export const LogoTitleWrapper = styled(Box)(({ theme }) => ({
-        
+export const LogoTitleWrapper = styled(Box)(({ theme }) => ({     
     display: 'flex',
     flexGrow: 0,
     justifyContent: 'flex-start',
@@ -67,8 +64,7 @@ export const StyledButton = styled('button')
         '&.stl-btn': {
             [theme.breakpoints.down('md')]:
             {
-                color: variantcolor === 'dark' ? '#fafafa' : '#2A7FD4',
-                
+                color: variantcolor === 'dark' ? '#fafafa' : '#2A7FD4',             
                 backgroundColor: 'transparent',
                 width: 'fit-content',
             },
@@ -94,9 +90,7 @@ export const StyledButton = styled('button')
         ...theme.typography.h5,
         gap: theme.spacing(1),
         color: 'inherit',
-        '&:visited': {
-            color: 'inherit',
-        },
+        
     }));
 
    export const LightWrapper = styled(AtlassianSVGLight)(({ theme }) => ({
@@ -115,8 +109,6 @@ export const StyledButton = styled('button')
     height: '2.2rem',
 
 }))
-
-
 export const ButtonWrapper = styled(Box)(({ theme }) => ({
     
     display: 'flex',

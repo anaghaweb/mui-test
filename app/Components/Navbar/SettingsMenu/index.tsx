@@ -1,7 +1,6 @@
 'use client'
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
@@ -9,30 +8,30 @@ import MenuItem from '@mui/material/MenuItem';
 import PeopleIcon from '@mui/icons-material/People';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import SettingsIcon from '@mui/icons-material/Settings';
-
+import { StyledIconButton } from './settingsMenu.styled';
 const profileSettings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const settings = ['System', 'Brightness', 'Installation'];
 const languageMenu = ['English', 'Hindi', 'Kannada', 'Tamil', 'Telugu', 'Malayalam', 'Marathi'];
 
-function SettingsMenu ({variantcolor}){
+function SettingsMenu (){
 
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const [anchorElBrightness, setAnchorElBrightness] = React.useState(null);
-    const [anchorElLang, setAnchorElLang] = React.useState(null);
+    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+    const [anchorElBrightness, setAnchorElBrightness] = React.useState<null | HTMLElement>(null);
+    const [anchorElLang, setAnchorElLang] = React.useState<null | HTMLElement>(null);
 
-    const handleOpenLanguageMenu = (event) => {
+    const handleOpenLanguageMenu = (event:React.MouseEvent<HTMLElement>) => {
         setAnchorElLang(event.currentTarget);
     }
     const handleCloseLanguageMenu = () => {
         setAnchorElLang(null)
     };
-    const handleOpenUserMenu = (event) => {
+    const handleOpenUserMenu = (event:React.MouseEvent<HTMLElement>) => {
         setAnchorElUser(event.currentTarget);
     };
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
-    const handleOpenBrightnessMenu = (event) => {
+    const handleOpenBrightnessMenu = (event:React.MouseEvent<HTMLElement>) => {
         setAnchorElBrightness(event.currentTarget)
     }
     const handleCloseBrightnessMenu = () => {
@@ -42,45 +41,34 @@ function SettingsMenu ({variantcolor}){
     {/* SETTINGS MENU */ }
     return  <>
         <Box
-            sx={{
-                display: 'flex',               
+            style={{
+                display: 'flex',           
+                flexGrow: 0,
                 justifyContent: 'flex-end',
+                
                 }}>
                                                   
             <Tooltip title="Settings">
-            <IconButton onClick={handleOpenBrightnessMenu}
-                    sx={
-                            variantcolor === 'dark'
-                            ? { p: { xs: '0.2rem', sm: '0.5rem' }, color: '#ffffff' }
-                            : { p: { xs: '0.2rem', sm: '0.5rem' }, color: '#787878' }
-                        }
-                 >
+            <StyledIconButton onClick={handleOpenBrightnessMenu}>
+                
                 <SettingsIcon />
-            </IconButton>
+            </StyledIconButton>
         </Tooltip>
         <Tooltip title="Change Language">
-            <IconButton onClick={handleOpenLanguageMenu}
-                sx={
-                            variantcolor === 'dark'
-                            ? { p: { xs: '0.2rem', sm: '0.5rem' }, color: '#ffffff' }
-                            : { p: { xs: '0.2rem', sm: '0.5rem' }, color: '#787878' }
-                        }>
+            <StyledIconButton onClick={handleOpenLanguageMenu}>
+                
                 <LanguageOutlinedIcon />
-            </IconButton>
+            </StyledIconButton>
         </Tooltip>
         <Tooltip title="Manage Profile">
-            <IconButton onClick={handleOpenUserMenu}
-                sx={
-                            variantcolor === 'dark'
-                            ? { p: { xs: '0.2rem', sm: '0.5rem' }, color: '#ffffff' }
-                            : { p: { xs: '0.2rem', sm: '0.5rem' }, color: '#787878' }
-                        }>
+            <StyledIconButton onClick={handleOpenUserMenu}>
+               
                 <PeopleIcon />
-            </IconButton>
+            </StyledIconButton>
         </Tooltip>
         {/* LANGUAGE MENU */}
         <Menu
-            sx={{ mt: '45px' }}
+            style={{ marginTop: '45px' }}
             id="menu-appbar"
             anchorEl={anchorElLang}
             anchorOrigin={{
@@ -101,9 +89,9 @@ function SettingsMenu ({variantcolor}){
                 </MenuItem>
             ))}
         </Menu>
-        {/* DARK / LIGHT MENU */}
+        {/*Settings Menu*/}
         <Menu
-            sx={{ mt: '45px' }}
+           style={{ marginTop: '45px' }}
             id="menu-appbar"
             anchorEl={anchorElBrightness}
             anchorOrigin={{
@@ -126,7 +114,7 @@ function SettingsMenu ({variantcolor}){
         </Menu>
         {/* USER PROFILE MENU */}
         <Menu
-            sx={{ mt: '45px' }}
+            style={{ marginTop: '45px' }}
             id="menu-appbar"
             anchorEl={anchorElUser}
             anchorOrigin={{

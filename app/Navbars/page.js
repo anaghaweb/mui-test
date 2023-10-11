@@ -15,7 +15,7 @@ import EcoboNavbar from '../Components/Navbar/EcoboNavbar';
 const SecondPage = () => {
 
 
-    return <Paper sx={{ height: 'auto' }}>
+    return (
         <StyledPaper >
             <ModernPurple />
             <ModernBlue />
@@ -26,6 +26,6 @@ const SecondPage = () => {
             <EcoboNavbar />
             <BasicNavbar />
         </StyledPaper>
-    </Paper >
+    )
 }
 export default SecondPage;

@@ -5,6 +5,9 @@
       "dom.iterable",
       "esnext"
     ],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -28,7 +31,8 @@
     "**/*.ts",
     "**/*.tsx",
     "app/Components/Navbar/BaseNavbar/MobileMenu/mobileMenu.tsx",
-    "app/Components/Navbar/BaseNavbar/index.tsx"
+    "app/Components/Navbar/BaseNavbar/index.tsx",
+    "app/LandingPage/page.js"
   ],
   "exclude": [
     "node_modules"

@@ -1,26 +1,53 @@
 'use client'
-import { styled } from '@mui/material/styles';
+import { styled, Theme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
-import Link from 'next/link';
+import Link from "@mui/material/Link";
 import AtlassianSVGLight from './LargeScreenMenu/AtlassianSVG/atlassianSVGLight';
 import AtlassianDark from './LargeScreenMenu/AtlassianSVG/atlassianSVGdark';
+import Toolbar from '@mui/material/Toolbar';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button'
 
-export const TitleStyled = styled(Typography)(({ theme }) => ({
-    mr: 0.5,
-    display: 'flex',
-    fontFamily: 'inherit',
-    fontWeight: 500,
+export const StyledAppBar = styled(AppBar)(({ theme }: { theme: Theme }) => ({
+    height:'3rem',
+    [theme.breakpoints.up('md')]: {
+        height:'5rem'
+    },    
+     '*:visited':{
     color: 'inherit',
-    textDecoration: 'none',
-    [theme.breakpoints.down('sm')]: {
-        ...theme.typography.h6,      
-    }
-    
+    }, 
 }));
 
-export const LogoTitleWrapper = styled(Box)(({ theme }) => ({
+export const StyledToolbar = styled(Toolbar)(({ theme }: { theme: Theme }) => ({
+    backgroundColor: '#2A7FD4',
+    color: '#ffffff',
+    position: "relative",
+    height: 'inherit',
+    padding: theme.spacing(1),    
+    '*':{
+    textDecoration: 'none',
+    boxSizing: 'border-box', 
+    },
+}));
+
+export const StyledTitle = styled(Typography)(({ theme }: { theme: Theme }) => ({
+    display: "flex",
+    justifyContent: "flex-start",
+    flexGrow: 1,
+    fontFamily: "inherit",
+    fontWeight: 500,
+    color: "inherit",
+    textDecoration: "none",
+    padding: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+        ...theme.typography.h6,
+        padding: "0",
+    },
+}))as typeof Link;
+
+export const LogoTitleWrapper = styled(Box)(({ theme }: { theme: Theme }) => ({
     display: 'flex',
     flexGrow: 0,
     justifyContent: 'flex-start',
@@ -29,11 +56,12 @@ export const LogoTitleWrapper = styled(Box)(({ theme }) => ({
     backgroundColor: 'inherit'
 }))
 
-export const LogoWrapper = styled(IconButton)(({ theme }) => ({
-    height: '5rem',
+export const LogoWrapper = styled(IconButton)(({ theme }: { theme: Theme }) => ({  
+    height: '100%',
     width: '5rem',
     display: 'flex',
-    [theme.breakpoints.down('md')]: {
+    color:'inherit',
+      [theme.breakpoints.down('md')]: {
         height: '3rem',
         width: '3rem',
     },
@@ -44,7 +72,7 @@ export const LogoWrapper = styled(IconButton)(({ theme }) => ({
 
 // BUTTONS CART, LOGIN STYLING
 export const StyledButton = styled('button')
-    (({ theme, variantcolor }) => ({
+    (({ theme }: { theme: Theme }) => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -53,18 +81,19 @@ export const StyledButton = styled('button')
         minWidth: 'fit-content',
         textTransform: 'capitalize',
         backgroundColor: '#ffffff',
+        color: '#2A7FD4',
         borderRadius: '0.2rem',
         border: 'none',
         gap: theme.spacing(0.5),
-        color: '#2A7FD4',
+        
         '&:hover': {
             cursor: 'pointer',
             backgroundColor: '#ffffff',
         },
-        '&.stl-btn': {
+        '&.stl-btn':{
             [theme.breakpoints.down('md')]:
             {
-                color: variantcolor === 'light' ?'#2A7FD4' : '#fafafa',
+                color:'#fafafa',
                 backgroundColor: 'transparent',
                 width: 'fit-content',
             },
@@ -82,16 +111,13 @@ export const StyledButton = styled('button')
     }));
 
    export const StyledLinks = styled(Link)
-    (({ theme }) => ({
+    (({ theme }: { theme: Theme }) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         ...theme.typography.h5,
         gap: theme.spacing(1),
-        color: 'inherit',
-        '&:visited': {
-            color: 'inherit',
-        },
+        color:'inherit',
     }));
 
    export const AtlassianLightWrapper = styled(AtlassianSVGLight)(({ theme }) => ({
@@ -109,12 +135,37 @@ export const StyledButton = styled('button')
     height: '2.2rem',
 }))
 
-export const ButtonWrapper = styled(Box)(({ theme }) => ({
-      display: 'flex',
-    flexGrow: 1,
+export const ButtonWrapper = styled(Box)(({ theme }:{theme:Theme}) => ({
+    display: 'flex',
+    flexGrow: 2,
     justifyContent: 'flex-end',
     gap:'0.4rem',
     [theme.breakpoints.up('sm')]: {
         gap:'1rem', 
     },   
 }))
+
+export const StyledMenu = styled(Box)(({ theme }: { theme: Theme }) => ({
+      display: 'flex',
+    flexGrow: 3,
+     justifyContent: 'flex-end',
+    color: 'inherit',
+    gap: '0.4rem',
+    [theme.breakpoints.down('lg')]: {
+        display:'none'
+    }
+}))
+
+export const LargeMenuButtonWrapper = styled(Button)(({ theme }: { theme: Theme }) => ({      
+color: 'inherit',
+justifyContent: 'center',
+alignItems: 'center',
+width: '6.5rem',
+gap: '0.5rem',
+minWidth: 'fit-content',
+textTransform: 'capitalize',
+}))
+
+
+
+

@@ -1,73 +1,26 @@
 'use client'
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { AtlassianDarkWrapper, AtlassianLightWrapper } from '../styled';
+import { AtlassianLightWrapper, StyledMenu, LargeMenuButtonWrapper } from '../b2b.styled';
 
-
-const LargeScreenMenu = ({variantcolor}) => {  
+const LargeScreenMenu = () => {  
     return <>
-        <Box sx={{
-            flexGrow: 3,
-            display: {
-                xs: 'none', lg: 'flex'
-            },
-                justifyContent: 'flex-end',
-                color: 'inherit',
-                gap: '0.4rem',
-            
-        }}>
-                        <Button
-                            // onClick={handleCloseNavMenu}
-                            variant="text"
-                            sx={{
-                                my: 1,
-                                color: 'inherit',
-                                display: 'block',
-                                textTransform: 'capitalize',
-                                letterSpacing: 'none'
-                            }}
-                        >
+                <StyledMenu>
+                        <LargeMenuButtonWrapper
+                          variant="text">
                             <Typography variant="h5">Products</Typography>
-                        </Button>
-                        <Button
-                            // onClick={handleCloseNavMenu}
-                            sx={{
-                                my: 1,
-                                color: 'inherit',
-                                display: 'block',
-                                textTransform: 'capitalize',
-                                letterSpacing: 'none'
-                            }}
+                        </LargeMenuButtonWrapper>
+                        <LargeMenuButtonWrapper
                             >                       
                             <Typography variant="h5">About Us</Typography>
-                        </Button>
-
-                        <Button
-                            // onClick={handleCloseNavMenu}
-                            sx={{
-                                my: 1,
-                                color: 'inherit',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                width: '6.5rem',
-                                gap: '0.5rem',
-                                minWidth: 'fit-content',
-                                textTransform: 'capitalize',
-                            }}
-                        >
-                {variantcolor === 'dark' ? <AtlassianLightWrapper /> :
-                    <AtlassianDarkWrapper/>
-                            }                 
-                           <Typography variant="h5">For Businesses</Typography>
-                        </Button>
+                        </LargeMenuButtonWrapper>
+                        <LargeMenuButtonWrapper>
+                        <AtlassianLightWrapper />   
+                        <Typography variant="h5">For Businesses</Typography>
+                        </LargeMenuButtonWrapper>
                       {/* Large screen Menu */}
-                    </Box>
-                    <Box 
-                    sx={{ flexGrow: 1, display: { lg: 'flex', justifyContent: 'flex-end', color: 'inherit', gap: '0.5rem' } }}>
-                    </Box>
-    </>
+                </StyledMenu>
+                   </>
 }
 
 export default LargeScreenMenu;

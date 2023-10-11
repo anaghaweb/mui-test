@@ -1,7 +1,6 @@
 'use client'
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
@@ -9,30 +8,36 @@ import MenuItem from '@mui/material/MenuItem';
 import PeopleIcon from '@mui/icons-material/People';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import SettingsIcon from '@mui/icons-material/Settings';
+import { StyledIconButton } from '../ecobo.styled';
 
 const profileSettings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const settings = ['System', 'Brightness', 'Installation'];
 const languageMenu = ['English', 'Hindi', 'Kannada', 'Tamil', 'Telugu', 'Malayalam', 'Marathi'];
 
-function SettingsMenu (){
+interface SettingsMenuProps {
+    buttoncolor?: string
+}
 
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const [anchorElBrightness, setAnchorElBrightness] = React.useState(null);
-    const [anchorElLang, setAnchorElLang] = React.useState(null);
 
-    const handleOpenLanguageMenu = (event) => {
+const SettingsMenu: React.FC<SettingsMenuProps> = ({ buttoncolor })=>{
+
+    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+    const [anchorElBrightness, setAnchorElBrightness] = React.useState<null | HTMLElement>(null);
+    const [anchorElLang, setAnchorElLang] = React.useState<null | HTMLElement>(null);
+
+    const handleOpenLanguageMenu = (event:React.MouseEvent<HTMLElement>) => {
         setAnchorElLang(event.currentTarget);
     }
     const handleCloseLanguageMenu = () => {
         setAnchorElLang(null)
     };
-    const handleOpenUserMenu = (event) => {
+    const handleOpenUserMenu = (event:React.MouseEvent<HTMLElement>) => {
         setAnchorElUser(event.currentTarget);
     };
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
-    const handleOpenBrightnessMenu = (event) => {
+    const handleOpenBrightnessMenu = (event:React.MouseEvent<HTMLElement>) => {
         setAnchorElBrightness(event.currentTarget)
     }
     const handleCloseBrightnessMenu = () => {
@@ -42,33 +47,36 @@ function SettingsMenu (){
     {/* SETTINGS MENU */ }
     return  <>
         <Box
-            sx={{
-                display: 'flex',           
-                flexGrow: 1,
-                justifyContent: 'flex-end',
-                }}>
+            // style={{
+            //     display: 'flex',           
+            //     flexGrow: 1,
+            //     justifyContent: 'flex-end',
+            // }}
+        >
                                                   
             <Tooltip title="Settings">
-            <IconButton onClick={handleOpenBrightnessMenu}
-                sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}>
+                <StyledIconButton onClick={handleOpenBrightnessMenu}
+                  style={{ color: buttoncolor }}  
+                >
+                
                 <SettingsIcon />
-            </IconButton>
+            </StyledIconButton>
         </Tooltip>
         <Tooltip title="Change Language">
-            <IconButton onClick={handleOpenLanguageMenu}
-                sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}>
+            <StyledIconButton onClick={handleOpenLanguageMenu}>
+                
                 <LanguageOutlinedIcon />
-            </IconButton>
+            </StyledIconButton>
         </Tooltip>
         <Tooltip title="Manage Profile">
-            <IconButton onClick={handleOpenUserMenu}
-                sx={{ p: { xs: '0.2rem', sm: '0.5rem' } }}>
+            <StyledIconButton onClick={handleOpenUserMenu}>
+               
                 <PeopleIcon />
-            </IconButton>
+            </StyledIconButton>
         </Tooltip>
         {/* LANGUAGE MENU */}
         <Menu
-            sx={{ mt: '45px' }}
+            style={{ marginTop: '45px' }}
             id="menu-appbar"
             anchorEl={anchorElLang}
             anchorOrigin={{
@@ -91,7 +99,7 @@ function SettingsMenu (){
         </Menu>
         {/*Settings Menu*/}
         <Menu
-            sx={{ mt: '45px' }}
+           style={{ marginTop: '45px' }}
             id="menu-appbar"
             anchorEl={anchorElBrightness}
             anchorOrigin={{
@@ -114,7 +122,7 @@ function SettingsMenu (){
         </Menu>
         {/* USER PROFILE MENU */}
         <Menu
-            sx={{ mt: '45px' }}
+            style={{ marginTop: '45px' }}
             id="menu-appbar"
             anchorEl={anchorElUser}
             anchorOrigin={{

@@ -1,5 +1,5 @@
 import Divider from '@mui/material/Divider';
-import { StyledPaper } from './CustomComponents/styledboxes';
+import { PaperStyled } from './CustomComponents/layoutContainerStyles';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import baseNavbarTheme from './CustomNavbars/baseNavbar/baseNavbarTheme';
 import EcoboNavbar from './CustomNavbars/EcoboNavBar/ecobonavbar';
@@ -22,75 +22,75 @@ export default function Home() {
 
       <Divider />
       <ThemeProvider theme={baseNavbarTheme} >
-        <StyledPaper>
+        <PaperStyled>
           <BaseNavbar />
 
 
-        </StyledPaper>
+        </PaperStyled>
       </ThemeProvider>
       <Divider />
 
 
       <ThemeProvider theme={EcoboNavbarTheme} >
-        <StyledPaper>
+        <PaperStyled>
           <EcoboNavbar />
 
 
-        </StyledPaper>
+        </PaperStyled>
       </ThemeProvider>
       <Divider />
 
 
       <ThemeProvider theme={ReharvestnavbarTheme} >
-        <StyledPaper>
+        <PaperStyled>
           <ReharvestNavbar />
 
 
-        </StyledPaper>
+        </PaperStyled>
       </ThemeProvider>
       <Divider />
 
       <ThemeProvider theme={b2bTheme} >
-        <StyledPaper>
+        <PaperStyled>
           <B2BNavbar />
 
-        </StyledPaper>
+        </PaperStyled>
       </ThemeProvider>
       <Divider />
 
       <ThemeProvider theme={b2bTheme} >
-        <StyledPaper>
+        <PaperStyled>
           <B2BDarkNavbar />
 
 
-        </StyledPaper>
+        </PaperStyled>
       </ThemeProvider>
 
       <Divider />
       <ThemeProvider theme={gradientTheme} >
-        <StyledPaper>
+        <PaperStyled>
           <ModernPinkTemplate />
 
 
-        </StyledPaper>
+        </PaperStyled>
       </ThemeProvider>
 
       <Divider />
       <ThemeProvider theme={gradientTheme} >
-        <StyledPaper>
+        <PaperStyled>
           <ModernBlueTemplate />
 
 
-        </StyledPaper>
+        </PaperStyled>
       </ThemeProvider>
 
       <Divider />
       <ThemeProvider theme={gradientTheme} >
-        <StyledPaper>
+        <PaperStyled>
           <ModernPurpleTemplate />
 
 
-        </StyledPaper>
+        </PaperStyled>
       </ThemeProvider>
 
 

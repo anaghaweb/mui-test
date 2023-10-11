@@ -107,7 +107,7 @@ export default function Navbar() {
         
             <AppBar           
             position="sticky"
-            sx={{ display: 'none' }}
+            //sx={{ display: 'none' }}
             >
                 <Toolbar
                     position="relative"
@@ -140,7 +140,7 @@ export default function Navbar() {
                         <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
                             <Link href="/TestHere">Playground</Link></Box>
                         <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
-                            <Link href="#">Profile</Link></Box>
+                            <Link href="/LandingPage">LandingPage</Link></Box>
                         <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
                             <Link href="#">About Us</Link></Box>
                         <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
@@ -154,22 +154,28 @@ export default function Navbar() {
                  <Box sx={{textTransform:'capitalize'}}>
                 
                 <Button variant="outlined" color="primary"
-                     sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
+                     sx={{"&:hover": {bgcolor:'#fafafa'}, display:{xs:'none', md:'inline-block'}}}
                     ><Link href="/" style={{ color: '#717171' }}>
                             Home
                         </Link>
                 </Button>                    
            
             <Button variant="outlined" color="primary"
-                sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
+                sx={{"&:hover": {bgcolor:'#fafafa'}, display:{xs:'none', md:'inline-block'}}}
                     ><Link href="/Navbars" style={{ color: '#717171' }}>
                             Navbars
                         </Link>
                     </Button>
                     <Button variant="outlined" color="primary"
-                sx={{"&:hover": {bgcolor:green[600]}, display:{xs:'none', md:'inline-block'}}}
+                sx={{"&:hover": {bgcolor:'#fafafa'}, display:{xs:'none', md:'inline-block'}}}
                     ><Link href="/TestHere" style={{ color: '#717171' }}>
                             Playground
+                        </Link>
+                    </Button>
+                       <Button variant="outlined" color="primary"
+                sx={{"&:hover": {bgcolor:'#fafafa'}, display:{xs:'none', md:'inline-block'}}}
+                    ><Link href="/LandingPage" style={{ color: '#717171' }}>
+                           Landing Page
                         </Link>
             </Button>
                         

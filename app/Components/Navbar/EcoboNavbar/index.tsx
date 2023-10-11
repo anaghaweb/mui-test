@@ -1,10 +1,10 @@
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
-import SettingsMenu from '../SettingsMenu';
-import {StyledTitle, StyledToolbar } from './Base.styled';
-import MobileMenu from '../MobileMenu';
+import SettingsMenu from './SettingsMenu/settingsMenu';
+import {StyledTitle, StyledToolbar } from './ecobo.styled';
+import MobileMenu from './MobileMenu/mobileMenu';
 
-const BaseNavbar:React.FC =()=> {     
+function EcoboNavbar(): JSX.Element {     
     return (  
          <AppBar
             position="static"               
@@ -17,7 +17,7 @@ const BaseNavbar:React.FC =()=> {
                 >
                     <MobileMenu />
                     {/* LOGO AND TITLE */}
-                    
+                   
                         <StyledTitle
                             variant="h4"
                             noWrap
@@ -25,9 +25,9 @@ const BaseNavbar:React.FC =()=> {
                             href="#app-bar-with-responsive-menu"
                         >
                             {/* NAVBAR TITLE */}
-                            Base
+                            Ecobo
                         </StyledTitle>
-                    
+        
                                                            
                     {/* SETTINGS MENU */}            
                     <SettingsMenu  />                                      
@@ -36,4 +36,4 @@ const BaseNavbar:React.FC =()=> {
         </AppBar >        
     )       
 }
-export default BaseNavbar;
+export default EcoboNavbar;
