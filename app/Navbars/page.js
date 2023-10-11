@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Paper from '@mui/material/Paper'
-import { StyledPaper } from '../CustomComponents/styledboxes';
+
 import Divider from '@mui/material/Divider';
 import ResponsiveReharvest from '../Components/Navbar/ReharvestNavbar';
 import ModernBlue from '../Components/Navbar/ModernBlue';
@@ -16,7 +16,7 @@ const SecondPage = () => {
 
 
     return (
-        <StyledPaper >
+        <div >
             <ModernPurple />
             <ModernBlue />
             <ModernPink />
@@ -25,7 +25,7 @@ const SecondPage = () => {
             <ResponsiveB2BLightBlue />
             <EcoboNavbar />
             <BasicNavbar />
-        </StyledPaper>
+        </div>
     )
 }
 export default SecondPage;
