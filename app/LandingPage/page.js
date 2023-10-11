@@ -1,12 +1,12 @@
 import * as React from 'react'
 import LandingPage from '../Components/LandingPage'
 
-import { Container, Box } from '../Components/LandingPage/Mui-components'
+import { Container, Box, Paper } from '../Components/LandingPage/Mui-components'
 
 
 export default function Landing() {
     return (
-        <Box
+        <Paper
             sx={{
                 display: 'flex',
                 alignItems: 'center',
@@ -20,6 +20,6 @@ export default function Landing() {
 
             />
 
-        </Box>
+        </Paper>
     )
 }

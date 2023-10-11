@@ -1,13 +1,16 @@
 'use client'
-import { Container, Paper, TextField, Box } from "@mui/material";
+import { Paper, TextField, Box } from "@mui/material";
 import {styled, Theme} from "@mui/material/styles"
 
 export const StyledTextField = styled(TextField)(({ theme }:{theme:Theme}) => ({
     
     '&.field': {
-        marginTop: '0.5rem',
-        marginBottom: '0.5rem',
-        display:'block'
+        display: 'flex',
+        flexGrow: 1,
+        marginTop: '0.4rem',
+        marginBottom:'0.4rem',
+        height: 'auto',
+        
     }
 
 }))
@@ -20,8 +23,13 @@ export const ContactLogoWrapper = styled(Paper)(({ theme }) => ({
     justifyContent: 'center',
     alignItems: 'center',
     width:'100%',
-    height:'50%',
+    height:'auto',
     padding: '1rem',
+    '& .company-logo':{
+        [theme.breakpoints.down('sm')]: {
+            fontSize:'1.1rem'
+        }
+    }
     
 }))
 
@@ -31,12 +39,16 @@ export const ContactsWrapper = styled(Paper)(({ theme }) => ({
     flexDirection:'column',
     flexGrow: 1,
     justifyContent: 'flex-start',
-     flexBasis:'100%',
+     flexBasis:'50%',
     alignItems: 'center',
      height: '30rem',
     padding: '1rem',
     fontFamily: 'monospace',
-     lineHeight:'0.4rem',
+    lineHeight: '0.4rem',
+    [theme.breakpoints.down('md')]: {
+         width:'100%'
+     }
+     
 }))
 
 export const ContactFormWrapper = styled(Paper)(({ theme }) => ({
@@ -45,21 +57,25 @@ export const ContactFormWrapper = styled(Paper)(({ theme }) => ({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    width:'100%',
+    flexBasis:'50%',
     padding: '1rem',
     height: '30rem',
+    [theme.breakpoints.down('md')]: {
+         width:'100%'
+     }
 }))
 
 export const LandingWrapper = styled(Box)(({ theme }) => ({
     
     display: 'flex',
     height: '100%',
-    width: '100%',
+    width: '70%',
     justifyContent: 'center',
     alignItems:'center',
     margin: 'auto',
     padding: '1rem',
     [theme.breakpoints.down('md')]: {
-         flexDirection:'column'
+        flexDirection: 'column',
+        width:'100%'
      }
 }))

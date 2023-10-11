@@ -2,8 +2,7 @@ import * as React from 'react';
 import CompanyLogo from './CompanyLogo';
 import ContactForm from './ContactForm';
 import ContactInfo from './Contactinfo';
-import { Box, Paper, Container } from './Mui-components';
-import { StyledTextField, ContactLogoWrapper, ContactFormWrapper, LandingWrapper, ContactsWrapper} from './landing.styles';
+import { ContactLogoWrapper, ContactFormWrapper, LandingWrapper, ContactsWrapper} from './landing.styles';
 
 const LandingPage: React.FC = () => {
   return (

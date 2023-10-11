@@ -14,13 +14,13 @@ import EcoboNavbar from '../Components/Navbar/EcoboNavbar';
 const TestPage = () => {
 
     return <Paper sx={{ height: '100vh' }}>
-        // <div >
+        <PaperStyled >
 
-        //     {/* <B2BDarkNavbar />
-        //     <BaseNavbar />
-        //     <EcoboNavbar /> */}
-        //     {/* <ResponsiveB2BLightBlue /> */}
-        // </div>
+            <B2BDarkNavbar />
+            <BaseNavbar />
+            <EcoboNavbar />
+            <ResponsiveB2BLightBlue />
+        </PaperStyled>
 
         {/* <Divider />
         <BasicNavbar />
