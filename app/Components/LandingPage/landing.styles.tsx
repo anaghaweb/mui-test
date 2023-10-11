@@ -57,7 +57,6 @@ export const LandingWrapper = styled(Box)(({ theme }) => ({
     width: '100%',
     justifyContent: 'center',
     alignItems:'center',
-    backgroundColor: '#f1f1f1',
     margin: 'auto',
     padding: '1rem',
     [theme.breakpoints.down('md')]: {

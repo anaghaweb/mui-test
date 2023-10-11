@@ -11,7 +11,7 @@ export default function Landing() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: '#f9f9f9',
+                backgroundColor: '#f1f1f1',
                 width: '100%',
                 height: '100%',
                 padding: '1rem'
