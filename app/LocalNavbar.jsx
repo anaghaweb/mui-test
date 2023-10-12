@@ -95,6 +95,23 @@ const close = {
     left: '-100%'
 };
 
+const StyledTitle = styled(Box)(({ theme }) => ({
+    
+    position: 'absolute',
+    top: '50%',
+    bottom:'0',
+    left: '3rem',
+    margin: 'auto',
+    height:'100%',
+    textAlign:'center',
+    fontFamily: 'inherit',
+    color: '#010101',
+    [theme.breakpoints.down('sm')]: {
+        left: '0',
+        right:'0'
+    }
+
+})) 
 
 export default function Navbar() {
 
@@ -111,7 +128,13 @@ export default function Navbar() {
             >
                 <Toolbar
                     position="relative"
-                    sx={{ display: 'flex', justifyContent: 'flex-end', width: '100%', backgroundColor: '#fafafa', color:'#717171' }}>
+                sx={{ display: 'flex', justifyContent: 'flex-end', width: '100%', backgroundColor: '#fafafa', color: '#717171' }}>
+                <StyledTitle
+                    ><Typography variant="h4"
+                        className="title"
+                       
+                    >Interamerica Capital
+                    </Typography></StyledTitle>
         
                     <NavMenuIcon
                         onClick={() => showMenu(!menu)}
@@ -148,9 +171,7 @@ export default function Navbar() {
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
                             <Link href="#">Logout</Link></Box>
                 </StyledMobileMenu>
-                <Box
-                    sx={{display:'flex', justifyContent: 'center', flexGrow: 1, color:'inherit'}}
-                ><Typography variant="h6" sx={{fontFamily:'monospace'}} >Testing Components</Typography></Box>
+                
                  <Box sx={{textTransform:'capitalize'}}>
                 
                 <Button variant="outlined" color="primary"
@@ -177,12 +198,8 @@ export default function Navbar() {
                     ><Link href="/LandingPage" style={{ color: '#717171' }}>
                            Landing Page
                         </Link>
-            </Button>
-                        
-                    <Switch defaultChecked={false} name='dark' color='default' />
-            </Box>
-                                     
-          
+            </Button>          
+            </Box>          
         </Toolbar>
         </AppBar>
            

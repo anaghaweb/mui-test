@@ -2,7 +2,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
-import interamerica_logo from '../puplic/interamerica_logo.jpeg'
+
 
 const CompanyLogo: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const CompanyLogo: React.FC = () => {
         
         style={{
           objectFit: 'contain',
-          width: '100%', height: 'auto', padding: '0.5rem'
+          width: '100%', height: 'auto'
         }}> 
         
         <img src="/interamerica_logo.jpeg"

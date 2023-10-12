@@ -9,20 +9,15 @@ const LandingPage: React.FC = () => {
     <>
       <LandingWrapper>
       <ContactsWrapper>
-      <ContactLogoWrapper className="left">
-        
+      <ContactLogoWrapper className="left">  
             <CompanyLogo />
           </ContactLogoWrapper>  
         <ContactLogoWrapper className="left">   
-              <ContactInfo />
-           
-          
+              <ContactInfo />      
           </ContactLogoWrapper>
           </ContactsWrapper>
-        <ContactFormWrapper className="right">
-         
-          <ContactForm />
-        
+        <ContactFormWrapper className="right">      
+          <ContactForm />   
         </ContactFormWrapper>
         </LandingWrapper>
     </>

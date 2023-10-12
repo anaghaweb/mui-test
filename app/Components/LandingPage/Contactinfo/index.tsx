@@ -6,14 +6,18 @@ const ContactInfo: React.FC = () => {
   return (
     
       <Box
-        sx={{fontFamily:"monospace", height:'100%'}}
-      >
-          
-        <Typography variant="h5">Get in touch</Typography>
-        <Typography variant="subtitle2">74 E Glenwood Ave</Typography>
-        <Typography variant="subtitle2">Suite 5235</Typography>
-        <Typography variant="subtitle2">Smyrna, DE 19977</Typography>
-        <Typography variant="subtitle2">contact@interamerica.capital</Typography>
+        style={{fontFamily:"monospace", height:'100%'}}
+      >   
+      <Typography variant="h5"
+        sx={{fontFamily:'monospace'}}
+      >Get in touch</Typography>
+        <Typography variant="body1">74 E Glenwood Ave</Typography>
+        <Typography variant="body1">Suite 5235</Typography>
+        <Typography variant="body1">Smyrna, DE 19977</Typography>
+      <Typography variant="body1"
+        component="a"
+        href="mailto:contact@interamerica.capital"
+      >contact@interamerica.capital</Typography>
       
       </Box>
      
