@@ -9,7 +9,7 @@ const ContactInfo: React.FC = () => {
         style={{fontFamily:"monospace", height:'100%'}}
       >   
       <Typography variant="h5"
-        sx={{fontFamily:'monospace'}}
+        style={{fontFamily:'monospace'}}
       >Get in touch</Typography>
         <Typography variant="body1">74 E Glenwood Ave</Typography>
         <Typography variant="body1">Suite 5235</Typography>

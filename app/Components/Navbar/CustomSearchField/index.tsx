@@ -4,24 +4,23 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import SearchIcon from '@mui/icons-material/Search';
-import { Search, SearchIconWrapper, StyledInputBase } from '../styled';
+import {Search, SearchIconWrapper, StyledInputBase } from './search.styled';
 
-function FullScreenSearchbar() {
-    return <Box sx={
+const FullScreenSearchbar:React.FC =()=> {
+    return <Box style={
                 {
                 height: '100vh', width: '100%',
                 position: 'absolute', top: '0', left: '0',
                 backgroundColor: '#ffffff', zIndex: '98',
-
                 }}>
                 <Search
-                sx={{ width: '100%', backgroundColor: '#f8f8f8' }}
+                style={{ width: '100%', backgroundColor: '#f8f8f8' }}
                  >
                 <SearchIconWrapper>
                     <SearchIcon />
                 </SearchIconWrapper>
                 <StyledInputBase
-                    sx={{ width: '100%' }}
+                    style={{ width: '100%' }}
                     placeholder="Search for Products…"
                     inputProps={{ 'aria-label': 'search' }}
                 />
@@ -32,11 +31,9 @@ function FullScreenSearchbar() {
             </Box>
     }
 
-function SearchAppBar() {
+const SearchAppBar:React.FC=()=> {
     return <Box>
-            <Search
-            sx={{ backgroundColor: '#f8f8f8' }}
-            >
+            <Search>
             <SearchIconWrapper>
                 <SearchIcon />
             </SearchIconWrapper>

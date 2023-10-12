@@ -2,24 +2,27 @@ import * as React from 'react'
 import Paper from '@mui/material/Paper'
 import { PaperStyled } from '../CustomComponents/layoutContainerStyles';
 import Divider from '@mui/material/Divider';
-import ResponsiveReharvest from '../Components/Navbar/ReharvestNavbar';
-import ModernBlue from '../Components/Navbar/ModernBlue';
-import ModernPink from '../Components/Navbar/ModernPink';
-import ModernPurple from '../Components/Navbar/ModernPurple';
+import ModernPinkNavbar from '../Components/Navbar/ModernPink';
+import ModernBlueNavbar from '../Components/Navbar/ModernBlue';
+import ModernPurpleNavbar from '../Components/Navbar/ModernPurple';
 import B2BDarkNavbar from '../Components/Navbar/B2bNavbarDarkBlue'
 import B2BLightNavbar from '../Components/Navbar/B2bNavbarLightBlue';
 import BaseNavbar from '../Components/Navbar/BaseNavbar';
 import EcoboNavbar from '../Components/Navbar/EcoboNavbar';
+import ReharvestNavbar from '../Components/Navbar/ReharvestNavbar';
 
 const TestPage = () => {
 
     return <Paper sx={{ height: '100vh' }}>
         <PaperStyled >
-
-            <B2BDarkNavbar />
+            <ReharvestNavbar />
+            <ModernPinkNavbar />
+            <ModernBlueNavbar />
+            <ModernPurpleNavbar />
+            {/* <B2BDarkNavbar />
             <BaseNavbar />
             <EcoboNavbar />
-            <B2BLightNavbar />
+            <B2BLightNavbar /> */}
         </PaperStyled>
 
         {/* <Divider />

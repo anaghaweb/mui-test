@@ -2,8 +2,7 @@
 import { Paper, TextField, Box } from "@mui/material";
 import {styled, Theme} from "@mui/material/styles"
 
-export const StyledTextField = styled(TextField)(({ theme }:{theme:Theme}) => ({
-    
+export const StyledTextField = styled(TextField)(({ theme }:{theme:Theme}) => ({   
     '&.field': {
         display: 'flex',
         flexGrow: 1,
@@ -11,7 +10,6 @@ export const StyledTextField = styled(TextField)(({ theme }:{theme:Theme}) => ({
         marginBottom:'0.4rem',
         height: 'auto',    
     }
-
 }))
 
 export const ContactLogoWrapper = styled(Paper)(({ theme }) => ({   
@@ -28,12 +26,10 @@ export const ContactLogoWrapper = styled(Paper)(({ theme }) => ({
             fontSize: '1.3rem',
             padding:'0'           
         }
-    }
-    
+    }    
 }))
 
-export const ContactsWrapper = styled(Paper)(({ theme }) => ({
-    
+export const ContactsWrapper = styled(Paper)(({ theme }) => ({  
     display: 'flex', 
     flexDirection:'column',
     flexGrow: 1,
@@ -47,8 +43,7 @@ export const ContactsWrapper = styled(Paper)(({ theme }) => ({
     [theme.breakpoints.down('md')]: {
         width: '100%',
         padding:'0'
-     }
-     
+     }   
 }))
 
 export const ContactFormWrapper = styled(Paper)(({ theme }) => ({
@@ -67,7 +62,6 @@ export const ContactFormWrapper = styled(Paper)(({ theme }) => ({
 }))
 
 export const LandingWrapper = styled(Box)(({ theme }) => ({
-    
     display: 'flex',
     height: '100%',
     width: '70%',
@@ -78,6 +72,7 @@ export const LandingWrapper = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
         width:'100%',
-        padding:'0'
+        padding: '0',
+        margin:'1rem 0',
      }
 }))
