@@ -1,8 +1,8 @@
 'use client'
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
-import theme from '@/app/ThemeRegistry/theme';
 
-let EcoboNavbarTheme = createTheme(theme, {
+
+let EcoboNavbarTheme = createTheme({
 
     breakpoints: {
         values: {

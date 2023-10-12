@@ -14,87 +14,17 @@ import ModernPinkTemplate from './CustomNavbars/ModernGradientnavbar/gradientNav
 import gradientTheme from './CustomNavbars/ModernGradientnavbar/gradientThemes';
 import ModernBlueTemplate from './CustomNavbars/ModernGradientnavbar/gradientThemeBlue';
 import ModernPurpleTemplate from './CustomNavbars/ModernGradientnavbar/gradientNavbarPurple';
+import LandingPage from './Components/LandingPage';
 
 
 export default function Home() {
   return (
-    <><main >
-
-      <Divider />
-      <ThemeProvider theme={baseNavbarTheme} >
-        <PaperStyled>
-          <BaseNavbar />
-
-
-        </PaperStyled>
-      </ThemeProvider>
-      <Divider />
-
-
-      <ThemeProvider theme={EcoboNavbarTheme} >
-        <PaperStyled>
-          <EcoboNavbar />
-
-
-        </PaperStyled>
-      </ThemeProvider>
-      <Divider />
-
-
-      <ThemeProvider theme={ReharvestnavbarTheme} >
-        <PaperStyled>
-          <ReharvestNavbar />
-
-
-        </PaperStyled>
-      </ThemeProvider>
-      <Divider />
-
-      <ThemeProvider theme={b2bTheme} >
-        <PaperStyled>
-          <B2BNavbar />
-
-        </PaperStyled>
-      </ThemeProvider>
-      <Divider />
-
-      <ThemeProvider theme={b2bTheme} >
-        <PaperStyled>
-          <B2BDarkNavbar />
-
-
-        </PaperStyled>
-      </ThemeProvider>
-
-      <Divider />
-      <ThemeProvider theme={gradientTheme} >
-        <PaperStyled>
-          <ModernPinkTemplate />
-
-
-        </PaperStyled>
-      </ThemeProvider>
-
-      <Divider />
-      <ThemeProvider theme={gradientTheme} >
-        <PaperStyled>
-          <ModernBlueTemplate />
-
-
-        </PaperStyled>
-      </ThemeProvider>
-
-      <Divider />
-      <ThemeProvider theme={gradientTheme} >
-        <PaperStyled>
-          <ModernPurpleTemplate />
-
-
-        </PaperStyled>
-      </ThemeProvider>
-
-
-    </main >
+    <>
+      <main
+        style={{ padding: 0, margin: 'auto' }}
+      >
+        <LandingPage />
+      </main>
     </>
   )
 }

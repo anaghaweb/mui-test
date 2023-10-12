@@ -4,7 +4,7 @@ import { Container, Box, Paper } from '../Components/LandingPage/Mui-components'
 
 export default function Landing() {
     return (
-        <div
+        <main
             style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -15,6 +15,6 @@ export default function Landing() {
             }}>
             <LandingPage />
 
-        </div>
+        </main>
     )
 }

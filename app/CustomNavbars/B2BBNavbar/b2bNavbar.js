@@ -321,9 +321,9 @@ export default function B2BTemplate() {
                     About Us
                 </StyledLinks >
                 <StyledLinks href="#" >
-                    <AtlassianWrapper className="atlassian-logo">
+                    {/* <AtlassianWrapper className="atlassian-logo">
                         <AtlassianSVG />
-                    </AtlassianWrapper >
+                    </AtlassianWrapper > */}
                     For Businesses
                 </StyledLinks >
             </StyledNavStack>

@@ -8,7 +8,7 @@ import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import InsertPhotoSharpIcon from '@mui/icons-material/InsertPhotoSharp';
 import { styled } from '@mui/material/styles';
 import Link from 'next/link';
-import AtlassianSVGLight from '@/public/SVGs/atlassianLight';
+// import AtlassianSVGLight from '@/public/SVGs/atlassianLight';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import LightModeIcon from '@mui/icons-material/LightMode';
@@ -364,9 +364,9 @@ export default function B2BTemplate() {
                     About Us
                 </StyledLinks >
                 <StyledLinks href="#" >
-                    <AtlassianWrapper className="atlassian-logo">
+                    {/* <AtlassianWrapper className="atlassian-logo">
                         <AtlassianSVGLight />
-                    </AtlassianWrapper >
+                    </AtlassianWrapper > */}
                     For Businesses
                 </StyledLinks >
             </StyledNavStack>

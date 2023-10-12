@@ -8,21 +8,21 @@ const ContactForm:React.FC=()=>{
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [message, setMessage] = React.useState('');
-  const [subject, setSubject] = React.useState('');
+  const [contact, setcontact] = React.useState('');
 
- 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>)   => {
     e.preventDefault();
 
     const formData = {
-      name,
-      email,
-      subject,
-      message,
+      Date:Date(),
+      Name:name,
+      Email:email,
+      Contact:contact,
+      Message:message,
     }
-    console.log(JSON.stringify(formData));
+    console.log(formData);
    
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbxoUxRgn_axyGxefbgpE9OReGcPBIGcz85f7jJ3EGeXK2G9D42NcMjjMcU2B5U8FLmJ/exec';
+    const scriptUrl = 'https://sheet.best/api/sheets/72e23f67-b174-4ad5-b9be-aef7f64a0dc6';
 
     try {
       
@@ -34,20 +34,20 @@ const ContactForm:React.FC=()=>{
         },
         
       });
-      console.log(response);
+      
       if (response.ok) {
         console.log('Form data submitted successfully');
         setName('');
         setEmail('');
         setMessage('');
-        setSubject('');
+        setcontact('');
       } else {
         console.error('Form data submission failed');
       }
     } catch (error) {
       console.error('Error submitting form data:', error);
     }
-  };
+   };
   return (
     <Container className="contact-form"
       sx={{my:'0.5rem', fontFamily:"monospace"}}
@@ -83,16 +83,15 @@ const ContactForm:React.FC=()=>{
           sx={{display: 'flex', flexGrow: 1, my:'0.5rem'}}
           />
         </Box><Box className="form-group">
-          <label htmlFor="subject">Subject:</label>
+          <label htmlFor="Contact No.">contact:</label>
           <StyledTextField
-            type="text"
-            id="subject"
-            label="subject"
-            placeholder="Subject"
-            name="Subject"
-            value={subject}
-            required
-            onChange={(e) => setSubject(e.target.value)}
+            type="tel"
+            id="contact"
+            label="phone"
+            placeholder="Your phone number"
+            name="contact"
+            value={contact}
+            onChange={(e) => setcontact(e.target.value)}
           sx={{display: 'flex', flexGrow: 1, my:'0.5rem'}}
           />
         </Box>

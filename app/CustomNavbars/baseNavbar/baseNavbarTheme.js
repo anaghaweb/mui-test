@@ -1,8 +1,8 @@
 'use client'
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
-import theme from '@/app/ThemeRegistry/theme';
 
-let baseNavbarTheme = createTheme(theme, {
+
+let baseNavbarTheme = createTheme({
 
     breakpoints: {
         values: {

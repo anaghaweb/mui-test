@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Paper from '@mui/material/Paper'
-
 import Divider from '@mui/material/Divider';
 import ResponsiveReharvest from '../Components/Navbar/ReharvestNavbar';
 import ModernBlue from '../Components/Navbar/ModernBlue';
@@ -17,14 +16,14 @@ const SecondPage = () => {
 
     return (
         <div >
-            {/* <ModernPurple />
+            <ModernPurple />
             <ModernBlue />
             <ModernPink />
             <ResponsiveReharvest />
             <ResponsiveB2BDarkBlue />
             <ResponsiveB2BLightBlue />
             <EcoboNavbar />
-            <BasicNavbar /> */}
+            <BasicNavbar />
         </div>
     )
 }
