@@ -97,18 +97,20 @@ const close = {
 
 const StyledTitle = styled(Box)(({ theme }) => ({
     
-    position: 'absolute',
-    top: '50%',
-    bottom:'0',
-    left: '3rem',
-    margin: 'auto',
-    height:'100%',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alighItems:'center',
+    
+    marginLeft:'1.5rem',
+    height: '100%',
+    flexGrow: 1,
     textAlign:'center',
     fontFamily: 'inherit',
+    fontWeight:'700',
     color: '#010101',
     [theme.breakpoints.down('sm')]: {
-        left: '0',
-        right:'0'
+        justifyContent: 'center',
+        margin:'auto'
     }
 
 })) 
