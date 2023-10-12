@@ -1,8 +1,8 @@
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
-import SettingsMenu from './SettingsMenu/settingsMenu';
-import {StyledTitle, StyledToolbar } from './ecobo.styled';
-import MobileMenu from './MobileMenu/mobileMenu';
+import SettingsMenu from '../SettingsMenu';
+import {StyledTitle, StyledToolbar, Filler } from './ecobo.styled';
+import MobileMenu from '../MobileMenu';
 
 function EcoboNavbar(): JSX.Element {     
     return (  
@@ -27,10 +27,10 @@ function EcoboNavbar(): JSX.Element {
                             {/* NAVBAR TITLE */}
                             Ecobo
                         </StyledTitle>
-        
+                        <Filler></Filler>
                                                            
                     {/* SETTINGS MENU */}            
-                    <SettingsMenu  />                                      
+                    <SettingsMenu  iconColor="#787878"/>                                      
                 </StyledToolbar>
             </Container>
         </AppBar >        

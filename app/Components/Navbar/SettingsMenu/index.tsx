@@ -13,8 +13,14 @@ const profileSettings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const settings = ['System', 'Brightness', 'Installation'];
 const languageMenu = ['English', 'Hindi', 'Kannada', 'Tamil', 'Telugu', 'Malayalam', 'Marathi'];
 
-function SettingsMenu (){
+interface IPROPS{
+    iconColor?: string;
+    menuItems?:string[];
+}
 
+const SettingsMenu: React.FC<IPROPS> = ({ iconColor, menuItems })=>{
+
+    console.log(iconColor, menuItems)
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
     const [anchorElBrightness, setAnchorElBrightness] = React.useState<null | HTMLElement>(null);
     const [anchorElLang, setAnchorElLang] = React.useState<null | HTMLElement>(null);
@@ -42,10 +48,10 @@ function SettingsMenu (){
     return  <>
         <Box
             style={{
-                display: 'flex',           
+                display: 'flex',
                 flexGrow: 0,
                 justifyContent: 'flex-end',
-                
+                color: `${iconColor}`,
                 }}>
                                                   
             <Tooltip title="Settings">
@@ -106,9 +112,9 @@ function SettingsMenu (){
             open={Boolean(anchorElBrightness)}
             onClose={handleCloseBrightnessMenu}
         >
-            {settings.map((settings) => (
-                <MenuItem key={settings} onClick={handleCloseBrightnessMenu}>
-                    <Typography textAlign="center">{settings}</Typography>
+            {settings.map((items) => (
+                <MenuItem key={items} onClick={handleCloseBrightnessMenu}>
+                    <Typography textAlign="center">{items}</Typography>
                 </MenuItem>
             ))}
         </Menu>

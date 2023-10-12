@@ -1,9 +1,10 @@
 'use client'
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
-import { AtlassianLightWrapper, StyledMenu, LargeMenuButtonWrapper } from '../b2b.styled';
-
-const LargeScreenMenu = () => {  
+import { StyledMenu, LargeMenuButtonWrapper } from '../b2b.styled';
+import atlassianDark from './atlssianDark.png'
+// import { AtlassianLightWrapper } from '../b2b.styled';
+const LargeScreenMenu:React.FC = () => {  
     return <>
                 <StyledMenu>
                         <LargeMenuButtonWrapper
@@ -15,7 +16,10 @@ const LargeScreenMenu = () => {
                             <Typography variant="h5">About Us</Typography>
                         </LargeMenuButtonWrapper>
                         <LargeMenuButtonWrapper>
-                        <AtlassianLightWrapper />   
+                          
+                          <img style={{objectFit:'contain', height:'2rem', width:'2rem'}}
+                              src="/atlassianLight.png" alt="crowdlogo" />
+                         
                         <Typography variant="h5">For Businesses</Typography>
                         </LargeMenuButtonWrapper>
                       {/* Large screen Menu */}

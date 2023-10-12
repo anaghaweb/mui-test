@@ -114,7 +114,7 @@ const ModernNavbarVariant = React.forwardRef(function ModernNavbarVariant(inProp
                          <SearchOutlinedIcon />
                     </SearchButtonWrapper>                     
                     {/* SETTINGS MENU */}            
-                        <SettingsMenu />                                      
+                        <SettingsMenu iconColor="#787878"/>                                      
                 </ModBar>
             </Container>
         </AppBar >        

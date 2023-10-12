@@ -16,19 +16,19 @@ export const StyledAppBar = styled(AppBar)(({ theme }: { theme: Theme }) => ({
      '*:visited':{
     color: 'inherit',
     }, 
-      '*':{
-    textDecoration: 'none',
-    boxSizing: 'border-box', 
-    },
+     
 }));
 
 export const StyledToolbar = styled(Toolbar)(({ theme }: { theme: Theme }) => ({
-    backgroundColor: '#2A7FD4',
-    color: '#ffffff',
+    backgroundColor: '#DAE8FC',
+    color: '#3399FF',
     position: "relative",
     height: 'inherit',
     padding: theme.spacing(1),    
- 
+    '*':{
+    textDecoration: 'none',
+    boxSizing: 'border-box', 
+    },
 }));
 
 export const StyledTitle = styled(Typography)(({ theme }: { theme: Theme }) => ({
@@ -80,19 +80,19 @@ export const StyledButton = styled('button')
         minWidth: 'fit-content',
         textTransform: 'capitalize',
         backgroundColor: '#ffffff',
-        color: '#2A7FD4',
+        color: '#3399FF',
         borderRadius: '0.2rem',
         border: 'none',
         gap: theme.spacing(0.5),
         
         '&:hover': {
             cursor: 'pointer',
-            backgroundColor: '#ffffff',
+            backgroundColor: '#f1f1f1',
         },
         '&.stl-btn':{
             [theme.breakpoints.down('md')]:
             {
-                color:'#fafafa',
+                color:'#3399FF',
                 backgroundColor: 'transparent',
                 width: 'fit-content',
             },
@@ -130,9 +130,9 @@ export const ButtonWrapper = styled(Box)(({ theme }:{theme:Theme}) => ({
 }))
 
 export const StyledMenu = styled(Box)(({ theme }: { theme: Theme }) => ({
-    display: 'flex',
+      display: 'flex',
     flexGrow: 3,
-    justifyContent: 'flex-end',
+     justifyContent: 'flex-end',
     color: 'inherit',
     gap: '0.4rem',
     [theme.breakpoints.down('lg')]: {
@@ -141,14 +141,13 @@ export const StyledMenu = styled(Box)(({ theme }: { theme: Theme }) => ({
 }))
 
 export const LargeMenuButtonWrapper = styled(Button)(({ theme }: { theme: Theme }) => ({      
-display: 'flex',
-flexGrow:1,
 color: 'inherit',
+justifyContent: 'center',
+alignItems: 'center',
 width: '6.5rem',
 gap: '0.5rem',
 minWidth: 'fit-content',
 textTransform: 'capitalize',
-letterSpacing: 'none'
 }))
 
 

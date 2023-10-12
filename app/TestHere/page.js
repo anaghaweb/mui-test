@@ -7,7 +7,7 @@ import ModernBlue from '../Components/Navbar/ModernBlue';
 import ModernPink from '../Components/Navbar/ModernPink';
 import ModernPurple from '../Components/Navbar/ModernPurple';
 import B2BDarkNavbar from '../Components/Navbar/B2bNavbarDarkBlue'
-import ResponsiveB2BLightBlue from '../Components/Navbar/B2bNavbarLightBlue';
+import B2BLightNavbar from '../Components/Navbar/B2bNavbarLightBlue';
 import BaseNavbar from '../Components/Navbar/BaseNavbar';
 import EcoboNavbar from '../Components/Navbar/EcoboNavbar';
 
@@ -19,7 +19,7 @@ const TestPage = () => {
             <B2BDarkNavbar />
             <BaseNavbar />
             <EcoboNavbar />
-            <ResponsiveB2BLightBlue />
+            <B2BLightNavbar />
         </PaperStyled>
 
         {/* <Divider />
@@ -41,3 +41,5 @@ const TestPage = () => {
     </Paper >
 }
 export default TestPage;
+
+

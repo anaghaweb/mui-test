@@ -32,7 +32,11 @@
     "**/*.tsx",
     "app/Components/Navbar/BaseNavbar/MobileMenu/mobileMenu.tsx",
     "app/Components/Navbar/BaseNavbar/index.tsx",
-    "app/LandingPage/page.js"
+    "app/LandingPage/page.js",
+    "app/Components/Navbar/B2bNavbarDarkBlue/LargeScreenMenu/AtlassianSVG/atlassianSVGLight.jsx",
+    "app/Components/Navbar/B2bNavbarLightBlue/LargeScreenMenu/AtlassianSVG/atlassianSVGLight.jsx",
+    "app/Components/Navbar/B2bNavbarLightBlue/LargeScreenMenu/AtlassianSVG/atlassianSVGdark.jsx",
+    "app/Components/Navbar/B2bNavbarDarkBlue/LargeScreenMenu/AtlassianSVG/atlassianSVGdark.jsx"
   ],
   "exclude": [
     "node_modules"

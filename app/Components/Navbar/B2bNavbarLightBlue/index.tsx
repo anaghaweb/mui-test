@@ -1,17 +1,21 @@
 'use client'
 import * as React from 'react';
+import { styled, useThemeProps } from '@mui/material/styles';
+import PropTypes from 'prop-types';
+import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import InsertPhotoSharpIcon from '@mui/icons-material/InsertPhotoSharp';
 import SettingsMenu from '../SettingsMenu';
-import { StyledTitle, LogoTitleWrapper,  LogoWrapper, StyledButton, StyledLinks, ButtonWrapper,StyledToolbar, StyledAppBar } from './b2b.styled';
+import { StyledTitle, LogoTitleWrapper,  LogoWrapper, StyledButton, StyledLinks, ButtonWrapper,StyledToolbar, StyledAppBar } from './b2blight.styled';
 import MobileMenu from '../MobileMenu';
 import LargeScreenMenu from './LargeScreenMenu/largeScreenMenu';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 
-
-function B2BDarkNavbar() { 
+ 
+function B2BLightNavbar() { 
     return (
             <StyledAppBar
             position="static"                        
@@ -57,10 +61,10 @@ function B2BDarkNavbar() {
                         </StyledButton>
                     </ButtonWrapper>
                     {/* SETTINGS MENU */}            
-                    <SettingsMenu iconColor='#ffffff'/>                                     
+                    <SettingsMenu iconColor='#787878'/>                                     
                 </StyledToolbar>
             </Container>
         </StyledAppBar >        
     )   
 }
-export default B2BDarkNavbar;
+export default B2BLightNavbar;
