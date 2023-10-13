@@ -34,7 +34,7 @@ const BaseNavbar:React.FC =()=> {
                         </Filler>
                                                            
                     {/* SETTINGS MENU */}            
-                    <SettingsMenu iconColor="#787878" menuItems={settings} />   
+                    <SettingsMenu iconColor="#787878" />   
                                                    
                 </StyledToolbar>
             </Container>
