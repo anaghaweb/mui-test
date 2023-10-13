@@ -13,10 +13,7 @@ export const StyledAppBar = styled(AppBar)(({ theme }: { theme: Theme }) => ({
     [theme.breakpoints.up('md')]: {
         height:'5rem'
     },    
-     '*:visited':{
-        textDecoration:'none'
-    }, 
-      '*':{
+      '*, *:visited ': {
     textDecoration: 'none',
     boxSizing: 'border-box', 
     },

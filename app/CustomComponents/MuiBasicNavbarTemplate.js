@@ -14,7 +14,6 @@ const NavRoot = styled('div', {
     slot: 'root',
 })
     (({ theme, ownerState }) => ({
-
         display: 'flex',
         width: '100%',
         height: '5rem',

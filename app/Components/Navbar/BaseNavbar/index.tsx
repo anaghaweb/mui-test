@@ -1,6 +1,5 @@
-import AppBar from '@mui/material/AppBar';
+import { StyledAppBar } from './Base.styled';
 import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
 import SettingsMenu from '../SettingsMenu';
 import {StyledTitle, StyledToolbar, Filler } from './Base.styled';
 import MobileMenu from '../MobileMenu';
@@ -9,10 +8,11 @@ const settings = ['System', 'Brightness', 'Installation', "changes", "components
 
 const BaseNavbar:React.FC =()=> {     
     return (  
-         <AppBar
+         <StyledAppBar
             position="static"               
           >
             <Container maxWidth="xl"
+                style={{height:'inherit'}}
                 disableGutters                
             >
                 <StyledToolbar
@@ -38,7 +38,7 @@ const BaseNavbar:React.FC =()=> {
                                                    
                 </StyledToolbar>
             </Container>
-        </AppBar >        
+        </StyledAppBar >        
     )       
 }
 export default BaseNavbar;

@@ -1,9 +1,8 @@
 'use client'
 import * as React from 'react';
-import Typography from '@mui/material/Typography';
+import { Typography } from '../../mui-components';
 import { StyledMenu, LargeMenuButtonWrapper } from '../b2b.styled';
-import atlassianDark from './atlssianDark.png'
-// import { AtlassianLightWrapper } from '../b2b.styled';
+
 const LargeScreenMenu:React.FC = () => {  
     return <>
                 <StyledMenu>

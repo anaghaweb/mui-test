@@ -1,20 +1,15 @@
 'use client'
 import { styled, Theme } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import Link from "@mui/material/Link";
-import Toolbar from '@mui/material/Toolbar';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button'
+import { Box, IconButton, Link, Toolbar, AppBar, Button, Typography } from '../mui-components';
 
 export const StyledAppBar = styled(AppBar)(({ theme }: { theme: Theme }) => ({
     height:'3rem',
     [theme.breakpoints.up('md')]: {
         height:'5rem'
     },    
-     '*:visited':{
-    color: 'inherit',
+     '*,*:visited':{
+         textDecoration: 'none',
+         boxSizing: 'border-box', 
     }, 
      
 }));
@@ -25,10 +20,7 @@ export const StyledToolbar = styled(Toolbar)(({ theme }: { theme: Theme }) => ({
     position: "relative",
     height: 'inherit',
     padding: theme.spacing(1),    
-    '*':{
-    textDecoration: 'none',
-    boxSizing: 'border-box', 
-    },
+   
 }));
 
 export const StyledTitle = styled(Typography)(({ theme }: { theme: Theme }) => ({

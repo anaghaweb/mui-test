@@ -10,17 +10,17 @@ import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { StyledIconButton } from './settingsMenu.styled';
 const profileSettings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-const settings = ['System', 'Brightness', 'Installation'];
 const languageMenu = ['English', 'Hindi', 'Kannada', 'Tamil', 'Telugu', 'Malayalam', 'Marathi'];
+import { SettingsContext } from '../navbar';
 
 interface IPROPS{
-    iconColor?: string;
-    menuItems?:string[];
+    iconColor?: string;    
 }
 
-const SettingsMenu: React.FC<IPROPS> = ({ iconColor, menuItems })=>{
+const SettingsMenu: React.FC<IPROPS> = ({iconColor})=>{
 
-    console.log(iconColor, menuItems)
+    const settings = React.useContext(SettingsContext);
+    
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
     const [anchorElBrightness, setAnchorElBrightness] = React.useState<null | HTMLElement>(null);
     const [anchorElLang, setAnchorElLang] = React.useState<null | HTMLElement>(null);
@@ -45,7 +45,8 @@ const SettingsMenu: React.FC<IPROPS> = ({ iconColor, menuItems })=>{
     }
     
     {/* SETTINGS MENU */ }
-    return  <>
+    return <>
+        <SettingsContext.Provider value={settings || ['System', 'Brightness', 'Installation']}>
         <Box
             style={{
                 display: 'flex',
@@ -112,8 +113,8 @@ const SettingsMenu: React.FC<IPROPS> = ({ iconColor, menuItems })=>{
             open={Boolean(anchorElBrightness)}
             onClose={handleCloseBrightnessMenu}
         >
-            {settings.map((items) => (
-                <MenuItem key={items} onClick={handleCloseBrightnessMenu}>
+            {settings.map((items, index) => (
+                <MenuItem key={index} onClick={handleCloseBrightnessMenu}>
                     <Typography textAlign="center">{items}</Typography>
                 </MenuItem>
             ))}
@@ -141,7 +142,8 @@ const SettingsMenu: React.FC<IPROPS> = ({ iconColor, menuItems })=>{
                 </MenuItem>
             ))}
         </Menu>
-        </Box>
+            </Box>
+            </SettingsContext.Provider>
         </>
     {/* SETTINGS MENU */ }
 }

@@ -6,11 +6,12 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import { StyledBox } from './mobileMenu.styled';
+import { MobileMenuContext } from '../navbar';
 
-const pages = ['Products', 'About Us', 'For Businesses'];
 
 export default function MobileMenu(): JSX.Element {
-    
+   
+ const mobilemenulist = React.useContext(MobileMenuContext);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -20,6 +21,8 @@ export default function MobileMenu(): JSX.Element {
     };
    
     return <>
+        <MobileMenuContext.Provider value={mobilemenulist || ['Products', 'About Us', 'For Businesses']}>
+            
              <StyledBox>
                         <IconButton
                             size="large"
@@ -50,12 +53,13 @@ export default function MobileMenu(): JSX.Element {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                            {mobilemenulist.map((page, index) => (
+                                <MenuItem key={index} onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">{page}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
-                    </StyledBox>  
+            </StyledBox>  
+            </MobileMenuContext.Provider>
     </>
 }

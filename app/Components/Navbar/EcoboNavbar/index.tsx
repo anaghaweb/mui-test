@@ -1,4 +1,4 @@
-import AppBar from '@mui/material/AppBar';
+import { StyledAppBar } from './ecobo.styled';
 import Container from '@mui/material/Container';
 import SettingsMenu from '../SettingsMenu';
 import {StyledTitle, StyledToolbar, Filler } from './ecobo.styled';
@@ -6,11 +6,12 @@ import MobileMenu from '../MobileMenu';
 
 function EcoboNavbar(): JSX.Element {     
     return (  
-         <AppBar
+         <StyledAppBar
             position="static"               
           >
             <Container maxWidth="xl"
-                disableGutters                
+                disableGutters   
+                style={{height:'inherit'}}
             >
                 <StyledToolbar
                     disableGutters
@@ -33,7 +34,7 @@ function EcoboNavbar(): JSX.Element {
                     <SettingsMenu  iconColor="#787878"/>                                      
                 </StyledToolbar>
             </Container>
-        </AppBar >        
+        </StyledAppBar >        
     )       
 }
 export default EcoboNavbar;
