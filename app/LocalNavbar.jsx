@@ -169,7 +169,9 @@ export default function Navbar() {
                         <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
                         <Link href="#">About Us</Link></Box>
                      <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
-                            <Link href="/Testing">Testing</Link></Box>
+                            <Link href="/Components/Review" onClick={() => showMenu(!menu)}>
+                           Testing
+                        </Link></Box>
                         <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
                             <Link href="#">For Businesses</Link></Box>
                 <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
@@ -206,7 +208,7 @@ export default function Navbar() {
              
                        <Button variant="outlined" color="primary"
                 sx={{"&:hover": {bgcolor:'#fafafa'}, display:{xs:'none', md:'inline-block'}}}
-                    ><Link href="/Testing" style={{ color: '#717171' }}>
+                    ><Link href="/Components/Review" style={{ color: '#717171' }}>
                            Testing
                         </Link>
             </Button>         
