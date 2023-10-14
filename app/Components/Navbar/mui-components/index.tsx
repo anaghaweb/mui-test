@@ -41,6 +41,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import styled from '@mui/material/styles';
 import Theme from '@mui/material/styles';
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
+import Paper from '@mui/material/Paper';
 
 export {
     AppBar,
@@ -59,7 +62,10 @@ export {
     Menu,
     MenuItem,
     MenuIcon,
-    SearchOutlinedIcon
+    SearchOutlinedIcon,
+    Paper,
+    Rating,
+    Stack,
 }
 
 

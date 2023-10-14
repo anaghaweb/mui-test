@@ -13,15 +13,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body style={{ textDecoration: 'none' }}>
         <ThemeRegistry>
-
-
           <Navbar />
-
           {children}
-
         </ThemeRegistry>
       </body>
-
     </html>
   )
 }

@@ -17,14 +17,14 @@ export const PaperStyled = styled(Paper)(({ theme }) => ({
 
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    height: `calc(100vh - 5rem)`,
-    margin: 'auto',
+    height: '100vh',
+    marginTop: '2rem',
     padding: 2,
     gap: 10,
-    backgroundColor: '#fafafa'
+    backgroundColor: "#ffffff"
 }));
 
 
