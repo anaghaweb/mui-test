@@ -17,13 +17,13 @@ export const PaperStyled = styled(Paper)(({ theme }) => ({
 
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     width: '100%',
-    height: '100vh',
-    marginTop: '2rem',
-    padding: 2,
-    gap: 10,
+    height: 'calc(100vh - 4rem)',
+
+    padding: '1rem',
+    gap: '2rem',
     backgroundColor: "#ffffff"
 }));
 

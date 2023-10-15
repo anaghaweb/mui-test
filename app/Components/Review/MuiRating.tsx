@@ -49,7 +49,9 @@ const ReviewContainer = styled(Paper, {
     [theme.breakpoints.down('lg')]: {
         flexDirection: 'column',
         width: '100%',
-        height:'100%',
+        height: '720px',
+        justifyContent: 'space-around',
+        gap:'1rem'
     },
      ...(ownerState.variant === '' && {
     
@@ -104,7 +106,7 @@ const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiR
                             value={value}                   
                             max={5}
                             precision={0.1}
-                            readOnly
+                            onChange={handleChange}
                         />
                     
                 </ReviewBox>

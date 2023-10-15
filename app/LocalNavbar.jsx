@@ -16,7 +16,8 @@ import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
 
-
+const Offset = styled('div')(({ theme }) =>
+    theme.mixins.toolbar);
 
 // HAMBURGER ICON STYLING
 const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
@@ -123,9 +124,9 @@ export default function Navbar() {
  
   
     return (
-        
+            <>
             <AppBar           
-            position="sticky"
+            position="fixed"
             //sx={{ display: 'none' }}
             >
                 <Toolbar
@@ -166,16 +167,12 @@ export default function Navbar() {
                             <Link href="/TestHere">Playground</Link></Box>
                         <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
                             <Link href="/LandingPage">LandingPage</Link></Box>
-                        <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
-                        <Link href="#">About Us</Link></Box>
+                        
                      <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
                             <Link href="/Components/Review" onClick={() => showMenu(!menu)}>
                            Testing
                         </Link></Box>
-                        <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
-                            <Link href="#">For Businesses</Link></Box>
-                <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
-                            <Link href="#">Logout</Link></Box>
+                        
                 </StyledMobileMenu>
                 
                  <Box sx={{textTransform:'capitalize'}}>
@@ -215,8 +212,8 @@ export default function Navbar() {
             </Box>          
         </Toolbar>
         </AppBar>
-           
-        
+         <Offset />  
+        </>
         
     
       
