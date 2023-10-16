@@ -12,13 +12,13 @@ interface FormValues {
   message: any;
 }
 
-const ContactForm: React.FC<FormValues> = () => {
+const ContactForm: React.FC = () => {
   
   const [firstname, setFirstName] = React.useState<string>('');
   const [lastname, setLastName] = React.useState<string>('');
   const [email, setEmail] = React.useState<string>('');
-  const [message, setMessage] = React.useState('');
-  const [subject, setSubject] = React.useState('');
+  const [message, setMessage] = React.useState<any>('');
+  const [subject, setSubject] = React.useState<any>('');
   const [firstNameFocused, setFirstNameFocused] = React.useState(false);
   const [lastNameFocused, setLastNameFocused] = React.useState(false);
   const [emailFocused, setEmailFocused] = React.useState(false);
