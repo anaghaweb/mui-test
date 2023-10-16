@@ -1,10 +1,13 @@
 'use client'
 import * as React from 'react'
 import { useState } from "react";
-import { Stack, Box, Paper, Typography } from '@mui/material';
+import { Stack, Box, Paper, Typography, Rating } from '@mui/material';
 import { styled, ThemeProvider, useThemeProps } from '@mui/material/styles';
 import { SmallAvatar, MyTheme, StyledRating, MainStar, ReviewBox, CustomerReviewBox, defaultTheme } from './rating.styled';
 import PropTypes from 'prop-types';
+import { MdOutlineStarRate, MdStarBorderPurple500, MdStarRate, MdOutlineStarBorder,MdStarBorder, MdStar } from 'react-icons/md';
+
+ 
 
 import {
   ComponentsOverrides,
@@ -53,22 +56,34 @@ const ReviewContainer = styled(Paper, {
         justifyContent: 'space-around',
         gap:'1rem'
     },
-     ...(ownerState.variant === '' && {
+     ...(ownerState.variant === 'blue' ? {
     
         boxShadow: 'none',
         background: `${ theme.palette.background.default }`,         
-  }),   
+     }
+         : ownerState.variant === 'red' ? 
+             {
+             backgroundColor: '#F8CECC',
+         }:
+         {
+    
+        boxShadow: 'none',
+        backgroundColor: '#F5F5F5' ,         
+     }
+
+  ),   
 }))
 
 const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiReview(inProps, ref) {
         const props = useThemeProps({ props: inProps, name: 'MuiRatingProps' });
         const { variant, ...other } = props;
         const ownerState = { ...props, variant };
-        const [value, setValue] = useState<number | null>(null)      
-        const handleChange = (_event: React.ChangeEvent<{}>, newValue: number | null) => {
-            setValue(newValue)
-        }
+        
 
+    const [value, setValue] = useState<number | null>(null)      
+    const handleChange = (_event: React.ChangeEvent<{}>, newValue: number | null) => {
+        setValue(newValue)
+    }
         return (
             <ThemeProvider theme={defaultTheme}>
             <ReviewContainer ref={ref} ownerState={ownerState} {...other}>
@@ -90,16 +105,17 @@ const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiR
                             justifyContent="center"
                             fontSize="3rem"
                         >
-                        
-                            <Typography variant="h4" color="#fff">{value}</Typography>   
-                          <ThemeProvider theme={MyTheme}>
-                            <MainStar
-                                value={value ? value * 3 / 5 : null}
+                        <Typography variant="h3" color="#fff">{value}</Typography>   
+                          
+                            <Rating
+                                value={value ? value / 5 : null}
                                 max={1}
                                 readOnly
                                 precision={0.1}
+                                icon={<MdStar size={50} />}
+                                emptyIcon={<MdStar size={50} />}
                             />       
-                            </ThemeProvider>
+                            
                         </Stack>
                     
                         <StyledRating
@@ -107,6 +123,8 @@ const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiR
                             max={5}
                             precision={0.1}
                             onChange={handleChange}
+                            icon={<MdStar size={30} />}
+                            emptyIcon={<MdStar size={30} />}
                         />
                     
                 </ReviewBox>
@@ -116,9 +134,9 @@ const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiR
                     className="customer-review"
                 >
                     <Stack direction="row"
-                        width="100%"
-                        alignItems="center"
-                        justifyContent="flex-start"
+                    width="100%"
+                    alignItems="center"
+                    justifyContent="flex-start"
                     >
                         <SmallAvatar />
                         <Typography variant="subtitle1" component="div" fontWeight="500">Customer Name</Typography>
@@ -166,8 +184,7 @@ const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiR
                         alignItems="space-between"
                         justifyContent="flex-start"
                         fontSize="3rem"
-                        padding="0.2rem"
-                    
+                        padding="0.2rem"                   
                     >
                         <Typography component="div" variant="subtitle1" fontWeight={700}>Heading</Typography>
                         <Typography component="div" variant="body2">Review</Typography>
@@ -185,7 +202,6 @@ const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiR
                     className="customer-review"
                 >
                     <Stack direction="row"
-                     
                         width="100%"
                         alignItems="center"
                         justifyContent="flex-start"
@@ -223,8 +239,9 @@ const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiR
     MuiReview.propTypes = {
     variant: PropTypes.oneOf(['blue', 'red', ""]),
 };
-export default function CustomMuiRating() {      
+const CustomMuiRating: React.FC<MuiRatingProps> =({ variant })=>{      
     return (          
-        <MuiReview variant="" />
+        <MuiReview variant={variant} />
         )
-    }
+}
+    export default CustomMuiRating

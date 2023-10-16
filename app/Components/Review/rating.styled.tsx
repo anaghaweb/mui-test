@@ -7,23 +7,20 @@ let MyTheme:ThemeOptions = createTheme({
     MuiRating: {
       styleOverrides: {
         iconFilled: {
-              fontSize: '36px',                
+              fontSize: '33px',                
         },
         iconEmpty: {
-            fontSize: '36px',          
+            fontSize: '33 px',          
         },
       },
     },
   },
 });
 
-
-
 let defaultTheme: ThemeOptions = createTheme({
     
     palette: {
-        mode: 'light',
-        
+        mode: 'light',    
     primary: {
       light: '#DAE8FC',
       main: '#1976d2',
@@ -45,7 +42,6 @@ let defaultTheme: ThemeOptions = createTheme({
   },
 })
 
-
 export const SmallAvatar = styled(Avatar)(({ theme }) => ({
     width: 48,
     height: 48,
@@ -53,7 +49,6 @@ export const SmallAvatar = styled(Avatar)(({ theme }) => ({
     color: `${theme.palette.text.primary}`,
     display:'flex' 
 }));
-
 
 export const StyledRating = styled(Rating)(({ theme }) => ({
     '& .MuiRating-iconFilled': {
@@ -65,10 +60,9 @@ export const MainStar = styled(Rating)(({ theme }) => ({
     '& .MuiRating-iconFilled': {
         color: `${theme.palette.primary.light}`,
     },
-    '& .mui-eld1q4': {
-        display: 'flex',
-        justifyContent:'center'
-    }
+     '& .MuiRating-iconLabel': {
+        color: `${theme.palette.primary.light}`,
+    },   
 }));
 
 export const ReviewBox = styled(Stack)(({ theme }) => ({
@@ -95,8 +89,7 @@ export const CustomerReviewBox = styled(Stack)(({ theme }) => ({
     backgroundColor: "#DAE8FC",
     border: `3px solid ${theme.palette.divider}`,    
     '&.customer-review': {
-        background: `${theme.palette.primary.contrastText}`,
-        
+        background: `${theme.palette.primary.contrastText}`,      
     }
 }));
 
