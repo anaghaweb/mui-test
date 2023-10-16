@@ -2,23 +2,35 @@
 import * as React from 'react';
 import { Container, Button, Box } from '@mui/material'
 import { StyledTextField } from '../landing.styles';
-import axios from 'axios';
+import CustomSnackbar from '../Mui-components/Snackbar';
 
+interface FormValues {
+  firstname: string;
+  lastname: string;
+  email: string;
+  subject: any;
+  message: any;
+}
 
-const ContactForm:React.FC=()=>{
+const ContactForm: React.FC<FormValues> = () => {
   
-  const [firstname, setFirstName] = React.useState('');
-  const [lastname, setLastName] = React.useState('');
-  const [email, setEmail] = React.useState('');
+  const [firstname, setFirstName] = React.useState<string>('');
+  const [lastname, setLastName] = React.useState<string>('');
+  const [email, setEmail] = React.useState<string>('');
   const [message, setMessage] = React.useState('');
   const [subject, setSubject] = React.useState('');
-
-    const [firstNameFocused, setFirstNameFocused] = React.useState(false);
+  const [firstNameFocused, setFirstNameFocused] = React.useState(false);
   const [lastNameFocused, setLastNameFocused] = React.useState(false);
   const [emailFocused, setEmailFocused] = React.useState(false);
+  const [openSnackbar, setOpenSnackbar] = React.useState<boolean>(false);
+  const [snackbarMessage, setSnackbarMessage] = React.useState<string>('');
+  const [snackbarSeverity, setSnackbarSeverity] = React.useState<'success' | 'error' | 'warning' | 'info'>('success');
 
   
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    // /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+    // /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+                     
   const nameRegex = /.+/;
 
    const handleFirstNameFocus = () => {
@@ -31,6 +43,10 @@ const ContactForm:React.FC=()=>{
 
    const handleEmailFocus = () => {
     setEmailFocused(!emailFocused);
+  };
+    
+  const handleCloseSnackbar = () => {
+    setOpenSnackbar(false);
   };
   
 
@@ -46,26 +62,17 @@ const ContactForm:React.FC=()=>{
       Subject:subject,
       Message:message,
     }
-       
-      
+  
     const scriptUrl = 'https://sheet.best/api/sheets/2aa0fa39-6506-4b60-88b1-c6e8f48157fb';
-
-    // axios.post(scriptUrl, formData).then((response) => {
-    //   console.log(response)
-    // })
-
      
     try {
       
       const response = await fetch(scriptUrl, {
         method: 'POST',  
         body: JSON.stringify(formData),
-        headers: {
-          
+        headers: {         
           'Content-Type': "application/json",
-        },
-        
-        
+        },           
       });
       const content = await response.json();
       if (response.ok) {
@@ -75,11 +82,21 @@ const ContactForm:React.FC=()=>{
         setEmail('');
         setMessage('');
         setSubject('');
+        setSnackbarMessage('We have Received your Message. We will get back to you shortly');
+        setSnackbarSeverity('success');
+        setOpenSnackbar(true);
+       
       } else {
         console.error('Form data submission failed');
+        setSnackbarMessage('Form data submission failed');
+        setSnackbarSeverity('error');
+        setOpenSnackbar(true);
       }
     } catch (error) {
       console.error('Error submitting form data:', error);
+      setSnackbarMessage('Error submitting form data');
+      setSnackbarSeverity('error');
+      setOpenSnackbar(true);
     }
    };
   return (
@@ -87,13 +104,14 @@ const ContactForm:React.FC=()=>{
       sx={{my:'0.5rem', fontFamily:"monospace"}}
     >
       <form    
+        noValidate 
         autoComplete="off"
         onSubmit={handleSubmit}>   
         <Box className="form-group">
           {/* <label htmlFor="name">Name:</label> */}
           <StyledTextField
             label="First Name"
-            name="contactForm"
+            name="firstname"
             placeholder="First Name"
             fullWidth
             required
@@ -102,8 +120,7 @@ const ContactForm:React.FC=()=>{
             onChange={(e) => setFirstName(e.target.value)}
             onFocus={handleFirstNameFocus}
             onBlur={handleFirstNameFocus}
-            helperText={
-              !firstname && "First Name should not be empty"}
+            
               error={firstNameFocused && !nameRegex.test(firstname)}
           />
         </Box>
@@ -111,7 +128,7 @@ const ContactForm:React.FC=()=>{
           {/* <label htmlFor="name">Name:</label> */}
           <StyledTextField
             label="Last Name"
-            name="contactForm"
+            name="lastname"
             placeholder="Last Name"
             fullWidth
             required
@@ -119,9 +136,7 @@ const ContactForm:React.FC=()=>{
             type="text" id="lastname" value={lastname} onChange={(e) => setLastName(e.target.value)}
             onFocus={handleLastNameFocus}
             onBlur={handleLastNameFocus}
-            helperText={
-              !lastname && "Last Name should not be empty"}
-              error={lastNameFocused && !nameRegex.test(lastname)}
+            error={lastNameFocused && !nameRegex.test(lastname)}
           />
         </Box>
         <Box className="form-group">
@@ -131,26 +146,27 @@ const ContactForm:React.FC=()=>{
             id="email"
             label="Email ID"
             placeholder="Email ID"
-           name="contactForm"
+            name="email"
             value={email}
             required
             className="field"
             onChange={(e) => setEmail(e.target.value)}
             onFocus={handleEmailFocus}
             onBlur={handleEmailFocus}
-            helperText={
-              !email && "Enter a valid email ID"}
-              error={emailFocused && !emailRegex.test(email)}
-           
+            helperText={!emailRegex.test(email) && "Enter a valid email ID" }
+              error={!emailRegex.test(email) && emailFocused}
+            
+            
+              
           />
         </Box><Box className="form-group">
           {/* <label htmlFor="Contact No.">Subject:</label> */}
           <StyledTextField
-            type="tel"
+            type="text"
             id="contact"
             label="Subject"
             placeholder="Subject Title"
-            name="contactForm"
+            
             value={subject}
             className="field"
             onChange={(e) => setSubject(e.target.value)}
@@ -174,9 +190,17 @@ const ContactForm:React.FC=()=>{
         </Box>
         <Button type="submit" variant="outlined"
           style={{ display: 'flex', width:'100%' }}
+          disabled={!firstname || !lastname || !emailRegex.test(email)}
+
         >Submit
         </Button>
       </form>
+        <CustomSnackbar
+        open={openSnackbar}
+        message={snackbarMessage}
+        severity={snackbarSeverity}
+        onClose={handleCloseSnackbar}
+      />
     </Container >
   );
 };
