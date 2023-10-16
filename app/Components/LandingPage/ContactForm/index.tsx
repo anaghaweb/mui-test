@@ -66,7 +66,7 @@ const ContactForm: React.FC = () => {
     
     const jsondata = JSON.stringify(formData);
     // const scriptUrl = 'https://sheet.best/api/sheets/2aa0fa39-6506-4b60-88b1-c6e8f48157fb';
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbyllQWjC8ZI0pE3cbZA6vVD9uiwLohAvRx0FaYQjQ7wREOx1tmenXazlebLMXJP5sXI/exec';
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbyvzFr6ngaCjOhZQeJWyD5iFSNU3l3qS9sGZkJcb9bNRvsc_ZBmE60WdjxjHJhK8486/exec';
 
     try {
 
