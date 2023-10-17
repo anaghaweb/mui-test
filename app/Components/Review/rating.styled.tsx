@@ -1,24 +1,29 @@
 import { styled, createTheme , ThemeOptions, responsiveFontSizes} from '@mui/material/styles';
-import { Rating, Stack, Avatar } from '@mui/material';
+import { Rating, Stack, Avatar, Paper } from '@mui/material';
 
 
-let MyTheme:ThemeOptions = createTheme({
-    components: {
-    MuiRating: {
-      styleOverrides: {
-        iconFilled: {
-              fontSize: '33px',                
-        },
-        iconEmpty: {
-            fontSize: '33 px',          
-        },
-      },
-    },
-  },
-});
+// let MyTheme:ThemeOptions = createTheme({
+//     components: {
+//     MuiRating: {
+//         styleOverrides: {
+        
+//         root:{
+//             fontSize: '3rem',      
+//           },
+        
+          
+//         // iconFilled: {
+
+//         // },
+//         // iconEmpty: {
+                      
+//         // },
+//       },
+//     },
+//   },
+// });
 
 let defaultTheme: ThemeOptions = createTheme({
-    
     palette: {
         mode: 'light',    
     primary: {
@@ -57,12 +62,32 @@ export const StyledRating = styled(Rating)(({ theme }) => ({
 }));
 
 export const MainStar = styled(Rating)(({ theme }) => ({
-    '& .MuiRating-iconFilled': {
-        color: `${theme.palette.primary.light}`,
-    },
-     '& .MuiRating-iconLabel': {
-        color: `${theme.palette.primary.light}`,
-    },   
+ 
+   '& .MuiRating-icon': {
+    color: `${theme.palette.secondary.dark}`,
+  },
+  
+  '& .MuiRating-iconEmpty':{
+     color: `${theme.palette.secondary.dark}`,
+   }, 
+   '& .MuiSvgIcon-root': {
+     fontSize: '3.2rem',
+    }
+   
+}));
+
+export const SmallStars= styled(Rating)(({ theme }) => ({
+   '& .MuiRating-icon': {
+    color: `${theme.palette.secondary.dark}`,
+  },
+  '& .MuiRating-iconEmpty':{
+     color: `${theme.palette.secondary.dark}`,
+   },
+   '& .MuiSvgIcon-root': {
+    fontSize: '2.3rem',
+     width:'2rem'
+  },
+  
 }));
 
 export const ReviewBox = styled(Stack)(({ theme }) => ({
@@ -76,7 +101,8 @@ export const ReviewBox = styled(Stack)(({ theme }) => ({
     border: `3px solid ${theme.palette.primary.dark}`,   
     '&.customer-review': {
     background: `${theme.palette.primary.contrastText}`,      
-    }
+  },
+    
 }));
 
 export const CustomerReviewBox = styled(Stack)(({ theme }) => ({
@@ -90,7 +116,23 @@ export const CustomerReviewBox = styled(Stack)(({ theme }) => ({
     border: `3px solid ${theme.palette.divider}`,    
     '&.customer-review': {
         background: `${theme.palette.primary.contrastText}`,      
-    }
+  },
+    
 }));
 
-export{ MyTheme, defaultTheme};
+export const InnerStack = styled(Stack)(({ theme }) => ({
+
+border:"1px solid #6C8EBF",
+backgroundColor:`${theme.palette.primary.dark}`,
+height: "80px",
+width:"163px",
+minWidth:"163px",
+alignItems:"center",
+justifyContent:"center",
+verticalAlign: 'center',
+position:'relative'
+}))
+
+
+
+export{ defaultTheme};

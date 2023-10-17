@@ -3,11 +3,13 @@ import * as React from 'react'
 import { useState } from "react";
 import { Stack, Box, Paper, Typography, Rating } from '@mui/material';
 import { styled, ThemeProvider, useThemeProps } from '@mui/material/styles';
-import { SmallAvatar, MyTheme, StyledRating, MainStar, ReviewBox, CustomerReviewBox, defaultTheme } from './rating.styled';
+import { SmallAvatar, StyledRating, MainStar, ReviewBox, CustomerReviewBox, defaultTheme, InnerStack, SmallStars} from './rating.styled';
 import PropTypes from 'prop-types';
-import { MdOutlineStarRate, MdStarBorderPurple500, MdStarRate, MdOutlineStarBorder,MdStarBorder, MdStar } from 'react-icons/md';
+import { MdOutlineStarRate, MdStarBorderPurple500, MdStarRate, MdOutlineStarBorder, MdStarBorder, MdStar } from 'react-icons/md';
+import StarTwoToneIcon from '@mui/icons-material/StarTwoTone';
+import StarBorderTwoToneIcon from '@mui/icons-material/StarBorderTwoTone';
+import StarOutlineTwoToneIcon from '@mui/icons-material/StarOutlineTwoTone';
 
- 
 
 import {
   ComponentsOverrides,
@@ -65,8 +67,7 @@ const ReviewContainer = styled(Paper, {
              {
              backgroundColor: '#F8CECC',
          }:
-         {
-    
+         {    
         boxShadow: 'none',
         backgroundColor: '#F5F5F5' ,         
      }
@@ -75,56 +76,38 @@ const ReviewContainer = styled(Paper, {
 }))
 
 const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiReview(inProps, ref) {
-        const props = useThemeProps({ props: inProps, name: 'MuiRatingProps' });
-        const { variant, ...other } = props;
-        const ownerState = { ...props, variant };
-        
-
+    const props = useThemeProps({ props: inProps, name: 'MuiRatingProps' });
+    const { variant, ...other } = props;
+    const ownerState = { ...props, variant };
     const [value, setValue] = useState<number | null>(null)      
     const handleChange = (_event: React.ChangeEvent<{}>, newValue: number | null) => {
-        setValue(newValue)
+    setValue(newValue)
     }
-        return (
-            <ThemeProvider theme={defaultTheme}>
-            <ReviewContainer ref={ref} ownerState={ownerState} {...other}>
-            
-                <ReviewBox>
-                    <Box>
-                        <Typography variant="h4" component="div" color="#66B2FF">Reviews</Typography>
-                    </Box>
-                     
-                        <Stack
-                            direction="row"
-                            gap="0.2rem"
-                            border="1px solid #6C8EBF"
-                            bgcolor="#DAE8FC"
-                            height="80px"
-                            width="163px"
-                            minWidth="163px"
-                            alignItems="center"
-                            justifyContent="center"
-                            fontSize="3rem"
-                        >
-                        <Typography variant="h3" color="#fff">{value}</Typography>   
-                          
-                            <Rating
+    return (
+        <ThemeProvider theme={defaultTheme}>
+        <ReviewContainer ref={ref} ownerState={ownerState} {...other}>
+             <ReviewBox>                                                                    
+        <Typography variant="h4" component="div" color="#66B2FF">Reviews</Typography>                                             
+                    <InnerStack direction="row">
+                        <Typography variant="h4" color='#fff'>{value}</Typography>  
+                            <Box sx={{position:'absolute',  inset:'unset', right:'0.2rem'}}>
+                            <MainStar
                                 value={value ? value / 5 : null}
                                 max={1}
                                 readOnly
                                 precision={0.1}
-                                icon={<MdStar size={50} />}
-                                emptyIcon={<MdStar size={50} />}
-                            />       
-                            
-                        </Stack>
-                    
-                        <StyledRating
+                                icon={<StarTwoToneIcon fontSize="inherit" />}
+                            emptyIcon={<StarOutlineTwoToneIcon fontSize="inherit" />} />  
+                            </Box>
+                    </InnerStack>                
+                        <SmallStars
                             value={value}                   
                             max={5}
-                            precision={0.1}
+                            precision={0.5}
                             onChange={handleChange}
-                            icon={<MdStar size={30} />}
-                            emptyIcon={<MdStar size={30} />}
+                             icon={<StarTwoToneIcon fontSize='inherit' />}
+                            emptyIcon={<StarTwoToneIcon fontSize='inherit' />} 
+                            
                         />
                     
                 </ReviewBox>
@@ -133,13 +116,14 @@ const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiR
                 <CustomerReviewBox
                     className="customer-review"
                 >
-                    <Stack direction="row"
+                    <Stack
+                    direction="row"
                     width="100%"
                     alignItems="center"
-                    justifyContent="flex-start"
+                    // justifyContent="flex-start"
                     >
                         <SmallAvatar />
-                        <Typography variant="subtitle1" component="div" fontWeight="500">Customer Name</Typography>
+                    <Typography variant="subtitle1" component="div" fontWeight="500">Customer Name</Typography>
                     </Stack>
                       
                     <Stack
@@ -231,6 +215,8 @@ const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiR
                         color="#787878"
                     />
                 </CustomerReviewBox>
+               
+
                 </ReviewContainer>
                 </ThemeProvider>
         )

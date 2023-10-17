@@ -55,6 +55,7 @@ const ContactForm: React.FC = () => {
     e.preventDefault();
            
     const currentDate = new Date().toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles'})
+
     const formData = {
       Date:currentDate,
       FirstName:firstname,
