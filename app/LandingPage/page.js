@@ -1,6 +1,4 @@
 import * as React from 'react'
-import LandingPage from '../Components/LandingPage'
-import { Container, Box, Paper } from '../Components/LandingPage/Mui-components'
 
 export default function Landing() {
     return (
@@ -13,7 +11,7 @@ export default function Landing() {
                 width: '100%',
 
             }}>
-            <LandingPage />
+
 
         </main>
     )

@@ -21,10 +21,13 @@ export const PaperStyled = styled(Paper)(({ theme }) => ({
     alignItems: 'center',
     width: '100%',
     height: 'calc(100vh - 4rem)',
-
     padding: '1rem',
     gap: '2rem',
-    backgroundColor: "#ffffff"
+    backgroundColor: "#ffffff",
+    [theme.breakpoints.down('md')]: {
+        height: 'auto',
+    }
+
 }));
 
 

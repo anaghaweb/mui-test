@@ -1,6 +1,11 @@
 import './globals.css'
 import Navbar from './LocalNavbar'
 import ThemeRegistry from './ThemeRegistry/ThemeRegistry'
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -10,8 +15,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
 
-    <html lang="en">
-      <body style={{ textDecoration: 'none' }}>
+    <html lang="en" className={inter.className}>
+      <body style={{ textDecoration: 'none' }}  >
         <ThemeRegistry>
           <Navbar />
           {children}

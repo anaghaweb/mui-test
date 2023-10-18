@@ -14,7 +14,7 @@ import ModernPinkTemplate from './CustomNavbars/ModernGradientnavbar/gradientNav
 import gradientTheme from './CustomNavbars/ModernGradientnavbar/gradientThemes';
 import ModernBlueTemplate from './CustomNavbars/ModernGradientnavbar/gradientThemeBlue';
 import ModernPurpleTemplate from './CustomNavbars/ModernGradientnavbar/gradientNavbarPurple';
-import LandingPage from './Components/LandingPage';
+import LandingPage from './Components/InteramericaLandingPage';
 
 
 export default function Home() {

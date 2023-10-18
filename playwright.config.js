@@ -59,7 +59,7 @@ export default defineConfig({
       use: { ...devices['iPhone 12'] },
     },
     {
-      name: 'iPhone 6',
+      name: 'iPhone6',
       use: { ...devices['iPhone 6'] },
     },
     // {

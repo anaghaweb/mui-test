@@ -3,14 +3,14 @@ import Paper from '@mui/material/Paper'
 import Navbar from '../Components/Navbar/navbar';
 const items = ['System', 'Brightness', 'Config', 'tools']; //Settings Menu
 const mobilemenu = ['Products', 'About Us', 'For Businesses', 'Cart', 'Offers']; // Mobile menu
-
+import HeaderComponent from '../Components/Headers';
 
 const SecondPage = () => {
 
 
     return (
         <div >
-            <Navbar variant="b2bdark" settings={items} mobilemenulist={mobilemenu} />
+            <HeaderComponent />
         </div>
     )
 }
