@@ -23,8 +23,6 @@ let theme = createTheme({
             },
         ],
     },
-
-
     palette: {
         mode: 'light',
     },
