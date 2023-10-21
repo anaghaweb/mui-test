@@ -3,7 +3,14 @@
     box-sizing: border-box;   
 }
 
-*:visited{
+* :visited{
     color:inherit;
 }
 
+ h3 {
+     font-size: 72px;
+     background: -webkit-linear-gradient(rgb(188, 12, 241), rgb(212, 4, 4));
+     -webkit-background-clip: text;
+     background-clip:var(text);
+     -webkit-text-fill-color: transparent;
+ }

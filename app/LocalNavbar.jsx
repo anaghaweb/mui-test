@@ -14,7 +14,16 @@ import { green } from '@mui/material/colors';
 import { darkTheme, lightTheme } from './CustomComponents/themeToggler';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import { Paper, Stack } from '@mui/material';
+import { Inter } from 'next/font/google';
+import DiamondTwoToneIcon from '@mui/icons-material/DiamondTwoTone';
+import DiamondIcon from '@mui/icons-material/Diamond';
 
+
+const inter = Inter({
+    subsets: ['latin'],
+    variable:"--font-inter",
+})
 
 const Offset = styled('div')(({ theme }) =>
     theme.mixins.toolbar);
@@ -25,13 +34,14 @@ const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
     position: 'absolute',
     color: '#000000',
     left: '1rem',
-    height: '1.5rem',
-    width: '1.5rem',
-
-    [theme.breakpoints.up('lg')]: {
+    height: '1.9rem',
+    width: '1.9rem',
+    fontWeight:'bold',
+    
+    [theme.breakpoints.up('md')]: {
         display: 'none',
     },
-    [theme.breakpoints.down('lg')]: {
+    [theme.breakpoints.down('md')]: {
         display: 'inline-block',
     },
     '&:hover': {
@@ -45,14 +55,16 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
     position: 'relative',
     display: 'flex',
     flexDirection: 'column',
-    width:'100vw',
+    width:'max-content',
     gap: theme.spacing(0.5),
-    padding: '2rem 0.5rem 0.5rem 1rem',
-    color: '#ffffff',
-    backgroundColor: 'inherit',
     
+    backgroundColor: theme.palette.mode === 'dark' ? 'inherit' : '#fff',
+    boxShadow:'20px',
+    // color: theme.palette.mode === 'dark'? 'inherit' : '#000',
+    // rowGap:'0.5rem', fontSize:'1.5rem',
     '&:visited':{
-        color: 'inherit'
+        color: 'inherit',
+        textTransform:'capitalize',
     },
 
     '&.mob-title-wrapper': {
@@ -60,21 +72,22 @@ const StyledMobileMenu = styled('div')(({ theme }) => ({
         flexDirection: 'row',
         padding: theme.spacing(1),
         alignItems: 'center',
-        justifyContent: 'space-between',
-    }
+        justifyContent: 'flex-start',
+        textTransform:'capitalize',
+    },
+
+    '.mob-menu-link': {
+        textTransform: 'capitalize',
+        justifyContent: 'flex-start',
+        fontWeight: 'bold',
+        fontFamily: 'var(--font-inter)',
+        rowGap: '0.5rem',
+        color: theme.palette.mode === 'dark'? 'inherit' : '#000',
+    },
 }))
 
 //MOBILE MENU WRAPPER
-const StyledBox = styled(Box)
-    (({ theme }) => ({
-        display: 'flex',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        width: '100%',
-        color: 'inherit',
-        textTransform: 'capitalize',
-        ...theme.typography.subtitle1,
-    }));
+
 
 //MOBILE MENU OPEN / CLOSE STYLING
 const open = {
@@ -83,9 +96,8 @@ const open = {
     justifyContent: 'center',
     top: '100%',
     left: '0.15rem',
-    width: {xs:'100vw', sm:'15rem'},
+    width: { xs: 'max-content', sm: '15rem' },
     height: 'auto',
-    backgroundColor: '#3399ff',
     zIndex: '99',
     transition: 'left 0.5s ease',
 };
@@ -96,122 +108,124 @@ const close = {
     left: '-100%'
 };
 
-const StyledTitle = styled(Box)(({ theme }) => ({
+// Desktop Menu Style
+const DeskMenuWrapper = styled(Stack)(({ theme }) => ({
+    [theme.breakpoints.down('md')]: {
+        display:'none'
+    },
+
+    '.desk-menu-btn': {
+        color: theme.palette.mode === 'dark' ? '#919191' : '#000', 
+        fontFamily: 'var(--font-inter)',
+        fontSize:'1rem',
+         textTransform:'capitalize',
+        '&:hover': {
+            backgroundColor: theme.palette.primary.dark,   
+        }
+    },   
+      '.btns': {
+        padding: '0.5rem 2rem',      
+        fontWeight: 'bold',
+          textTransform: 'capitalize',
+        borderRadius:'50px 50px 50px 50px',
+        backgroundColor: '#FF7043',
+        color: '#fff',
+        [theme.breakpoints.down('sm')]: {
+            width: '80%',
+            fontSize: '12px',
+        },     
+    }, 
+}))
+
+const NavBarWrapper = styled(AppBar)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#191919' : '#fff',
+    color: theme.palette.mode === 'dark' ? 'inherit' : '#000',
+    textTransform:'capitalize',
+    '* , *:visited':{
+        textTransform:'capitalize',
+        boxSizing: 'border-box', 
+    }, 
     
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alighItems:'center',
+}))
+
+export default function Navbar() { 
     
-    marginLeft:'1.5rem',
-    height: '100%',
-    flexGrow: 1,
-    textAlign:'center',
-    fontFamily: 'inherit',
-    fontWeight:'700',
-    color: '#010101',
-    [theme.breakpoints.down('sm')]: {
-        justifyContent: 'center',
-        margin:'auto'
+    const [menu, showMenu] = React.useState(false);
+    const menuIconRef = React.useRef();
+    console.log(menu);
+  const handleEscapeKeyDown = (event) => {
+    if (event.key === 'Escape' && menu) {
+      showMenu(false);
     }
-
-})) 
-
-export default function Navbar() {
-
-  
-   const [menu, showMenu] = React.useState(false);
+  };
+  React.useEffect(() => {
+    document.addEventListener('click', closeMenuIfClickedOutside);
+    document.addEventListener('keydown', handleEscapeKeyDown);
+    return () => {
+      document.removeEventListener('click', closeMenuIfClickedOutside);
+      document.removeEventListener('keydown', handleEscapeKeyDown);
+    };
+  }, []);
     
- 
-  
+      const closeMenuIfClickedOutside = (e) => {
+    if (menuIconRef.current && !menuIconRef.current.contains(e.target) && menu) {
+      showMenu(false);
+    }
+  };
+    
     return (
             <>
-            <AppBar           
-            position="fixed"
+            <NavBarWrapper           
+                position="fixed"
+                elevation={0}
+                variant="outlined"
+                className='main-bar'
+                
             //sx={{ display: 'none' }}
             >
-                <Toolbar
-                    position="relative"
-                sx={{ display: 'flex', justifyContent: 'flex-end', width: '100%', backgroundColor: '#fafafa', color: '#717171' }}>
-                <StyledTitle
-                    ><Typography variant="h4"
-                        className="title"
-                       
-                    >Interamerica Capital
-                    </Typography></StyledTitle>
-        
+                <Toolbar position="relative" className={inter.variable}>
+                    <Stack direction="row" alignItems="center"
+                        sx={{ flex: 1, marginLeft: { xs: '1.5rem' } }}>
+                        <DiamondIcon spacing={2} sx={{ color: '#FF7043' }} />
+                        <Typography variant="h4" className="title" fontFamily="var(--font-inter)" color="inherit">Title</Typography>
+                    </Stack>    
                     <NavMenuIcon
-                        onClick={() => showMenu(!menu)}
-                        className="base-mobile-menu"
-                        sx={{
-                            position: 'absolute',
-                            top: '0', bottom: '0', left: '0.5rem', margin: 'auto',
-                            color:'#000000'
-                        }}
+                         ref={menuIconRef}
+                        onClick={() => showMenu(!menu)}    
+                className="base-mobile-menu"
+                sx={{
+                          position: 'absolute',
+                          top: '0', bottom: '0', left: '0.5rem', margin: 'auto',
+                          color:'inherit'
+                }}/>
+                    <StyledMobileMenu sx={menu ? open : close}           
+                        className="base-menu-list">
+                        <Paper>
+<Stack>
+<Button className="mob-menu-link" href="/" onClick={() => showMenu(!menu)}>Home</Button>
+<Button className="mob-menu-link" href="/Navbars" onClick={() => showMenu(!menu)}>
+                                    Navbars</Button>
+<Button className="mob-menu-link" href="/TestHere" onClick={() => showMenu(!menu)}>
+                            Playground</Button>
+<Button className="mob-menu-link" href="/" onClick={() => showMenu(!menu)}>
+                            LandingPage</Button>                     
+<Button className="mob-menu-link" href="/Components/Review" onClick={() => showMenu(!menu)}>Testing</Button>
+</Stack></Paper></StyledMobileMenu>  
 
-                    />
-            <StyledMobileMenu sx={menu ? open : close} className="base-menu-list">
-                    <StyledBox
-                        sx={{color:'inherit'}}
-                    >
-                    <Link href="/"><Typography variant="h5" component="div">
-                        Home
-                    </Typography></Link>
-                    <Divider orientation="vertical" flexItem />
-                    <Button variant="filled" onClick={() => showMenu(!menu)}>Close</Button>
-                </StyledBox>
-                    <Box className="mob-menu-link" onClick={() => showMenu(!menu)}
-                        sx={{color:'inherit'}}
-                    >
-                    <Link href="/Navbars">Navbars</Link></Box>
-                        <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
-                            <Link href="/TestHere">Playground</Link></Box>
-                        <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
-                            <Link href="#">LandingPage</Link></Box>
-                        
-                     <Box className="mob-menu-link" onClick={() => showMenu(!menu)}>
-                            <Link href="/Components/Review" onClick={() => showMenu(!menu)}>
-                           Testing
-                        </Link></Box>
-                        
-                </StyledMobileMenu>
+                    {/* Desktop */}
+            <DeskMenuWrapper direction="row" flexGrow='1'>
+                <Button className="desk-menu-btn" href="/">Home</Button>
+                <Button className="desk-menu-btn" href="/Navbars" >Navbars</Button>
+                <Button className="desk-menu-btn" href="/TestHere">Playground</Button>
+                <Button className="desk-menu-btn " href="/Components/Review">Testing</Button>
+                    </DeskMenuWrapper> 
+            <DeskMenuWrapper direction="row">
                 
-                 <Box sx={{textTransform:'capitalize'}}>
-                
-                <Button variant="outlined" color="primary"
-                     sx={{"&:hover": {bgcolor:'#fafafa'}, display:{xs:'none', md:'inline-block'}}}
-                    ><Link href="/" style={{ color: '#717171' }}>
-                            Home
-                        </Link>
-                </Button>                    
-           
-            <Button variant="outlined" color="primary"
-                sx={{"&:hover": {bgcolor:'#fafafa'}, display:{xs:'none', md:'inline-block'}}}
-                    ><Link href="/Navbars" style={{ color: '#717171' }}>
-                            Navbars
-                        </Link>
-                    </Button>
-                    <Button variant="outlined" color="primary"
-                sx={{"&:hover": {bgcolor:'#fafafa'}, display:{xs:'none', md:'inline-block'}}}
-                    ><Link href="/TestHere" style={{ color: '#717171' }}>
-                            Playground
-                        </Link>
-                    </Button>
-                       <Button variant="outlined" color="primary"
-                sx={{"&:hover": {bgcolor:'#fafafa'}, display:{xs:'none', md:'inline-block'}}}
-                    ><Link href="#" style={{ color: '#717171' }}>
-                           Landing Page
-                        </Link>
-                    </Button>   
-             
-                       <Button variant="outlined" color="primary"
-                sx={{"&:hover": {bgcolor:'#fafafa'}, display:{xs:'none', md:'inline-block'}}}
-                    ><Link href="/Components/Review" style={{ color: '#717171' }}>
-                           Testing
-                        </Link>
-            </Button>         
-            </Box>          
+                <Button className="desk-menu-btn" href="#">Pricing</Button>
+                <Button className="desk-menu-btn btns" href="#" variant='contained' >Sign Up</Button>
+            </DeskMenuWrapper>        
         </Toolbar>
-        </AppBar>
+        </NavBarWrapper>
          <Offset />  
         </>
         

@@ -12,10 +12,12 @@ export interface StyledHeaderProps {
 export default function HeaderComponent({variant, image, title, caption, description}:StyledHeaderProps) {
     return (      
       <React.Fragment>          
-            <Headers variant={variant}
-                    title={title} 
+            <Headers
+                variant={variant}
+                title={title} 
                 description={description} 
                 caption={caption}
+               
             />  
     </React.Fragment>
 )}

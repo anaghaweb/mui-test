@@ -71,48 +71,11 @@ const ContactForm: React.FC = () => {
 
     try {
 
-      axios.post(scriptUrl, jsondata).then(response => {
-        response.data
+      // axios.post(scriptUrl, jsondata).then(response => {
+      //   response.data
         
-        if (response) {
-        console.log(response);
-        setFirstName('');
-         setLastName('');
-        setEmail('');
-        setMessage('');
-        setSubject('');
-        setSnackbarMessage('Your Message was submitted sucessfully! We will get back to you shortly');
-        setSnackbarSeverity('success');
-        setOpenSnackbar(true);
-       
-      } else {
-        console.error('Form data submission failed');
-        setSnackbarMessage('Form data submission failed');
-        setSnackbarSeverity('error');
-        setOpenSnackbar(true);
-      }   
-      })
-      
-      
-    //   const response = await fetch(scriptUrl, {
-    //     method: 'POST',
-        
-    //     body: JSON.stringify({
-    //   Date:currentDate,
-    //   "First Name":firstname,
-    //   "Last Name":lastname,
-    //   Email:email,
-    //   Subject:subject,
-    //   Message:message,
-    // }),
-    //     headers: {
-    //       "content-type": "application/json",
-    //     },
-        
-    //   });
-      // const content = await response.json();
-      // if (response.ok) {
-      //   console.log(content);
+      //   if (response) {
+      //   console.log(response);
       //   setFirstName('');
       //    setLastName('');
       //   setEmail('');
@@ -127,7 +90,36 @@ const ContactForm: React.FC = () => {
       //   setSnackbarMessage('Form data submission failed');
       //   setSnackbarSeverity('error');
       //   setOpenSnackbar(true);
-      // }
+      // }   
+      // })
+      
+      
+      const response = await fetch(scriptUrl, {
+        method: 'POST',
+        body: jsondata ,
+        headers: {
+          "content-type": "application/json",
+        },
+        
+      });
+      const content = await response.json();
+      if (response.ok) {
+        console.log(content);
+        setFirstName('');
+         setLastName('');
+        setEmail('');
+        setMessage('');
+        setSubject('');
+        setSnackbarMessage('Your Message was submitted sucessfully! We will get back to you shortly');
+        setSnackbarSeverity('success');
+        setOpenSnackbar(true);
+       
+      } else {
+        console.error('Form data submission failed');
+        setSnackbarMessage('Form data submission failed');
+        setSnackbarSeverity('error');
+        setOpenSnackbar(true);
+      }
     }
      catch (error) {
       console.error('Error submitting form data:', error);
@@ -190,10 +182,7 @@ const ContactForm: React.FC = () => {
             onChange={(e) => setEmail(e.target.value)}
             onFocus={handleEmailFocus}
             onBlur={handleEmailFocus}
-            error={!emailRegex.test(email) && emailFocused}
-            
-            
-              
+            error={!emailRegex.test(email) && emailFocused}              
           />
         </Box><Box className="form-group">
           {/* <label htmlFor="Contact No.">Subject:</label> */}
