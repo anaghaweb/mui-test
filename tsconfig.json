@@ -5,6 +5,8 @@
       "dom.iterable",
       "esnext"
     ],
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,

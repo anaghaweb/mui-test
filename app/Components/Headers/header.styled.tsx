@@ -1,23 +1,22 @@
 'use client'
 import * as React from 'react'
-import { AppBar, Box, Container,Typography, Button, Paper, Stack, Input, InputBase } from '@mui/material'
+import { Box, Container,Typography, Button, Paper, Stack } from '@mui/material'
 import Image from 'next/image';
 import {styled,  useThemeProps,} from '@mui/material/styles';
 import { StyledHeaderProps } from './index';
 import { Inter } from 'next/font/google';
-import { TextField, InputLabel, InputLabelProps } from '@mui/material';
+import { TextField} from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
-import Card from '@mui/material/Card';
-import Rating from '@mui/material/Rating';
 
+import PricingTemplate from './pricing';
 
 const gridData = [
-    'Lorem ipsum dolor',
-    'Lorem ipsum dolor',
-    'Lorem ipsum dolor',
-    'Lorem ipsum dolor',
-    'Lorem ipsum dolor',
-    'Lorem ipsum dolor'
+    '/logoipsumPNG.png',
+    '/logoipsumPNG.png',
+    '/logoipsumPNG.png',
+    '/logoipsumPNG.png',
+    '/logoipsumPNG.png',
+    '/logoipsumPNG.png'
 ]
 
 const inter = Inter({ subsets: ['latin'], variable: "--font-inter" })
@@ -27,25 +26,19 @@ const MainBox = styled(Box, {
     slot: 'root',
 })<{ ownerState: StyledHeaderProps }>(({ theme, ownerState }) => ({
     maxWidth: '1440px',
-    height: ownerState.variant === 'header1' ? 'calc(100vh - 4rem)' :
-            'calc(100vh - 4rem)',
+    height: 'calc(100vh - 3rem)',
     display: 'flex',
     alignItems: 'center',
     justifyContent:'space-between',
-    flexDirection: ownerState.variant !== 'header3' ? 'column' : 'row',
+    flexDirection: 'column',
     width: '100%',
     margin: '0 auto', 
     padding:'0 2rem',
-    background: theme.palette.mode === 'dark' ? '#212121' : ownerState.variant === 'header1' ? '#fff' : ownerState.variant === 'header2' ? "#fafafa" : '#F1FDDD',
+    background: theme.palette.mode === 'dark' ? '#212121' : ownerState.variant === 'header1' ? '#fff' : ownerState.variant === 'header2' ? "#fafafa" : '#fff',
     [theme.breakpoints.down('md')]: {
-        flexDirection: ownerState.variant === 'header3' && 'column'  
+        height: 'auto',
+        padding: '0.5rem'
     },
-    [theme.breakpoints.down('sm')]: {
-        flexDirection:'column',
-         height: ownerState.variant === 'header2' ? 'calc(100vh - 3rem)':'auto',
-         justifyContent: ownerState.variant === 'header2' ? 'space-around': 'center',
-         padding: '0 0.3rem',       
-    }
 }));
 
 const StyledLeftBox = styled(Box, {
@@ -58,6 +51,7 @@ const StyledLeftBox = styled(Box, {
     alignItems: ownerState.variant === 'header2' ? 'center' : 'flex-start',
     textAlign: ownerState.variant === 'header2' ? 'center' : 'left',
     rowGap: '1rem',
+    padding:'0.1rem',
     backgroundColor: 'inherit',
     [theme.breakpoints.up('md')]: {
         width: (ownerState.variant === 'header1' || ownerState.variant === 'header3') ? '40%' :  '100%',
@@ -69,6 +63,7 @@ const StyledLeftBox = styled(Box, {
     [theme.breakpoints.down('md')]: {
         width: ownerState.variant === 'header3' ? '100%' :  ownerState.variant === 'header1' ? '50%' : '100%',
         textAlign: ownerState.variant === 'header3' && 'center',
+        margin:'1rem auto',
     },
     [theme.breakpoints.down('sm')]: {
         textAlign: 'center',
@@ -88,23 +83,25 @@ const StyledLeftBox = styled(Box, {
         fontWeight: '900',
         letterSpacing: '0',
         fontSize: '40px',
-        margin: ownerState.variant !=='header1' && 'auto',
-        '.mainHeading': theme.palette.mode === 'dark' ? 'inherit' : {
-            webkitBackgroundClip: 'text',
-            background: '-webkit-linear-gradient(bottom, #555, #000)',
-            backgroundClip: 'text',
-            color: 'transparent', 
-        },
-        
+        margin: ownerState.variant !== 'header1' && 'auto',
+
+        '.mainHeading':{
+            ...theme.palette.mode !== 'dark' && {
+                webkitBackgroundClip: 'text',
+                background: '-webkit-linear-gradient(bottom, #555, #000)',
+                backgroundClip: 'text',
+                color: 'transparent',
+            },               
+    },     
         [theme.breakpoints.down('sm')]:{
-            fontSize: '1.2rem',
+            fontSize: '3rem',
         }, 
     },
     '.landing-desc': {
         fontSize: '16px',
         letterSpacing: '0',
         color:theme.palette.mode === 'dark' ? 'inherit' : '#666666',
-    }
+    },
 }));
 
 const StyledRightBox = styled(Box)<{ ownerState: StyledHeaderProps }>(({ theme, ownerState }) => ({
@@ -121,14 +118,14 @@ const StyledRightBox = styled(Box)<{ ownerState: StyledHeaderProps }>(({ theme, 
         textAlign: 'center',
          width: ownerState.variant === 'header1' ? '50%' : '100%',
          height: '100%',
-         padding:'1rem 1rem'
+         padding:'1rem 0'
     },    
     //  form styles
     '.contact-form': {
         borderRadius: '20px 20px 20px 20px',
         width:'20rem',
         [theme.breakpoints.down('sm')]:{
-            width:'100%'
+            width:'30ch'
         },    
     },
     '.form-button': {
@@ -150,7 +147,7 @@ const StyledRightBox = styled(Box)<{ ownerState: StyledHeaderProps }>(({ theme, 
         },
     },
     '.form-group': {
-        margin: '0.5rem 1rem',
+        margin: '0.5rem 0',
     },
     '.MuiInputBase-input': {
         background: '#FFF',
@@ -188,24 +185,34 @@ const StyledHeaderStack = styled(Stack)<{ ownerState: StyledHeaderProps }>(({the
     columnGap:'1rem',
     [theme.breakpoints.down('sm')]: {
         flexDirection: 'column',
-        alignItems:'center',
+        alignItems: 'center',
+        justifyContent:'center',
         width: '100%',
-        height: 'auto',
-        rowGap:'1rem',
+        height: 'auto',       
     },
      [theme.breakpoints.down('md')]: {
         justifyContent: ownerState.variant === 'header3' && 'center',
-        textAlign: ownerState.variant === 'header3' && 'center',
+         textAlign: ownerState.variant === 'header3' && 'center',
+        rowGap:'1rem',
     },
     '.btns': {
-        padding: '0.7rem 3rem',      
+        padding: '12px 16px',      
         fontWeight: 'bold',
         textTransform: 'capitalize',
-        backgroundColor: '#FF7043',
-        color:'#fff',
+        backgroundColor: (ownerState.variant === 'header1' && theme.palette.mode !=='dark') ? '#FF7043' :
+            (ownerState.variant === 'header2' && theme.palette.mode !== 'dark') ? '#1976D2' :
+                (ownerState.variant === 'header3' && theme.palette.mode !=='dark') ? "#00AD6F" : 'inherit',
+        color: '#fff',
+        [theme.breakpoints.down('md')]: {
+            padding:'0.5rem 2rem',
+            fontSize: '1rem',
+        },  
+        ':hover': {
+            backgroundColor: '#fff',
+            color:'#000',
+        },        
         [theme.breakpoints.down('sm')]: {
             width: '80%',
-            fontSize: '12px',
         },     
     },   
 }));
@@ -239,10 +246,7 @@ export const Headers = React.forwardRef<HTMLElement, StyledHeaderProps>(function
                 {/* Hero Sub Unit 1 */}
                 <MainStack ownerState={ownerState} >
                 <StyledLeftBox ownerState={ownerState}>
-                    <Box sx={{ position: 'relative' }}>
-                        {ownerState.variant === "header2" ? <Image src="/interamerica_logo.jpeg"
-                            style={{ objectFit: 'contain' }} alt="placeholder" width={200} height={75} /> : ""}
-                    </Box>
+                
                     {/* <Box>
                         <Typography variant="subtitle1" color="primary" fontWeight='bold' className="landing-caption">
                             {other.caption}
@@ -260,12 +264,12 @@ export const Headers = React.forwardRef<HTMLElement, StyledHeaderProps>(function
                         </Typography>
                     </Box>
                     <StyledHeaderStack direction="row" width="100%" ownerState={ownerState}>
-                        <Button variant='contained' className="btns btn1">
-                            {ownerState.variant === 'header2' ? 'Get Started' :
-                                ownerState.variant === 'header3' ? 'Watch Demo' : 'Get Started'}
+                        <Button variant='outlined' className="btns btn1">
+                            {ownerState.variant === 'header2' ? 'Browse Templates' :
+                                ownerState.variant === 'header3' ? 'View Pages' : 'Try Demo'}
                         </Button>
                       <Button variant='outlined' className="btns btn2">
-                             {ownerState.variant === 'header3' ? 'Call Us' : 'Sign Up'}
+                             Sign Up
                         </Button>
                        
                     </StyledHeaderStack>
@@ -281,7 +285,7 @@ export const Headers = React.forwardRef<HTMLElement, StyledHeaderProps>(function
                     
                             (<React.Fragment>
     <Container className="form-container">
-        <form noValidate autoComplete="off" onSubmit={handleSubmit}style={{margin:'1rem'}}>
+        <form noValidate autoComplete="off" onSubmit={handleSubmit}style={{margin:'0.5rem'}}>
             <Typography component="h1" variant='h5'>Start With a free 30 day trial of our services</Typography>
             <Box className="form-group">
             <TextField
@@ -345,38 +349,22 @@ export const Headers = React.forwardRef<HTMLElement, StyledHeaderProps>(function
                     </StyledPaper>
                     </StyledRightBox>
                     </MainStack>
-                 {ownerState.variant === 'header1' && <Stack width="100%" padding='0 2rem 1rem 2rem' rowGap='1rem'>
+                 {ownerState.variant === 'header1' && 
+                 <Stack width="100%" padding='0 1rem' rowGap='1rem' sx={{height:{sm:'auto', md:'20vh'}}}>
                 <Typography variant="h6">Trusted by these Networks:</Typography>
-                <Grid container columnSpacing={2} columns={24} sx={{ justifyContent: 'center' }}>
+                        <Grid sx={{ flexGrow: 1 }} container spacing={2} columns={24}>
+                            
                     {gridData.map((data, index) => {
                         return (
-                            < Grid xs={12} md={8} lg={3} key={index}
-                                sx={{
-                                    borderRadius: '0.5rem', margin: "0 0.2rem", background: '#fafafa', fontFamily: "roboto",
-                                    color: '#787878', boxShadow: '2px 1px 2px 1px rgba(0, 0, 0, 0.2)'
-                                }}>
-                                <Typography component="div" variant="h6" textAlign="center" >{data}</Typography>
-                            </Grid>
+                            < Grid xs={8} md={4} lg={4} key={index}> 
+                                <Image src={data} width={80} height={40}  sizes="100vw" style={{ objectFit: 'scale-down' }} alt="placeholder" /></Grid>
                         )
                     })}
                 </Grid>
             </Stack>}
-                {ownerState.variant === 'header2' && <Stack width="100%" padding='0 2rem 1rem 2rem' rowGap='1rem'>
-                <Typography variant="h6">Top Customer Reviews:</Typography>
-                <Grid container columnSpacing={2} columns={24} sx={{ justifyContent: 'center' }}>
-                    {gridData.map((data, index) => {
-                        return (
-                            < Grid xs={6} md={3} lg={3} key={index}
-                                sx={{
-                                    borderRadius: '0.5rem', margin: "0 0.2rem", background: '#fafafa', fontFamily: "roboto",
-                                    color: '#787878', boxShadow: '2px 1px 2px 1px rgba(0, 0, 0, 0.2)'
-                                }}>
-                                
-                            </Grid>
-                        )
-                    })}
-                </Grid>
-            </Stack>}
+                {ownerState.variant === 'header2' && <Stack>
+                    <Typography variant="h6" textAlign="center">Check out our Pricing Plans:</Typography>
+                    <PricingTemplate /></Stack>}
             </MainBox>
            
         </React.Fragment>

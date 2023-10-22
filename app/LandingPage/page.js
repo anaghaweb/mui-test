@@ -1,5 +1,5 @@
 import * as React from 'react'
-
+import Flexnavbar from '../CustomComponents/flexnavbar'
 export default function Landing() {
     return (
         <main
@@ -11,6 +11,7 @@ export default function Landing() {
                 width: '100%',
 
             }}>
+            <Flexnavbar />
 
 
         </main>

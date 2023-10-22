@@ -11,20 +11,22 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Switch from '@mui/material/Switch';
 import { ThemeProvider } from '@mui/material/styles';
 import { green } from '@mui/material/colors';
-import { darkTheme, lightTheme } from './CustomComponents/themeToggler';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { Paper, Stack } from '@mui/material';
 import { Inter } from 'next/font/google';
 import DiamondTwoToneIcon from '@mui/icons-material/DiamondTwoTone';
 import DiamondIcon from '@mui/icons-material/Diamond';
-
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const inter = Inter({
     subsets: ['latin'],
     variable:"--font-inter",
 })
 
+interface NavbarProps {
+    btncolor?:string;
+}
 const Offset = styled('div')(({ theme }) =>
     theme.mixins.toolbar);
 
@@ -33,7 +35,7 @@ const NavMenuIcon = styled(MenuIcon)(({ theme }) =>
 ({
     position: 'absolute',
     color: '#000000',
-    left: '1rem',
+    right: '1rem',
     height: '1.9rem',
     width: '1.9rem',
     fontWeight:'bold',
@@ -109,7 +111,7 @@ const close = {
 };
 
 // Desktop Menu Style
-const DeskMenuWrapper = styled(Stack)(({ theme }) => ({
+const DeskMenuWrapper = styled(Stack)<NavbarProps>(({ theme }) => ({
     [theme.breakpoints.down('md')]: {
         display:'none'
     },
@@ -123,18 +125,19 @@ const DeskMenuWrapper = styled(Stack)(({ theme }) => ({
             backgroundColor: theme.palette.primary.dark,   
         }
     },   
-      '.btns': {
-        padding: '0.5rem 2rem',      
+
+    '.btns': {
+        color:'#fff',
+         padding: '0.5rem 2rem',      
         fontWeight: 'bold',
-          textTransform: 'capitalize',
+        textTransform: 'capitalize',
         borderRadius:'50px 50px 50px 50px',
-        backgroundColor: '#FF7043',
-        color: '#fff',
         [theme.breakpoints.down('sm')]: {
             width: '80%',
-            fontSize: '12px',
-        },     
+            fontSize: '12px',    
     }, 
+    }
+      
 }))
 
 const NavBarWrapper = styled(AppBar)(({ theme }) => ({
@@ -148,10 +151,15 @@ const NavBarWrapper = styled(AppBar)(({ theme }) => ({
     
 }))
 
-export default function Navbar() { 
-    
-    const [menu, showMenu] = React.useState(false);
-    const menuIconRef = React.useRef();
+const CTAButtonsWrapper = styled(Button)<NavbarProps>(({ theme, btncolor }) => ({
+   
+       
+}))
+
+export default function Flexnavbar({btncolor}:NavbarProps) { 
+    console.log(btncolor);
+    const [menu, showMenu] = React.useState<boolean>(false);
+    const menuIconRef = React.useRef<SVGSVGElement | null>(null);
     
  
   React.useEffect(() => {
@@ -163,33 +171,34 @@ export default function Navbar() {
     };
   }, []);
     
-      const closeMenuIfClickedOutside = (e) => {
-    if (!menuIconRef.current.contains(e.target)) {
+      const closeMenuIfClickedOutside = (e: MouseEvent) => {
+    if (menuIconRef.current && !menuIconRef.current.contains(e.target as Node)) {
       showMenu(false);
     }
   };
-   const handleEscapeKeyDown = (e) => {
+   const handleEscapeKeyDown = (e: KeyboardEvent) => {
       console.log(e.key);
     if (e.key === 'Escape') {
       showMenu(false);
     }
   };
-    
+
     return (
             <>
             <NavBarWrapper           
-                position="fixed"
+                position="relative"
                 elevation={0}
                 variant="outlined"
                 className='main-bar'
                 
-            sx={{ display: 'none' }}
+            //sx={{ display: 'none' }}
             >
-                <Toolbar position="relative" className={inter.variable}>
+                <Toolbar sx={{position:'relative'}} className={inter.variable}>
                     <Stack direction="row" alignItems="center"
-                        sx={{ flex: 1, marginLeft: { xs: '1.5rem' } }}>
-                        <DiamondIcon spacing={2} sx={{ color: '#FF7043' }} />
-                        <Typography variant="h4" className="title" fontFamily="var(--font-inter)" color="inherit">Title</Typography>
+                        sx={{ flex: 1, marginLeft: { xs: '0.5rem' } }}>
+                        <DiamondIcon spacing={2} sx={{ color: `${btncolor}` }}/>
+                        <Typography variant="h4" className="title"
+                            fontFamily="var(--font-inter)" color="inherit">Title</Typography>
                     </Stack>    
                     <NavMenuIcon
                          ref={menuIconRef}
@@ -197,7 +206,7 @@ export default function Navbar() {
                 className="base-mobile-menu"
                 sx={{
                           position: 'absolute',
-                          top: '0', bottom: '0', left: '0.5rem', margin: 'auto',
+                          top: '0', bottom: '0', right: {md:'0.5rem'} , margin: 'auto',
                           color:'inherit'
                 }}/>
                     <StyledMobileMenu sx={menu ? open : close}           
@@ -216,25 +225,22 @@ export default function Navbar() {
 
                     {/* Desktop */}
             <DeskMenuWrapper direction="row" flexGrow='1'>
-                <Button className="desk-menu-btn" href="/">Home</Button>
-                <Button className="desk-menu-btn" href="/Navbars" >Navbars</Button>
-                <Button className="desk-menu-btn" href="/TestHere">Playground</Button>
-                <Button className="desk-menu-btn " href="/Components/Review">Testing</Button>
+                <Button className="desk-menu-btn" href="/" endIcon={<ExpandMoreIcon/>}>Home</Button>
+                <Button className="desk-menu-btn" href="/Navbars"  endIcon={<ExpandMoreIcon/>}>Navbars</Button>
+                <Button className="desk-menu-btn" href="/TestHere" endIcon={<ExpandMoreIcon/>}>Playground</Button>
+                <Button className="desk-menu-btn " href="/Components/Review" endIcon={<ExpandMoreIcon/>}>Testing</Button>
                     </DeskMenuWrapper> 
             <DeskMenuWrapper direction="row">
                 
                 <Button className="desk-menu-btn" href="#">Pricing</Button>
-                <Button className="desk-menu-btn btns" href="#" variant='contained' >Sign Up</Button>
+                <Button id="btn" className="desk-menu-btn btns" href="#" variant='contained'
+                            sx={{ backgroundColor: `${btncolor}` }}
+                        >Sign In</Button>
             </DeskMenuWrapper>        
         </Toolbar>
         </NavBarWrapper>
          {/* <Offset />   */}
-        </>
-        
-    
-      
+        </>        
   );
-
- 
 }
 

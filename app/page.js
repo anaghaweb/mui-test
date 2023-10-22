@@ -15,7 +15,7 @@ import gradientTheme from './CustomNavbars/ModernGradientnavbar/gradientThemes';
 import ModernBlueTemplate from './CustomNavbars/ModernGradientnavbar/gradientThemeBlue';
 import ModernPurpleTemplate from './CustomNavbars/ModernGradientnavbar/gradientNavbarPurple';
 import LandingPage from './Components/InteramericaLandingPage';
-
+import Flexnavbar from './CustomComponents/flexnavbar';
 
 export default function Home() {
   return (
@@ -23,6 +23,7 @@ export default function Home() {
       <main
         style={{ padding: 0, margin: 'auto' }}
       >
+        <Flexnavbar />
         <LandingPage />
       </main>
     </>

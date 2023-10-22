@@ -7,9 +7,9 @@
     color:inherit;
 }
 
- h3 {
+ h4, h5 {
      font-size: 72px;
-     background: -webkit-linear-gradient(rgb(188, 12, 241), rgb(212, 4, 4));
+     background: -webkit-linear-gradient(rgb(110, 78, 129), rgba(5, 8, 194, 0.815));
      -webkit-background-clip: text;
      background-clip:var(text);
      -webkit-text-fill-color: transparent;

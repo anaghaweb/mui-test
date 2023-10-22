@@ -3,15 +3,15 @@ import Paper from '@mui/material/Paper'
 import Navbar from '../Components/Navbar/navbar';
 const items = ['System', 'Brightness', 'Config', 'tools']; //Settings Menu
 const mobilemenu = ['Products', 'About Us', 'For Businesses', 'Cart', 'Offers']; // Mobile menu
-import HeaderComponent from '../Components/Headers';
+import Flexnavbar from '../CustomComponents/flexnavbar'
 
 const SecondPage = () => {
 
 
     return (
-        <div >
-            <HeaderComponent />
-        </div>
+
+        <Flexnavbar />
+
     )
 }
 export default SecondPage;
