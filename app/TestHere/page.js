@@ -5,7 +5,7 @@ import HeaderComponent from '../Components/Headers';
 import BaseNavbar from '../Components/Navbar/BaseNavbar'
 import { Divider } from '@mui/material';
 import Flexnavbar from '../CustomComponents/flexnavbar';
-
+import { Footer } from '../Components/Footer';
 
 const items = ['System', 'Brightness', 'Config', 'tools']  //Settings Menu
 const mobilemenu = ['Products', 'About Us', 'For Businesses', 'Cart', 'Offers']; // Mobile menu
@@ -23,6 +23,7 @@ const TestPage = () => {
             description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi esse ipsam dolores? Quaerat aliquid cumque recusandae sint consequuntur expedita unde.'
             caption="Caption Here Lorem ipsum"
         />
+        <Footer />
 
         <Flexnavbar btncolor='#1976D2' />
         <HeaderComponent
@@ -31,7 +32,7 @@ const TestPage = () => {
             description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi esse ipsam dolores? Quaerat aliquid cumque recusandae sint consequuntur expedita unde. '
             caption="Caption Here Lorem ipsum"
         />
-
+        <Footer />
         <Flexnavbar btncolor="#00AD6F" />
         <HeaderComponent
             variant="header3"

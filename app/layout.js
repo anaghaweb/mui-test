@@ -1,3 +1,4 @@
+import { Footer } from './Components/Footer';
 import './globals.css'
 import Navbar from './LocalNavbar'
 import ThemeRegistry from './ThemeRegistry/ThemeRegistry'
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
         <ThemeRegistry>
           <Navbar />
           {children}
+          <Footer />
         </ThemeRegistry>
       </body>
     </html>
