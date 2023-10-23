@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
-import Link from 'next/link'
 import Grid from '@mui/material/Grid'
-import MuiLink from '@mui/material/Link'
+import Link from '@mui/material/Link'
 import FooterSectionTitle from './footer-section-title'
+import { Typography } from '@mui/material'
 
 interface Navigation {
   label: string
@@ -61,17 +61,20 @@ interface NavigationItemProps {
 
 const NavigationItem: FC<NavigationItemProps> = ({ label, path }) => {
   return (
-    <Link href={path} passHref>
-      <MuiLink
-        underline="hover"
-        sx={{
-          display: 'block',
-          mb: 1,
-          color: '#B0B8C4',
+    <Link href={path}
+     underline="none"
+      sx={{
+        display: 'block',
+        mb: 1,
+        color: '#B0B8C4',
+        
+        '&:hover':{
+          textDecoration: 'underline',
+          },
         }}
       >
-        {label}
-      </MuiLink>
+      <Typography>{label}</Typography>
+      
     </Link>
   )
 }
@@ -79,19 +82,19 @@ const NavigationItem: FC<NavigationItemProps> = ({ label, path }) => {
 const FooterNavigation: FC = () => {
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} sm={4}>
         <FooterSectionTitle title="Products" />
         {productMenu.map(({ label, path }, index) => (
           <NavigationItem key={index + path} label={label} path={/* path */ '#'} />
         ))}
       </Grid>
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} sm={4}>
         <FooterSectionTitle title="Resources" />
         {resourceMenu.map(({ label, path }, index) => (
           <NavigationItem key={index + path} label={label} path={path} />
         ))}
       </Grid>
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} sm={4}>
         <FooterSectionTitle title="Explore" />
         {companyMenu.map(({ label, path }, index) => (
           <NavigationItem key={index + path} label={label} path={path} />

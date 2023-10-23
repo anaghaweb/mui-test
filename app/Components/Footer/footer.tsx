@@ -6,6 +6,9 @@ import Typography from '@mui/material/Typography'
 import FooterNavigation from './footer-navigation'
 import FooterSocialLinks from './footer-social-links'
 import Copyright from './copyright'
+import CustomizedInputsStyled from './subscribe'
+
+
 
 
 const Footer: FC = () => {
@@ -15,23 +18,25 @@ const Footer: FC = () => {
     
     <Box
       component="footer"
-      sx={{ background: backdark, py: { xs: 6, md: 10 }, color: 'primary.contrastText' }}
+      sx={{ background: backdark , py: { xs: 6, md: 10 } }}
     >
       <Container>
-        <Grid container spacing={1}>
-          <Grid item xs={12} md={5}>
+        <Grid container spacing={1} columns={16}>
+          <Grid item xs={16} md={8}>
             <Box sx={{ width: { xs: '100%', md: 360 }, mb: { xs: 3, md: 0 } }}>
-              <Typography variant="subtitle1" sx={{ mb: 2, fontWeight:'600' }}>
+              <Typography variant="subtitle1" sx={{ mb: 2, fontWeight:'600', color:'#fafafa' }}>
                 Keep up to date
-
               </Typography>
+              <Box sx={{mb:2}}>
+                <CustomizedInputsStyled />
+                </Box>
               <Typography variant="body1" sx={{ letterSpacing: 1, mb: 2 , color:"#B0B8C4"}}>
                 Join our newsletter for regular updates. No spam ever.
               </Typography>
               <FooterSocialLinks />
             </Box>
           </Grid>
-          <Grid item xs={12} md={7}>
+          <Grid item xs={12} md={8}>
             <FooterNavigation />
           </Grid>
         </Grid>
