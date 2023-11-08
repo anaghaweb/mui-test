@@ -205,10 +205,10 @@ export default function Navbar() {
                         <Paper>
 <Stack>
 <Button className="mob-menu-link" href="/" onClick={() => showMenu(!menu)}>Home</Button>
-<Button className="mob-menu-link" href="/Navbars" onClick={() => showMenu(!menu)}>
+<Button className="mob-menu-link" href="/AppBars" onClick={() => showMenu(!menu)}>
                                     Navbars</Button>
 <Button className="mob-menu-link" href="/TestHere" onClick={() => showMenu(!menu)}>
-                            Playground</Button>
+                            LandingPage Templates</Button>
 <Button className="mob-menu-link" href="/" onClick={() => showMenu(!menu)}>
                             LandingPage</Button>                     
 <Button className="mob-menu-link" href="/Components/Review" onClick={() => showMenu(!menu)}>Testing</Button>
@@ -217,8 +217,8 @@ export default function Navbar() {
                     {/* Desktop */}
             <DeskMenuWrapper direction="row" flexGrow='1'>
                 <Button className="desk-menu-btn" href="/">Home</Button>
-                <Button className="desk-menu-btn" href="/Navbars" >Navbars</Button>
-                <Button className="desk-menu-btn" href="/TestHere">Playground</Button>
+                <Button className="desk-menu-btn" href="/AppBars" >Navbars</Button>
+                <Button className="desk-menu-btn" href="/TestHere">LP Templates</Button>
                 <Button className="desk-menu-btn " href="/Components/Review">Testing</Button>
                     </DeskMenuWrapper> 
             <DeskMenuWrapper direction="row">

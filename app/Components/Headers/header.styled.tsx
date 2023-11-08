@@ -77,8 +77,7 @@ const StyledLeftBox = styled(Box, {
           fontSize: '0.8rem' 
         }
     },
-    '.landing-title': {
-              
+    '.landing-title': {    
         fontFamily: 'var(--font-inter)',
         fontWeight: '900',
         letterSpacing: '0',
@@ -96,6 +95,7 @@ const StyledLeftBox = styled(Box, {
         [theme.breakpoints.down('sm')]:{
             fontSize: '3rem',
         }, 
+        
     },
     '.landing-desc': {
         fontSize: '16px',
@@ -253,13 +253,15 @@ export const Headers = React.forwardRef<HTMLElement, StyledHeaderProps>(function
                         </Typography>
                     </Box> */}
                     <Typography component="h1" variant="h3" fontWeight='bold'
-                            className="landing-title">
+                            className="landing-title"
+                            // sx={{ '&.active': { backgroundColor: '#3399FF' } }}
+                        >
                             
                        <span className="mainHeading"> {title}</span>
                     </Typography>
                     <Box>
                         <Typography component="h1" variant="subtitle2"
-                            className="landing-desc"   >
+                            className="landing-desc">
                             {other.description}
                         </Typography>
                     </Box>

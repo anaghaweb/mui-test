@@ -106,8 +106,7 @@ const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiR
                             precision={0.5}
                             onChange={handleChange}
                              icon={<StarTwoToneIcon fontSize='inherit' />}
-                            emptyIcon={<StarTwoToneIcon fontSize='inherit' />} 
-                            
+                            emptyIcon={<StarTwoToneIcon fontSize='inherit' />}   
                         />
                     
                 </ReviewBox>
@@ -124,8 +123,7 @@ const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiR
                     >
                         <SmallAvatar />
                     <Typography variant="subtitle1" component="div" fontWeight="500">Customer Name</Typography>
-                    </Stack>
-                      
+                    </Stack>            
                     <Stack
                         border="2px solid #6C8EBF"
                         bgcolor="#DAE8FC"
@@ -134,32 +132,26 @@ const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiR
                         alignItems="space-between"
                         justifyContent="flex-start"
                         fontSize="3rem"
-                        padding="0.2rem"
-                    >
+                        padding="0.2rem">
                         <Typography component="div" variant="subtitle1" fontWeight={700}>Heading</Typography>
-                        <Typography component="div" variant="body2">Review</Typography>
-                                                          
+                        <Typography component="div" variant="body2">Review</Typography>                                                     
                     </Stack>
                     <StyledRating
                         value={value}
                         onChange={handleChange}
                         max={5}
                         precision={0.1}
-                        color="#787878"
-                    />
+                        color="#787878"/>
                 </CustomerReviewBox>
                 <CustomerReviewBox
-                    className="customer-review"
-                >
+                    className="customer-review">
                     <Stack direction="row"           
                         width="100%"
                         alignItems="center"
-                        justifyContent="flex-start"
-                    >
+                        justifyContent="flex-start">
                         <SmallAvatar />
                         <Typography variant="subtitle1" component="div" fontWeight="500">Customer Name</Typography>
-                    </Stack>
-                      
+                    </Stack> 
                     <Stack
                         border="2px solid #6C8EBF"
                         bgcolor="#DAE8FC"
@@ -168,23 +160,19 @@ const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiR
                         alignItems="space-between"
                         justifyContent="flex-start"
                         fontSize="3rem"
-                        padding="0.2rem"                   
-                    >
+                        padding="0.2rem"                   >
                         <Typography component="div" variant="subtitle1" fontWeight={700}>Heading</Typography>
-                        <Typography component="div" variant="body2">Review</Typography>
-                                                          
+                        <Typography component="div" variant="body2">Review</Typography>                                                        
                     </Stack>
                     <StyledRating
                         value={value}
                         onChange={handleChange}
                         max={5}
                         precision={0.5}
-                        color="#787878"
-                    />
+                        color="#787878"/>
                 </CustomerReviewBox>
                 <CustomerReviewBox
-                    className="customer-review"
-                >
+                    className="customer-review">
                     <Stack direction="row"
                         width="100%"
                         alignItems="center"
@@ -192,8 +180,7 @@ const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiR
                     >
                         <SmallAvatar />
                         <Typography variant="subtitle1" component="div" fontWeight="500">Customer Name</Typography>
-                    </Stack>
-                      
+                    </Stack>                    
                     <Stack
                         border="2px solid #6C8EBF"
                         bgcolor="#DAE8FC"
@@ -215,8 +202,6 @@ const MuiReview = React.forwardRef<HTMLDivElement, MuiRatingProps>(function MuiR
                         color="#787878"
                     />
                 </CustomerReviewBox>
-               
-
                 </ReviewContainer>
                 </ThemeProvider>
         )

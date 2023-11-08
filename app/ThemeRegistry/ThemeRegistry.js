@@ -5,6 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import NextAppDirEmotionCacheProvider from './EmotionCache';
 import { createTheme } from '@mui/material/styles';
 import theme from './theme';
+import { responsiveFontSizes } from '@mui/material/styles';
 
 
 let defaultTheme = createTheme(theme, {
@@ -24,12 +25,8 @@ let defaultTheme = createTheme(theme, {
     },
 });
 
-
-
+defaultTheme = responsiveFontSizes(defaultTheme)
 export default function ThemeRegistry({ children }) {
-
-
-
     return (
         <NextAppDirEmotionCacheProvider options={{ key: 'mui' }}>
 
