@@ -208,9 +208,7 @@ export default function Navbar() {
 <Button className="mob-menu-link" href="/AppBars" onClick={() => showMenu(!menu)}>
                                     Navbars</Button>
 <Button className="mob-menu-link" href="/TestHere" onClick={() => showMenu(!menu)}>
-                            LandingPage Templates</Button>
-<Button className="mob-menu-link" href="/" onClick={() => showMenu(!menu)}>
-                            LandingPage</Button>                     
+                            LandingPage Templates</Button>                   
 <Button className="mob-menu-link" href="/Components/Review" onClick={() => showMenu(!menu)}>Testing</Button>
 </Stack></Paper></StyledMobileMenu>  
 
@@ -223,8 +221,8 @@ export default function Navbar() {
                     </DeskMenuWrapper> 
             <DeskMenuWrapper direction="row">
                 
-                <Button className="desk-menu-btn" href="#">Pricing</Button>
-                <Button className="desk-menu-btn btns" href="#" variant='contained' >Sign Up</Button>
+                {/* <Button className="desk-menu-btn" href="#">Pricing</Button>
+                <Button className="desk-menu-btn btns" href="#" variant='contained' >Sign Up</Button> */}
             </DeskMenuWrapper>        
         </Toolbar>
         </NavBarWrapper>

@@ -23,7 +23,7 @@ export default function Home() {
       <main
         style={{ padding: 0, margin: 'auto' }}
       >
-        <Flexnavbar />
+
         <LandingPage />
       </main>
     </>
