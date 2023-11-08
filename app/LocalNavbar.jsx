@@ -183,7 +183,7 @@ export default function Navbar() {
                 variant="outlined"
                 className='main-bar'
                 
-            sx={{ display: 'none' }}
+           // sx={{ display: 'none' }}
             >
                 <Toolbar position="relative" className={inter.variable}>
                     <Stack direction="row" alignItems="center"
@@ -228,7 +228,7 @@ export default function Navbar() {
             </DeskMenuWrapper>        
         </Toolbar>
         </NavBarWrapper>
-         {/* <Offset />   */}
+         <Offset />  
         </>
         
     
